@@ -1,3 +1,9 @@
+<?php
+    require_once '../app/classes/User.php';
+    $user = new User();
+    $user->create('dasdsa', 'ttttt', 'nnnnn', 'asdasd');
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -35,7 +41,7 @@
         <main>
             <div class="container">
                 <h1>Register</h1>
-                <form>
+                <form method="POST" action="">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name</label>
                         <input type="text" name="full_name" class="form-control" id="fullName">
