@@ -29,9 +29,14 @@ class User
 
             $stmt = $database->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $formData['full_name'], $formData['username'], $formData['email'], $password);
-            $stmt->execute();
+            $result = $stmt->execute();
+
+            if ($result) {
+                $_SESSION['user_id'] = $stmt->insert_id;
+            }
 
             $this->database->closeConnection();
+            header('Location: index.php');
 
         } else {
             $this->validationErrors = $errors;
