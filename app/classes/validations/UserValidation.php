@@ -54,6 +54,7 @@ class UserValidation extends User
         $this->database->closeConnection();
 
         $this->validateEmail($formData['email'],$errors);
+        $this->validatePassword($formData['password'], $formData['password_confirm'], $errors);
 
         return $errors;
     }
@@ -90,4 +91,12 @@ class UserValidation extends User
             $errors['email'] = 'Please enter a valid email';
         }
     }
+
+    private function validatePassword($password, $passwordConfirm, &$errors)
+    {
+        if ($passwordConfirm !== $password) {
+            $errors['password_confirm'] = 'Password does not match';
+        }
+    }
+
 }
