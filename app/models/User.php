@@ -33,6 +33,7 @@ class User
 
             if ($result) {
                 $_SESSION['user_id'] = $stmt->insert_id;
+                $_SESSION['alert_message'] = 'Your account is successfully created!';
             }
 
             $this->database->closeConnection();

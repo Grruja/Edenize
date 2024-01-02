@@ -1,4 +1,16 @@
 <header>
+    <?php
+    session_start();
+
+    if (isset($_SESSION['alert_message'])) { ?>
+        <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
+            <?php
+                echo $_SESSION['alert_message'];
+                unset($_SESSION['alert_message']);
+            ?>
+        </div>
+    <?php } ?>
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -19,4 +31,19 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        const alert = document.getElementById('alert');
+
+        if (alert) {
+            displayAlert();
+        }
+
+        function displayAlert() {
+            setTimeout(() => {
+                alert.remove();
+            }, 4000);
+        }
+    </script>
+
 </header>
