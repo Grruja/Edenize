@@ -37,6 +37,7 @@ class User
 
             $this->database->closeConnection();
             header('Location: index.php');
+            exit();
 
         } else {
             $this->validationErrors = $errors;
