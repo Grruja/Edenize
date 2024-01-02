@@ -23,13 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/classes/validations/UserValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/edenize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/edenize.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/validation_rules/createUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classes/validations/UserValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/validations/UserValidation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +67,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\LiveProjects\edenize\app" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\view" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\database" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\app\config" />
@@ -88,7 +86,8 @@
       <workItem from="1703976849501" duration="11435000" />
       <workItem from="1704019008206" duration="21427000" />
       <workItem from="1704115196385" duration="6483000" />
-      <workItem from="1704206412191" duration="2312000" />
+      <workItem from="1704206412191" duration="8226000" />
+      <workItem from="1704220300203" duration="1227000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -111,7 +110,28 @@
       <option name="project" value="LOCAL" />
       <updated>1704020180125</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added user validation for each field">
+      <created>1704209296096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704209296096</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added email validation for user">
+      <created>1704209386697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704209386697</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added confirm password validation for user">
+      <created>1704209448401</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704209448401</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +153,10 @@
     <MESSAGE value="Added navigation &amp; footer on index page" />
     <MESSAGE value="Added registration form &amp; reinstalled composer" />
     <MESSAGE value="Create user method added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create user method added" />
+    <MESSAGE value="Added user validation for each field" />
+    <MESSAGE value="Added email validation for user" />
+    <MESSAGE value="Added confirm password validation for user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added confirm password validation for user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
@@ -148,17 +171,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704020218041" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704020181587">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704209449736">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704020181587" />
-    <state x="187" y="256" width="585" height="534" key="find.popup" timestamp="1704208904230">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704209449736" />
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704211001330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704208904230" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704121070567">
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704211001330" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704212927485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704121070567" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704212927485" />
   </component>
 </project>

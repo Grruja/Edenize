@@ -1,54 +1,22 @@
 <?php
 
 
-namespace App\classes\validations;
+namespace App\validations;
 
 
-use App\classes\User;
+use App\models\User;
 
 class UserValidation extends User
 {
-    const VALIDATION_RULES = [
-        'full_name' => [
-            'label' => 'Name',
-            'min_length' => 2,
-            'max_length' => 255,
-            'required' => true,
-            'unique' => false,
-        ],
-        'username' => [
-            'label' => 'Username',
-            'min_length' => 2,
-            'max_length' => 255,
-            'required' => true,
-            'unique' => true,
-        ],
-        'email' => [
-            'label' => 'Email',
-            'min_length' => 2,
-            'max_length' => 255,
-            'required' => true,
-            'unique' => true,
-        ],
-        'password' => [
-            'label' => 'Password',
-            'min_length' => 7,
-            'max_length' => 255,
-            'required' => true,
-            'unique' => false,
-        ],
-        'password_confirm' => [
-            'label' => 'Confirm Password',
-            'required' => true,
-            'unique' => false,
-        ],
-    ];
+    const VALIDATION_RULES = '../config/validation_rules/createUser.php';
 
     public function validateCreateUser($formData)
     {
         $errors = [];
 
-        foreach (self::VALIDATION_RULES as $fieldName => $fieldInfo) {
+        $validationRules = require self::VALIDATION_RULES;
+
+        foreach ($validationRules as $fieldName => $fieldInfo) {
             $this->validateField($formData, $fieldName, $fieldInfo,$errors);
         }
         $this->database->closeConnection();

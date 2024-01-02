@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\classes;
+namespace App\models;
 
 
-use App\classes\validations\UserValidation;
+use App\validations\UserValidation;
 use Database\Database;
 
 class User
@@ -22,21 +22,14 @@ class User
         $validation = new UserValidation();
         $errors = $validation->validateCreateUser($formData);
 
-        if ($errors === null) {
+        if ($errors == null) {
             $password = password_hash($formData['password'], PASSWORD_BCRYPT);
 
             $database = $this->database->getConnection();
 
-            $fullName = $database->real_escape_string($formData['full_name']);
-            $username = $database->real_escape_string($formData['username']);
-            $email = $database->real_escape_string($formData['email']);
-
-            $database->query("
-                INSERT INTO users 
-                (full_name, username, email, password) 
-                VALUES 
-                ('$fullName', '$username', '$email', '$password')
-            ");
+            $stmt = $database->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $formData['full_name'], $formData['username'], $formData['email'], $password);
+            $stmt->execute();
 
             $this->database->closeConnection();
 
