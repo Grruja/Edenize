@@ -1,4 +1,4 @@
-<footer class="bg-success text-white py-5">
+<footer class="bg-success text-white py-5 mt-5">
     <div class="container">
         <small>&copy <?= date('Y') ?> Edenize. All rights reserved</small>
     </div>

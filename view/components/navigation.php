@@ -1,4 +1,4 @@
-<header>
+<header class="mb-5">
     <?php
     session_status() == PHP_SESSION_NONE ? session_start() : null;
 
@@ -26,6 +26,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
             </div>

@@ -13,9 +13,9 @@
 
 <body>
     <?php include 'components/navigation.php'; ?>
-    <main>
-        <div class="container">
-            <h1>Register</h1>
+    <main class="d-flex align-items-center">
+        <div class="container shadow p-5 rounded-2 col-xl-5 col-lg-6 col-md-8">
+            <h1 class="text-center mb-5">Register</h1>
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Full Name</label>
@@ -55,7 +55,10 @@
                         <p class="text-danger"><?= $errors['password_confirm'] ?></p>
                     <?php } ?>
                 </div>
-                <button type="submit" class="btn btn-success">Register</button>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </div>
             </form>
         </div>
     </main>
