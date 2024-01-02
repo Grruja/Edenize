@@ -1,32 +1,55 @@
 <?php
 
-require_once '../database/Database.php';
+
+namespace App\classes;
+
+
+use App\classes\validations\UserValidation;
+use Database\Database;
 
 class User
 {
     protected $database;
+    private $validationErrors = [];
 
     public function __construct()
     {
         $this->database = new Database();
     }
 
-    public function create($fullName, $username, $email, $password)
+    public function create($formData)
     {
-        $hashPassword = password_hash($password, PASSWORD_BCRYPT);
+        $validation = new UserValidation();
+        $errors = $validation->validateCreateUser($formData);
 
-        $database = $this->database->getConnection();
-        $escFullName = $database->real_escape_string($fullName);
-        $escUsername = $database->real_escape_string($username);
-        $escEmail = $database->real_escape_string($email);
+        if ($errors === null) {
+            $password = password_hash($formData['password'], PASSWORD_BCRYPT);
 
-        $database->query("
-            INSERT INTO users 
-            (full_name, username, email, password) 
-            VALUES 
-            ('$escFullName', '$escUsername', '$escEmail', '$hashPassword')
-        ");
+            $database = $this->database->getConnection();
 
-        $this->database->closeConnection();
+            $fullName = $database->real_escape_string($formData['full_name']);
+            $username = $database->real_escape_string($formData['username']);
+            $email = $database->real_escape_string($formData['email']);
+
+            $database->query("
+                INSERT INTO users 
+                (full_name, username, email, password) 
+                VALUES 
+                ('$fullName', '$username', '$email', '$password')
+            ");
+
+            $this->database->closeConnection();
+
+        } else {
+            $this->validationErrors = $errors;
+        }
+    }
+
+    public function getValidationErrors()
+    {
+        if ($this->validationErrors != null) {
+            return $this->validationErrors;
+
+        } else return null;
     }
 }

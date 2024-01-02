@@ -1,5 +1,9 @@
 <?php
 
+
+namespace Database;
+
+
 require '../vendor/autoload.php';
 
 class Database
