@@ -26,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <workItem from="1704019008206" duration="21427000" />
       <workItem from="1704115196385" duration="6483000" />
       <workItem from="1704206412191" duration="8226000" />
-      <workItem from="1704220300203" duration="12634000" />
+      <workItem from="1704220300203" duration="13664000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -150,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704232289822</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added alert message">
+      <created>1704234818279</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704234818279</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +186,8 @@
     <MESSAGE value="Code refactoring" />
     <MESSAGE value="Display old values if validation fails &amp; added user session" />
     <MESSAGE value="Made HTML components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made HTML components" />
+    <MESSAGE value="Added alert message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added alert message" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
@@ -193,10 +202,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704020218041" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704232292772">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704234823771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704232292772" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704234823771" />
     <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704211001330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

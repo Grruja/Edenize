@@ -32,6 +32,7 @@ class User
             $result = $stmt->execute();
 
             if ($result) {
+                session_status() == PHP_SESSION_NONE ? session_start() : null;
                 $_SESSION['user_id'] = $stmt->insert_id;
                 $_SESSION['alert_message'] = 'Your account is successfully created!';
             }

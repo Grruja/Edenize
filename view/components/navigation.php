@@ -1,6 +1,6 @@
 <header>
     <?php
-    session_start();
+    session_status() == PHP_SESSION_NONE ? session_start() : null;
 
     if (isset($_SESSION['alert_message'])) { ?>
         <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
