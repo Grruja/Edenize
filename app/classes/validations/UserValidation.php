@@ -53,6 +53,8 @@ class UserValidation extends User
         }
         $this->database->closeConnection();
 
+        $this->validateEmail($formData['email'],$errors);
+
         return $errors;
     }
 
@@ -79,6 +81,13 @@ class UserValidation extends User
             if ($fieldColumn->num_rows > 0) {
                 $errors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
             }
+        }
+    }
+
+    private function validateEmail($email, &$errors)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Please enter a valid email';
         }
     }
 }
