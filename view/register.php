@@ -62,7 +62,7 @@
 
                 <div>Already have an account? <a href="login.php">Login</a></div>
 
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end mt-4">
                     <button type="submit" class="btn btn-success">Register</button>
                 </div>
             </form>
