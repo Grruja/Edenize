@@ -46,6 +46,14 @@ class User
         }
     }
 
+    public function getValidationErrors()
+    {
+        if ($this->validationErrors !== null) {
+            return $this->validationErrors;
+
+        } else return null;
+    }
+
     public function login($username, $password)
     {
         if (!isset($username) || !isset($password)) {
@@ -71,16 +79,22 @@ class User
                 header('Location: index.php');
                 exit();
             }
-        } else {
-            $this->validationErrors = ['login' => 'Incorrect username or password.'];
         }
+        $this->validationErrors = ['login' => 'Incorrect username or password.'];
     }
 
-    public function getValidationErrors()
+    public static function isLogged()
     {
-        if ($this->validationErrors !== null) {
-            return $this->validationErrors;
+        session_status() == PHP_SESSION_NONE ? session_start() : null;
+        if (isset($_SESSION['user_id'])) {
+            return true;
+        }
+        return false;
+    }
 
-        } else return null;
+    public static function logout()
+    {
+        session_status() == PHP_SESSION_NONE ? session_start() : null;
+        unset($_SESSION['user_id']);
     }
 }

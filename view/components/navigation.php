@@ -1,14 +1,17 @@
 <header class="mb-5">
     <?php
-    session_status() == PHP_SESSION_NONE ? session_start() : null;
+        use App\models\User;
 
-    if (isset($_SESSION['alert_message'])) { ?>
-        <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
-            <?php
-                echo $_SESSION['alert_message'];
-                unset($_SESSION['alert_message']);
-            ?>
-        </div>
+
+        session_status() == PHP_SESSION_NONE ? session_start() : null;
+
+        if (isset($_SESSION['alert_message'])) { ?>
+            <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
+                <?php
+                    echo $_SESSION['alert_message'];
+                    unset($_SESSION['alert_message']);
+                ?>
+            </div>
     <?php } ?>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -24,12 +27,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
+                    <?php if (!User::isLogged()) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                    <?php } ?>
+                    <?php if (User::isLogged()) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Logout</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -45,7 +55,7 @@
         function displayAlert() {
             setTimeout(() => {
                 alert.remove();
-            }, 4000);
+            }, 5000);
         }
     </script>
 

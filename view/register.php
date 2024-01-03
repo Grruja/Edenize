@@ -1,6 +1,12 @@
 <?php
-    require_once '../vendor/autoload.php';
+    include 'components/head.php';
     use App\models\User;
+
+    if (User::isLogged()) {
+        header('Location: index.php');
+        exit();
+    }
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = new User();
@@ -8,8 +14,6 @@
         $errors = $user->getValidationErrors();
     }
 ?>
-
-<?php include 'components/head.php'; ?>
 
 <body>
     <?php include 'components/navigation.php'; ?>
@@ -55,6 +59,8 @@
                         <p class="text-danger"><?= $errors['password_confirm'] ?></p>
                     <?php } ?>
                 </div>
+
+                <div>Already have an account? <a href="login.php">Login</a></div>
 
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success">Register</button>

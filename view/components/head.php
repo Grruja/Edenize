@@ -1,3 +1,7 @@
+<?php
+    require_once '../vendor/autoload.php';
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
