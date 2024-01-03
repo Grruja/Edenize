@@ -14,7 +14,7 @@
 <body>
     <?php include 'components/navigation.php'; ?>
     <main class="d-flex align-items-center">
-        <div class="container shadow p-5 rounded-2 col-xl-5 col-lg-6 col-md-8">
+        <div class="container shadow p-5 rounded-2 col-xxl-4 col-xl-5 col-lg-6 col-md-8">
             <h1 class="text-center mb-5">Register</h1>
             <form method="POST" action="">
                 <div class="mb-3">

@@ -25,10 +25,10 @@ class User
         if ($errors == null) {
             $password = password_hash($formData['password'], PASSWORD_BCRYPT);
 
-            $database = $this->database->getConnection();
+            $dbConnection = $this->database->getConnection();
 
-            $stmt = $database->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $formData['full_name'], $formData['username'], $formData['email'], $password);
+            $stmt = $dbConnection->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param('ssss', $formData['full_name'], $formData['username'], $formData['email'], $password);
             $result = $stmt->execute();
 
             if ($result) {
@@ -46,9 +46,39 @@ class User
         }
     }
 
+    public function login($username, $password)
+    {
+        if (!isset($username) || !isset($password)) {
+            header('Location: login.php');
+            exit();
+        }
+        $dbConnection = $this->database->getConnection();
+
+        $stmt = $dbConnection->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $this->database->closeConnection();
+
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+
+            if (password_verify($password, $user['password'])) {
+                session_status() == PHP_SESSION_NONE ? session_start() : null;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['alert_message'] = 'Welcome back!';
+                header('Location: index.php');
+                exit();
+            }
+        } else {
+            $this->validationErrors = ['login' => 'Incorrect username or password.'];
+        }
+    }
+
     public function getValidationErrors()
     {
-        if ($this->validationErrors != null) {
+        if ($this->validationErrors !== null) {
             return $this->validationErrors;
 
         } else return null;

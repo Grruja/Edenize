@@ -23,10 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/components/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +86,7 @@
       <workItem from="1704019008206" duration="21427000" />
       <workItem from="1704115196385" duration="6483000" />
       <workItem from="1704206412191" duration="8226000" />
-      <workItem from="1704220300203" duration="14784000" />
+      <workItem from="1704220300203" duration="18881000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -166,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704235878629</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created login form">
+      <created>1704236957689</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704236957689</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +202,8 @@
     <MESSAGE value="Made HTML components" />
     <MESSAGE value="Added alert message" />
     <MESSAGE value="Session start fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Session start fix" />
+    <MESSAGE value="Created login form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created login form" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
@@ -211,17 +218,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704020218041" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704235880140">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704236961819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704235880140" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704211001330">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704236961819" />
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704244271121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704211001330" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704236581321">
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704244271121" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704244221892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704236581321" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704244221892" />
   </component>
 </project>
