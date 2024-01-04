@@ -10,6 +10,3 @@ if (!User::isLogged()) {
 
 
 User::logout();
-
-header('Location: login.php');
-exit();
