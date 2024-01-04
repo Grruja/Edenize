@@ -25,6 +25,11 @@ class Product
 
     public function permalink($productId)
     {
+        if (!isset($productId)) {
+            header('Location: 404.php');
+            exit();
+        }
+
         $dbConnection = $this->database->getConnection();
 
         $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
@@ -37,7 +42,7 @@ class Product
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
         }
-        header('Location: index.php');
+        header('Location: 404.php');
         exit();
     }
 }
