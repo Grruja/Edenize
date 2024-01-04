@@ -1,4 +1,4 @@
-/*================TAGS================*/
+/*================ TAGS ================*/
 * {
     margin: 0;
     padding: 0;
@@ -24,4 +24,38 @@ main {
 
 p {
     margin: 0;
+}
+
+
+/*================ MEDIA ================*/
+@media only screen and (max-width: 575px) {
+    .custom-col-xs-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    #cardContainer {
+        padding: 0.8rem !important;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    #cardPriceContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    #cardPriceContainer a {
+        width: fit-content;
+        margin-left: auto;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .custom-col-xs-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #cardPriceContainer {
+        flex-direction: row;
+    }
 }

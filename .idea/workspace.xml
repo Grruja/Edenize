@@ -23,8 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +88,7 @@
       <workItem from="1704220300203" duration="20284000" />
       <workItem from="1704272723055" duration="87000" />
       <workItem from="1704280037968" duration="1935000" />
-      <workItem from="1704297207281" duration="21470000" />
+      <workItem from="1704297207281" duration="21577000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -195,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704312250786</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added product class &amp; method fetch">
+      <created>1704327685792</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1704327685792</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +236,8 @@
     <MESSAGE value="Added user login" />
     <MESSAGE value="Added logout method &amp; implemented login check" />
     <MESSAGE value="Nav links added &amp; made navbar responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nav links added &amp; made navbar responsive" />
+    <MESSAGE value="Added product class &amp; method fetch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added product class &amp; method fetch" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
@@ -248,10 +256,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704312252386">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704327687075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704312252386" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704327687075" />
     <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704244271121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
