@@ -19,18 +19,25 @@ class Product
     {
         $dbConnection = $this->database->getConnection();
         $result = $dbConnection->query("SELECT * FROM products ORDER BY created_at LIMIT 4");
+        $this->database->closeConnection();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-}
 
-/**
- * PRODUCT
- *
- * id
- * name
- * price
- * quantity
- * description
- * image
- * created_at
-*/
+    public function permalink($productId)
+    {
+        $dbConnection = $this->database->getConnection();
+
+        $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param('i', $productId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $this->database->closeConnection();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        }
+        header('Location: index.php');
+        exit();
+    }
+}

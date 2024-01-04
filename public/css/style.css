@@ -51,6 +51,9 @@ p {
 }
 
 @media only screen and (max-width: 300px) {
+    #cardContainer {
+        padding: 2rem !important;
+    }
     .custom-col-xs-2 {
         flex: 0 0 100%;
         max-width: 100%;
