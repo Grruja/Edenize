@@ -1,22 +1,22 @@
 <?php
-    include 'components/head.php';
-    use App\models\User;
+    include '../components/head.php';
+    use App\models\Auth;
 
-    if (User::isLogged()) {
-        header('Location: index.php');
+    if (Auth::isLogged()) {
+        header('Location: '.BASE_URL.'view/index.php');
         exit();
     }
 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $user = new User();
+        $user = new Auth();
         $user->login($_POST['username'], $_POST['password']);
         $errors = $user->getValidationErrors();
     }
 ?>
 
 <body>
-    <?php include 'components/navigation.php'; ?>
+    <?php include '../components/navigation.php'; ?>
     <main class="d-flex align-items-center">
         <div class="container shadow p-5 rounded-2 col-xxl-4 col-xl-5 col-lg-6 col-md-8">
             <h1 class="text-center mb-5">Login</h1>
@@ -43,5 +43,5 @@
             </form>
         </div>
     </main>
-    <?php include 'components/footer.php'; ?>
+    <?php include '../components/footer.php'; ?>
 </body>

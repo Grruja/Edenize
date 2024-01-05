@@ -1,6 +1,6 @@
 <header class="mb-5">
     <?php
-        use App\models\User;
+        use App\models\Auth;
 
 
         session_status() == PHP_SESSION_NONE ? session_start() : null;
@@ -16,28 +16,28 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">
-            <a class="navbar-brand py-2 d-lg-block d-none" href="index.php">
-                <img src="../public/assets/edenize_logo.png" alt="Edenize logo" width="120">
+            <a class="navbar-brand py-2 d-lg-block d-none" href="<?= BASE_URL ?>view/index.php">
+                <img src="<?= BASE_URL ?>public/assets/edenize_logo.png" alt="Edenize logo" width="120">
             </a>
             <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fs-2 text-success"></i>
             </button>
-            <?php if (User::isLogged()) { ?>
+            <?php if (Auth::isLogged()) { ?>
                 <li class="nav-item d-lg-none d-block py-2">
-                    <a class="nav-link" href="index.php">
+                    <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
                         <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
                     </a>
                 </li>
             <?php } ?>
-            <?php if (!User::isLogged()) { ?>
+            <?php if (!Auth::isLogged()) { ?>
                 <div class="navbar-nav d-lg-none d-flex flex-row gap-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">
+                        <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
                             <span class="btn btn-outline-success">Login</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.php">
+                        <a class="nav-link" href="<?= BASE_URL ?>view/auth/register.php">
                             <span class="btn btn-success">Register</span>
                         </a>
                     </li>
@@ -47,31 +47,31 @@
                 <ul class="navbar-nav d-flex justify-content-between align-items-lg-center ms-lg-5 ms-2 w-100">
                     <div class="d-flex flex-lg-row gap-lg-4 flex-column align-items-lg-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">About</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Products</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Products</a>
                         </li>
                     </div>
                     <div class="d-flex flex-lg-row flex-column align-items-lg-center">
-                        <?php if (!User::isLogged()) { ?>
+                        <?php if (!Auth::isLogged()) { ?>
                             <li class="nav-item d-lg-block d-none">
-                                <a class="nav-link" href="login.php">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
                                     <span class="btn btn-outline-success">Login</span>
                                 </a>
                             </li>
                             <li class="nav-item d-lg-block d-none">
-                                <a class="nav-link" href="register.php">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/auth/register.php">
                                     <span class="btn btn-success">Register</span>
                                 </a>
                             </li>
                         <?php } ?>
-                        <?php if (User::isLogged()) { ?>
+                        <?php if (Auth::isLogged()) { ?>
                             <li class="nav-item me-4">
-                                <a class="nav-link" href="logout.php">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/auth/logout.php">
                                     <span>
                                     <i class="fa-solid fa-arrow-right-from-bracket text-dark me-1"></i>
                                         Logout
@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item d-lg-block d-none">
-                                <a class="nav-link" href="index.php">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
                                     <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
                                 </a>
                             </li>

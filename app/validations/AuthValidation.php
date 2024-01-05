@@ -4,11 +4,11 @@
 namespace App\validations;
 
 
-use App\models\User;
+use App\models\Auth;
 
-class UserValidation extends User
+class AuthValidation extends Auth
 {
-    const VALIDATION_RULES = '../config/validation_rules/createUser.php';
+    const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
 
     public function validateCreateUser($formData)
     {

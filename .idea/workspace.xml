@@ -23,10 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/baseUrl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/edenize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/edenize.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/validations/UserValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/validations/AuthValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,16 +72,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Personal Files/Coding/live_projects/klikdom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\LiveProjects\edenize\view\auth" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\public\assets" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\app" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\view" />
       <recent name="C:\xampp\htdocs\LiveProjects\edenize\database" />
-      <recent name="C:\xampp\htdocs\LiveProjects\edenize\app\config" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -90,7 +101,8 @@
       <workItem from="1704272723055" duration="87000" />
       <workItem from="1704280037968" duration="1935000" />
       <workItem from="1704297207281" duration="24503000" />
-      <workItem from="1704396471385" duration="8640000" />
+      <workItem from="1704396471385" duration="12199000" />
+      <workItem from="1704415841848" duration="6347000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -225,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704403061601</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="404 page design added">
+      <created>1704411986572</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704411986572</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,9 +282,14 @@
     <MESSAGE value="Displayed products in cards &amp; made them responsive" />
     <MESSAGE value="Added permalink for product" />
     <MESSAGE value="Custom 404 page display on non existing page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Custom 404 page display on non existing page" />
+    <MESSAGE value="404 page design added" />
+    <option name="LAST_COMMIT_MESSAGE" value="404 page design added" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704412679473" />
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -282,21 +306,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704403063019">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704411993744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704403063019" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704244271121">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704411993744" />
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1704421603232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704244271121" />
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704421603232" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1704311512941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704411313450">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704420286679">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704411313450" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704420286679" />
   </component>
 </project>

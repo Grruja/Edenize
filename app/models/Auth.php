@@ -4,10 +4,12 @@
 namespace App\models;
 
 
-use App\validations\UserValidation;
+use App\validations\AuthValidation;
 use Database\Database;
 
-class User
+require_once __DIR__.'/../../config/baseUrl.php';
+
+class Auth
 {
     protected $database;
     private $validationErrors = [];
@@ -19,7 +21,7 @@ class User
 
     public function create($formData)
     {
-        $validation = new UserValidation();
+        $validation = new AuthValidation();
         $errors = $validation->validateCreateUser($formData);
 
         if ($errors == null) {
@@ -38,7 +40,7 @@ class User
             }
 
             $this->database->closeConnection();
-            header('Location: index.php');
+            header('Location: '.BASE_URL.'view/index.php');
             exit();
 
         } else {
@@ -57,7 +59,7 @@ class User
     public function login($username, $password)
     {
         if (!isset($username) || !isset($password)) {
-            header('Location: login.php');
+            header('Location: '.BASE_URL.'view/auth/login.php');
             exit();
         }
         $dbConnection = $this->database->getConnection();
@@ -76,7 +78,7 @@ class User
                 session_status() == PHP_SESSION_NONE ? session_start() : null;
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['alert_message'] = 'Welcome back!';
-                header('Location: index.php');
+                header('Location: '.BASE_URL.'view/index.php');
                 exit();
             }
         }
@@ -97,7 +99,7 @@ class User
         session_status() == PHP_SESSION_NONE ? session_start() : null;
         unset($_SESSION['user_id']);
 
-        header('Location: login.php');
+        header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }
 }

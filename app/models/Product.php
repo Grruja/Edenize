@@ -6,6 +6,8 @@ namespace App\models;
 
 use Database\Database;
 
+require_once __DIR__.'/../../config/baseUrl.php';
+
 class Product
 {
     protected $database;
@@ -26,7 +28,7 @@ class Product
     public function permalink($productId)
     {
         if (!isset($productId)) {
-            header('Location: 404.php');
+            header('Location: '.BASE_URL.'view/404.php');
             exit();
         }
 
@@ -42,7 +44,7 @@ class Product
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
         }
-        header('Location: 404.php');
+        header('Location: '.BASE_URL.'view/404.php');
         exit();
     }
 }

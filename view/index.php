@@ -2,6 +2,7 @@
     include 'components/head.php';
     use App\models\Product;
 
+
     $product = new Product();
     $products = $product->fetchFour();
 ?>

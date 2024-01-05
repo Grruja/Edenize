@@ -2,6 +2,7 @@
     include 'components/head.php';
     use App\models\Product;
 
+
     $product = new Product();
     $permalink = $product->permalink($_GET['product_id']);
 ?>
