@@ -4,10 +4,10 @@
 namespace App\models;
 
 
+require_once __DIR__.'/../../config/baseUrl.php';
+
 use App\validations\AuthValidation;
 use Database\Database;
-
-require_once __DIR__.'/../../config/baseUrl.php';
 
 class Auth
 {

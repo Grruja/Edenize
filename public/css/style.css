@@ -27,8 +27,45 @@ p {
 }
 
 
+/*================ HOME BG IMG ================*/
+#homeBgImg {
+    background-image: url("../../public/assets/home_bg_img.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#homeTextContainer,
+#homeInfoContainer {
+    height: 80%;
+}
+
+#homeTextParent {
+    margin-top: 13rem;
+}
+
+
 /*================ MEDIA ================*/
+@media only screen and (max-width: 992px) {
+    #navbarNav {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+    }
+}
+
 @media only screen and (max-width: 575px) {
+    #homeBgImg,
+    #homeTextContainer {
+        height: 70vh;
+    }
+    #homeTextParent {
+        margin-top: 6rem !important;
+    }
+    #homeTextParent h1 {
+        font-size: 18px !important;
+    }
+
     .custom-col-xs-2 {
         flex: 0 0 50%;
         max-width: 50%;
@@ -40,25 +77,53 @@ p {
 }
 
 @media only screen and (max-width: 390px) {
+    #homeBgImg,
+    #homeTextContainer {
+        height: 60vh;
+    }
+    #homeTextParent {
+        margin-top: 10rem !important;
+    }
+
     #cardPriceContainer {
         display: flex;
         flex-direction: column;
     }
-    #cardPriceContainer a {
+
+    #productCard {
         width: fit-content;
         margin-left: auto;
     }
 }
 
 @media only screen and (max-width: 300px) {
+    #homeTextParent h1 {
+        font-size: 17px !important;
+    }
+
     #cardContainer {
         padding: 2rem !important;
     }
+
     .custom-col-xs-2 {
         flex: 0 0 100%;
         max-width: 100%;
     }
+
     #cardPriceContainer {
         flex-direction: row;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    #homeBgImg,
+    #homeTextContainer {
+        height: 100vh;
+    }
+    #homeTextParent {
+        margin-top: 8rem !important;
+    }
+    #homeInfoContainer {
+        display: none !important;
     }
 }

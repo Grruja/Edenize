@@ -4,9 +4,9 @@
 namespace App\models;
 
 
-use Database\Database;
-
 require_once __DIR__.'/../../config/baseUrl.php';
+
+use Database\Database;
 
 class Product
 {
