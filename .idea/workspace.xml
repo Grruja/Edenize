@@ -23,17 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Support/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/edenize_logo_black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/validations/AuthValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Validations/AuthValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/auth/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/components/navigationNoBg.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigationNoBg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +96,7 @@
       <workItem from="1704415841848" duration="6347000" />
       <workItem from="1704466149816" duration="14881000" />
       <workItem from="1704554115928" duration="28000" />
-      <workItem from="1704902242640" duration="8704000" />
+      <workItem from="1704902242640" duration="15566000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -265,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704905543320</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Session class added &amp; implemented">
+      <created>1704917536208</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704917536208</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +308,8 @@
     <MESSAGE value="Changed User to Auth &amp; moved auth view files to auth directory" />
     <MESSAGE value="Implemented design for home section" />
     <MESSAGE value="Old navigation added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Old navigation added" />
+    <MESSAGE value="Session class added &amp; implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Session class added &amp; implemented" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -330,10 +332,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704905544851">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704917537639">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704905544851" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704917537639" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1704476296252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -346,9 +348,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704916816869">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704927730267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704916816869" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704927730267" />
   </component>
 </project>

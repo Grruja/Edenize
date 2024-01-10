@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">
             <a class="navbar-brand py-2 d-lg-block d-none" href="<?= BASE_URL ?>view/index.php">
-                <img src="<?= BASE_URL ?>public/assets/edenize_logo.png" alt="Edenize logo" width="120">
+                <img src="<?= BASE_URL ?>public/assets/edenize_logo_black.png" alt="Edenize logo" width="120">
             </a>
             <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fs-2 text-success"></i>

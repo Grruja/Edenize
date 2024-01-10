@@ -71,6 +71,10 @@ p {
         max-width: 50%;
     }
 
+    .custom-col-xs-quantity {
+        max-width: 15%;
+    }
+
     #cardContainer {
         padding: 0.8rem !important;
     }
@@ -93,6 +97,10 @@ p {
     #productCard {
         width: fit-content;
         margin-left: auto;
+    }
+
+    .custom-col-xs-quantity {
+        max-width: 25%;
     }
 }
 
