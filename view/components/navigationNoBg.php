@@ -1,4 +1,4 @@
-<header class="mb-5">
+<header class="position-absolute top-0 w-100">
     <?php
     use App\models\Auth;
 
@@ -14,18 +14,24 @@
         </div>
     <?php } ?>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+    <style>
+        a {
+            color: white !important;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg" style="z-index: 10">
         <div class="container">
             <a class="navbar-brand py-2 d-lg-block d-none" href="<?= BASE_URL ?>view/index.php">
-                <img src="<?= BASE_URL ?>public/assets/edenize_logo.png" alt="Edenize logo" width="120">
+                <img src="<?= BASE_URL ?>public/assets/edenize_logo_white.png" alt="Edenize logo" width="120">
             </a>
-            <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars fs-2 text-success"></i>
+            <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNoBg" aria-controls="navbarNoBg" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-2 text-white"></i>
             </button>
             <?php if (Auth::isLogged()) { ?>
                 <li class="nav-item d-lg-none d-block py-2">
                     <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
-                        <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
+                        <i class="fa-solid fa-cart-shopping fs-4 text-white"></i>
                     </a>
                 </li>
             <?php } ?>
@@ -33,7 +39,7 @@
                 <div class="navbar-nav d-lg-none d-flex flex-row gap-2">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
-                            <span class="btn btn-outline-success">Login</span>
+                            <span class="btn btn-outline-light">Login</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -43,8 +49,8 @@
                     </li>
                 </div>
             <?php } ?>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav d-flex justify-content-between align-items-lg-center ms-lg-5 ms-2 w-100">
+            <div class="collapse navbar-collapse rounded-2" id="navbarNoBg">
+                <ul class="navbar-nav d-flex justify-content-between align-items-lg-center ms-lg-5 px-4 py-3 w-100">
                     <div class="d-flex flex-lg-row gap-lg-4 flex-column align-items-lg-center">
                         <li class="nav-item">
                             <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Home</a>
@@ -60,7 +66,7 @@
                         <?php if (!Auth::isLogged()) { ?>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
-                                    <span class="btn btn-outline-success">Login</span>
+                                    <span class="btn btn-outline-light">Login</span>
                                 </a>
                             </li>
                             <li class="nav-item d-lg-block d-none">
@@ -73,14 +79,14 @@
                             <li class="nav-item me-4">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/auth/logout.php">
                                     <span>
-                                    <i class="fa-solid fa-arrow-right-from-bracket text-dark me-1"></i>
+                                    <i class="fa-solid fa-arrow-right-from-bracket text-white me-1"></i>
                                         Logout
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
-                                    <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
+                                    <i class="fa-solid fa-cart-shopping fs-4 text-white"></i>
                                 </a>
                             </li>
                         <?php } ?>

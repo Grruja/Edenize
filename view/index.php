@@ -8,7 +8,7 @@
 ?>
 
 <body>
-<?php include 'components/navigation.php'; ?>
+<?php include 'components/navigationNoBg.php'; ?>
     <main>
         <div id="homeBgImg">
             <div id="homeTextContainer" class="container d-flex align-items-center justify-content-center">

@@ -48,7 +48,7 @@ p {
 
 /*================ MEDIA ================*/
 @media only screen and (max-width: 992px) {
-    #navbarNav {
+    #navbarNoBg {
         background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(8px);
     }
