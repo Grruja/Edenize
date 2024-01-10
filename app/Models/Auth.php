@@ -1,22 +1,25 @@
 <?php
 
 
-namespace App\models;
+namespace App\Models;
 
 
 require_once __DIR__.'/../../config/baseUrl.php';
 
-use App\validations\AuthValidation;
+use App\Support\Session;
+use App\Validations\AuthValidation;
 use Database\Database;
 
 class Auth
 {
     protected $database;
+    protected $session;
     private $validationErrors = [];
 
     public function __construct()
     {
         $this->database = new Database();
+        $this->session = new Session();
     }
 
     public function create($formData)
@@ -34,8 +37,7 @@ class Auth
             $result = $stmt->execute();
 
             if ($result) {
-                session_status() == PHP_SESSION_NONE ? session_start() : null;
-                $_SESSION['user_id'] = $stmt->insert_id;
+                $this->session->userStart($stmt->insert_id);
                 $_SESSION['alert_message'] = 'Your account is successfully created!';
             }
 
@@ -75,8 +77,7 @@ class Auth
             $user = $result->fetch_assoc();
 
             if (password_verify($password, $user['password'])) {
-                session_status() == PHP_SESSION_NONE ? session_start() : null;
-                $_SESSION['user_id'] = $user['id'];
+                $this->session->userStart($user['id']);
                 $_SESSION['alert_message'] = 'Welcome back!';
                 header('Location: '.BASE_URL.'view/index.php');
                 exit();
@@ -96,9 +97,7 @@ class Auth
 
     public static function logout()
     {
-        session_status() == PHP_SESSION_NONE ? session_start() : null;
-        unset($_SESSION['user_id']);
-
+        Session::userDestroy();
         header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\validations;
+namespace App\Validations;
 
 
-use App\models\Auth;
+use App\Models\Auth;
 
 class AuthValidation extends Auth
 {

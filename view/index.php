@@ -1,6 +1,6 @@
 <?php
     include 'components/head.php';
-    use App\models\Product;
+    use App\Models\Product;
 
 
     $product = new Product();

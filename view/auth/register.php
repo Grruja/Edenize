@@ -1,6 +1,6 @@
 <?php
     include '../components/head.php';
-    use App\models\Auth;
+    use App\Models\Auth;
 
     if (Auth::isLogged()) {
         header('Location: '.BASE_URL.'view/index.php');

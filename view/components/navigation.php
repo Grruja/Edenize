@@ -1,9 +1,10 @@
 <header class="mb-5">
-    <?php
-    use App\models\Auth;
+<?php
+    use App\Models\Auth;
+    use App\Support\Session;
 
 
-    session_status() == PHP_SESSION_NONE ? session_start() : null;
+    new Session();
 
     if (isset($_SESSION['alert_message'])) { ?>
         <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
@@ -12,7 +13,7 @@
             unset($_SESSION['alert_message']);
             ?>
         </div>
-    <?php } ?>
+<?php } ?>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">

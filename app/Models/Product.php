@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\models;
+namespace App\Models;
 
 
 require_once __DIR__.'/../../config/baseUrl.php';
