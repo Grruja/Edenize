@@ -13,7 +13,7 @@ use Database\Database;
 class Auth
 {
     protected $database;
-    protected $session;
+    private $session;
     private $validationErrors = [];
 
     public function __construct()
@@ -52,10 +52,7 @@ class Auth
 
     public function getValidationErrors()
     {
-        if ($this->validationErrors !== null) {
-            return $this->validationErrors;
-
-        } else return null;
+        return $this->validationErrors;
     }
 
     public function login($username, $password)

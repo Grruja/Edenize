@@ -4,6 +4,8 @@
 namespace Database;
 
 
+use Dotenv\Dotenv;
+
 require __DIR__.'/../vendor/autoload.php';
 
 class Database
@@ -18,7 +20,7 @@ class Database
 
     private function loadEnv()
     {
-        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
     }
 

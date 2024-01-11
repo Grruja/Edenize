@@ -8,9 +8,9 @@ use App\Models\Auth;
 
 class AuthValidation extends Auth
 {
-    const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
+    private const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
 
-    public function validateCreateUser($formData)
+    protected function validateCreateUser($formData)
     {
         $errors = [];
 

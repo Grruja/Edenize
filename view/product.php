@@ -2,6 +2,7 @@
 include 'components/head.php';
 
 use App\Models\Auth;
+use App\Models\Cart;
 use App\Models\Product;
 use App\Support\Session;
 
@@ -16,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
+    $cart = new Cart();
+    $cart->add($permalink['id'], $_POST['quantity'] ?? null);
+    $error = $cart->getValidationError();
 }
 ?>
 
@@ -29,13 +33,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="fs-2 my-4">$<?= $permalink['price'] ?></p>
 
             <form method="POST" action="">
-                <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="d-flex align-items-center gap-3">
                     <label for="quantity" class="form-label fw-bold">Quantity:</label>
                     <div class="col-md-1 col-sm-2 custom-col-xs-quantity">
                         <input type="number" name="quantity" value="1" required class="form-control" id="quantity">
                     </div>
                 </div>
-                <button class="btn btn-success">Add to Cart</button>
+                <?php if (isset($error)) { ?>
+                    <p class="text-danger"><?= $error ?></p>
+                <?php } ?>
+                <button class="btn btn-success mt-3">Add to Cart</button>
             </form>
         </div>
     </main>
