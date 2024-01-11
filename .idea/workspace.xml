@@ -23,12 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Validations/AuthValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Validations/AuthValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Support/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Support/Session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigationNoBg.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigationNoBg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Personal Files/Coding/LARAVEL/shop" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -98,7 +100,7 @@
       <workItem from="1704554115928" duration="28000" />
       <workItem from="1704902242640" duration="23166000" />
       <workItem from="1704939872634" duration="2000" />
-      <workItem from="1704981367730" duration="13482000" />
+      <workItem from="1704981367730" duration="23202000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -282,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704988864056</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Created cart class with add to cart method">
+      <created>1705003907231</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705003907231</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +310,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added registration form &amp; reinstalled composer" />
     <MESSAGE value="Create user method added" />
     <MESSAGE value="Added user validation for each field" />
     <MESSAGE value="Added email validation for user" />
@@ -326,7 +334,8 @@
     <MESSAGE value="Session class added &amp; implemented" />
     <MESSAGE value="Add to cart form on product page added" />
     <MESSAGE value="Added new cart icons &amp; refactored code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new cart icons &amp; refactored code" />
+    <MESSAGE value="Created cart class with add to cart method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created cart class with add to cart method" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -337,10 +346,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="256" y="436" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1703988934069" />
-    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1704554141392">
+    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1705011221774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1704554141392" />
+    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1705011221774" />
     <state x="211" y="246" key="NewPhpClassDialog" timestamp="1704914552042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -349,25 +358,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1704988868249">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705003909239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704988868249" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705003909239" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1704476296252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704476296252" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705000454788">
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705015976246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705000454788" />
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705015976246" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1704311512941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1704999163620">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705016039830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704999163620" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705016039830" />
   </component>
 </project>

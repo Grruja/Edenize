@@ -20,6 +20,6 @@ class Session
 
     public static function userDestroy()
     {
-        unset($_SESSION['user_id']);
+        session_unset();
     }
 }

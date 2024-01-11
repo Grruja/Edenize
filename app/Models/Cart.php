@@ -7,20 +7,18 @@ namespace App\Models;
 require_once __DIR__.'/../../config/baseUrl.php';
 
 use App\Support\Session;
-use Database\Database;
 
-class Cart
+class Cart extends Product
 {
-    protected $database;
     private $validationError;
-
-    public function __construct()
-    {
-        $this->database = new Database();
-    }
 
     public function add($productId, $quantity)
     {
+        if (!isset($productId) || empty($productId)) {
+            header('Location: '.BASE_URL.'view/404.php');
+            exit();
+        }
+
         $dbProduct = $this->getProductById($productId);
         $this->validateQuantity($dbProduct['quantity'], $quantity);
 
@@ -31,19 +29,6 @@ class Cart
                 'quantity' => $quantity,
             ];
         }
-    }
-
-    private function getProductById($productId)
-    {
-        $dbConnection = $this->database->getConnection();
-        $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
-        $stmt->bind_param('i', $productId);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-        $this->database->closeConnection();
-
-        return $result->fetch_assoc();
     }
 
     private function validateQuantity($quantityLeft, $quantity)

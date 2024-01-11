@@ -32,7 +32,7 @@ if (isset($_SESSION['alert_message'])) { ?>
             </button>
             <?php if (Auth::isLogged()) { ?>
                 <li class="nav-item d-lg-none d-block py-2">
-                    <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
+                    <a class="nav-link" href="<?= BASE_URL ?>view/cart.php">
                         <?php if (isset($_SESSION['cart'])) { ?>
                             <img src="<?= BASE_URL ?>public/assets/cart/full_cart_white.svg" alt="Full cart icon" width="32">
                         <?php } else { ?>
@@ -91,7 +91,7 @@ if (isset($_SESSION['alert_message'])) { ?>
                                 </a>
                             </li>
                             <li class="nav-item d-lg-block d-none">
-                                <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/cart.php">
                                     <?php if (isset($_SESSION['cart'])) { ?>
                                         <img src="<?= BASE_URL ?>public/assets/cart/full_cart_white.svg" alt="Full cart icon" width="32">
                                     <?php } else { ?>

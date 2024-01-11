@@ -1,5 +1,6 @@
 <?php
 include 'components/head.php';
+
 use App\Models\Product;
 
 
@@ -39,9 +40,14 @@ $products = $product->fetchFour();
                                 <p><?= $item['quantity'] ?> left</p>
                                 <div id="cardPriceContainer" class="d-flex justify-content-between">
                                     <p class="fs-5 fw-bold">$<?= $item['price'] ?></p>
-                                    <a href="index.php" class="btn btn-success d-flex align-items-center">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </a>
+
+                                    <form method="POST" action="<?= BASE_URL ?>view/cart.php">
+                                        <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button class="btn btn-success d-flex align-items-center">
+                                            <i class="fa-solid fa-cart-arrow-down"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </a>

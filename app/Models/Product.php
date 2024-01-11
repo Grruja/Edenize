@@ -31,14 +31,17 @@ class Product
             header('Location: '.BASE_URL.'view/404.php');
             exit();
         }
+        return $this->getProductById($productId);
+    }
 
+    protected function getProductById($productId)
+    {
         $dbConnection = $this->database->getConnection();
-
         $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
         $stmt->bind_param('i', $productId);
         $stmt->execute();
-        $result = $stmt->get_result();
 
+        $result = $stmt->get_result();
         $this->database->closeConnection();
 
         if ($result->num_rows > 0) {
