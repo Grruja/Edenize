@@ -1,18 +1,19 @@
 <header class="position-absolute top-0 w-100">
+
 <?php
-    use App\Models\Auth;
-    use App\Support\Session;
+use App\Models\Auth;
+use App\Support\Session;
 
 
-    new Session();
+new Session();
 
-    if (isset($_SESSION['alert_message'])) { ?>
-        <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
-            <?php
-            echo $_SESSION['alert_message'];
-            unset($_SESSION['alert_message']);
-            ?>
-        </div>
+if (isset($_SESSION['alert_message'])) { ?>
+    <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
+        <?php
+        echo $_SESSION['alert_message'];
+        unset($_SESSION['alert_message']);
+        ?>
+    </div>
 <?php } ?>
 
     <style>
@@ -32,7 +33,11 @@
             <?php if (Auth::isLogged()) { ?>
                 <li class="nav-item d-lg-none d-block py-2">
                     <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
-                        <i class="fa-solid fa-cart-shopping fs-4 text-white"></i>
+                        <?php if (isset($_SESSION['cart'])) { ?>
+                            <img src="<?= BASE_URL ?>public/assets/cart/full_cart_white.svg" alt="Full cart icon" width="32">
+                        <?php } else { ?>
+                            <img src="<?= BASE_URL ?>public/assets/cart/cart_white.svg" alt="Cart icon" width="26">
+                        <?php } ?>
                     </a>
                 </li>
             <?php } ?>
@@ -87,7 +92,11 @@
                             </li>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/index.php">
-                                    <i class="fa-solid fa-cart-shopping fs-4 text-white"></i>
+                                    <?php if (isset($_SESSION['cart'])) { ?>
+                                        <img src="<?= BASE_URL ?>public/assets/cart/full_cart_white.svg" alt="Full cart icon" width="32">
+                                    <?php } else { ?>
+                                        <img src="<?= BASE_URL ?>public/assets/cart/cart_white.svg" alt="Cart icon" width="26">
+                                    <?php } ?>
                                 </a>
                             </li>
                         <?php } ?>

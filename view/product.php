@@ -1,23 +1,22 @@
 <?php
-    include 'components/head.php';
+include 'components/head.php';
 
-    use App\Models\Auth;
-    use App\Models\Product;
-    use App\Support\Session;
+use App\Models\Auth;
+use App\Models\Product;
+use App\Support\Session;
 
 
-    $product = new Product();
-    $permalink = $product->permalink($_GET['product_id']);
+$product = new Product();
+$permalink = $product->permalink($_GET['product_id']);
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        new Session();
-        if (!Auth::isLogged()) {
-            header('Location: '.BASE_URL.'view/auth/login.php');
-            exit();
-        }
-        header('Location: '.BASE_URL.'view/cart.php');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    new Session();
+    if (!Auth::isLogged()) {
+        header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }
+
+}
 ?>
 
 <body>

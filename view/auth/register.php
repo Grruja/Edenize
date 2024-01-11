@@ -1,18 +1,18 @@
 <?php
-    include '../components/head.php';
-    use App\Models\Auth;
+include '../components/head.php';
+use App\Models\Auth;
 
-    if (Auth::isLogged()) {
-        header('Location: '.BASE_URL.'view/index.php');
-        exit();
-    }
+if (Auth::isLogged()) {
+    header('Location: '.BASE_URL.'view/index.php');
+    exit();
+}
 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $user = new Auth();
-        $user->create($_POST);
-        $errors = $user->getValidationErrors();
-    }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = new Auth();
+    $user->create($_POST);
+    $errors = $user->getValidationErrors();
+}
 ?>
 
 <body>

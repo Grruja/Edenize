@@ -1,10 +1,10 @@
 <?php
-    include 'components/head.php';
-    use App\Models\Product;
+include 'components/head.php';
+use App\Models\Product;
 
 
-    $product = new Product();
-    $products = $product->fetchFour();
+$product = new Product();
+$products = $product->fetchFour();
 ?>
 
 <body>
