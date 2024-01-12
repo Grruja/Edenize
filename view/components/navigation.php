@@ -5,7 +5,7 @@ use App\Models\Auth;
 use App\Support\Session;
 
 
-new Session();
+Session::start();
 
 if (isset($_SESSION['alert_message'])) { ?>
     <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
@@ -24,7 +24,7 @@ if (isset($_SESSION['alert_message'])) { ?>
             <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fs-2 text-success"></i>
             </button>
-            <?php if (Auth::isLogged()) { ?>
+            <?php if (Auth::check()) { ?>
                 <li class="nav-item d-lg-none d-block py-2">
                     <a class="nav-link" href="<?= BASE_URL ?>view/cart.php">
                         <?php if (isset($_SESSION['cart'])) { ?>
@@ -35,7 +35,7 @@ if (isset($_SESSION['alert_message'])) { ?>
                     </a>
                 </li>
             <?php } ?>
-            <?php if (!Auth::isLogged()) { ?>
+            <?php if (!Auth::check()) { ?>
                 <div class="navbar-nav d-lg-none d-flex flex-row gap-2">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
@@ -63,7 +63,7 @@ if (isset($_SESSION['alert_message'])) { ?>
                         </li>
                     </div>
                     <div class="d-flex flex-lg-row flex-column align-items-lg-center">
-                        <?php if (!Auth::isLogged()) { ?>
+                        <?php if (!Auth::check()) { ?>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/auth/login.php">
                                     <span class="btn btn-outline-success">Login</span>
@@ -75,7 +75,7 @@ if (isset($_SESSION['alert_message'])) { ?>
                                 </a>
                             </li>
                         <?php } ?>
-                        <?php if (Auth::isLogged()) { ?>
+                        <?php if (Auth::check()) { ?>
                             <li class="nav-item me-4">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/auth/logout.php">
                                     <span>

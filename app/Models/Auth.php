@@ -13,13 +13,11 @@ use Database\Database;
 class Auth
 {
     protected $database;
-    private $session;
     private $validationErrors = [];
 
     public function __construct()
     {
         $this->database = new Database();
-        $this->session = new Session();
     }
 
     public function create($formData)
@@ -37,7 +35,7 @@ class Auth
             $result = $stmt->execute();
 
             if ($result) {
-                $this->session->userStart($stmt->insert_id);
+                Session::userStart($stmt->insert_id);
                 $_SESSION['alert_message'] = 'Your account is successfully created!';
             }
 
@@ -74,7 +72,7 @@ class Auth
             $user = $result->fetch_assoc();
 
             if (password_verify($password, $user['password'])) {
-                $this->session->userStart($user['id']);
+                Session::userStart($user['id']);
                 $_SESSION['alert_message'] = 'Welcome back!';
                 header('Location: '.BASE_URL.'view/index.php');
                 exit();
@@ -83,7 +81,7 @@ class Auth
         $this->validationErrors = ['login' => 'Incorrect username or password.'];
     }
 
-    public static function isLogged()
+    public static function check()
     {
         session_status() == PHP_SESSION_NONE ? session_start() : null;
         if (isset($_SESSION['user_id'])) {
@@ -94,7 +92,7 @@ class Auth
 
     public static function logout()
     {
-        Session::userDestroy();
+        Session::delete();
         header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }

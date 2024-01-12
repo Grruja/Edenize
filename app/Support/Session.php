@@ -6,20 +6,22 @@ namespace App\Support;
 
 class Session
 {
-    public function __construct()
+    public static function start()
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
 
-    public function userStart($userId)
+    public static function userStart($userId)
     {
+        self::start();
         $_SESSION['user_id'] = $userId;
     }
 
-    public static function userDestroy()
+    public static function delete()
     {
+        self::start();
         session_unset();
     }
 }

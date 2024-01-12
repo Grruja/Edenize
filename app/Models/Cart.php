@@ -23,7 +23,7 @@ class Cart extends Product
         $this->validateQuantity($dbProduct['quantity'], $quantity);
 
         if ($this->validationError == null) {
-            new Session();
+            Session::start();
             $_SESSION['cart'][] = [
                 'product_id' => $dbProduct['id'],
                 'quantity' => $quantity,

@@ -4,15 +4,13 @@ include 'components/head.php';
 use App\Models\Auth;
 use App\Models\Cart;
 use App\Models\Product;
-use App\Support\Session;
 
 
 $product = new Product();
 $permalink = $product->permalink($_GET['product_id']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    new Session();
-    if (!Auth::isLogged()) {
+    if (!Auth::check()) {
         header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }
@@ -47,4 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </main>
     <?php include 'components/footer.php'; ?>
+
+    <script>
+        window.history.replaceState({}, document.title, window.location.href);
+    </script>
 </body>

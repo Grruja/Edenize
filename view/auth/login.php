@@ -2,7 +2,7 @@
 include '../components/head.php';
 use App\Models\Auth;
 
-if (Auth::isLogged()) {
+if (Auth::check()) {
     header('Location: '.BASE_URL.'view/index.php');
     exit();
 }
