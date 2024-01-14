@@ -5,7 +5,7 @@ use App\Models\Product;
 
 
 $product = new Product();
-$products = $product->fetchFour();
+$products = $product->getFour();
 ?>
 
 <body>

@@ -7,7 +7,6 @@ if (Auth::check()) {
     exit();
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new Auth();
     $user->create($_POST);

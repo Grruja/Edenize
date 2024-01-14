@@ -9,5 +9,4 @@ if (!Auth::check()) {
     exit();
 }
 
-
 Auth::logout();

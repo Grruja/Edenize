@@ -83,7 +83,7 @@ class Auth
 
     public static function check()
     {
-        session_status() == PHP_SESSION_NONE ? session_start() : null;
+        Session::start();
         if (isset($_SESSION['user_id'])) {
             return true;
         }

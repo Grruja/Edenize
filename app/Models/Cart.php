@@ -31,6 +31,34 @@ class Cart extends Product
         }
     }
 
+    public function get()
+    {
+        $cart = [];
+        $total = 0;
+        $dbConnection = $this->database->getConnection();
+
+        foreach ($_SESSION['cart'] as $item) {
+            $result = $dbConnection->query("SELECT * FROM products WHERE id = ".$item['product_id']);
+            $product = $result->fetch_assoc();
+
+            if ($product) {
+                $cart[] = [
+                    'name' => $product['name'],
+                    'product_price' => $product['price'],
+                    'quantity' => $item['quantity'],
+                    'price' => $product['price'] * $item['quantity'],
+                ];
+                $total += $product['price'] * $item['quantity'];
+            }
+        }
+        $this->database->closeConnection();
+
+        return [
+            'cart' => $cart,
+            'total' => $total,
+        ];
+    }
+
     private function validateQuantity($quantityLeft, $quantity)
     {
         if (empty($quantity) || !is_numeric($quantity)) {

@@ -17,7 +17,7 @@ class Product
         $this->database = new Database();
     }
 
-    public function fetchFour()
+    public function getFour()
     {
         $dbConnection = $this->database->getConnection();
         $result = $dbConnection->query("SELECT * FROM products ORDER BY created_at LIMIT 4");
