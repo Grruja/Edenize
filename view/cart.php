@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 Session::start();
 if (isset($_SESSION['cart'])) {
     $cart = new Cart();
-    $products = $cart->get();
+    $items = $cart->get();
 }
 ?>
 
@@ -30,12 +30,14 @@ if (isset($_SESSION['cart'])) {
             <div class="w-100">
                 <h2 class="fw-bold mb-4">Cart</h2>
                 <?php if (isset($_SESSION['cart'])) { ?>
-                    <?php foreach ($products['cart'] as $product) { ?>
-                        <div class="bg-light shadow rounded-2 mb-3 p-3">
-                            <p class="fs-5"><?= $product['name'] ?></p>
-                            <p class="fs-5">$<?= $product['price'] ?></p>
-                            <p class="text-secondary mt-2">Quantity: <?= $product['quantity'] ?></p>
-                        </div>
+                    <?php foreach ($items['cart'] as $item) { ?>
+                        <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
+                            <div class="bg-light shadow rounded-2 mb-3 p-3">
+                                <p class="fs-5"><?= $item['name'] ?></p>
+                                <p class="fs-5">$<?= $item['price'] ?></p>
+                                <p class="text-secondary mt-2">Quantity: <?= $item['quantity'] ?></p>
+                            </div>
+                        </a>
                     <?php } ?>
                 <?php } else { ?>
                     <p class="fs-5">There are no items in your cart.</p>
@@ -47,7 +49,7 @@ if (isset($_SESSION['cart'])) {
                 <div class="border-bottom fw-bold">
                     <div class="d-flex justify-content-between">
                         <p>Subtotal</p>
-                        <p><?= isset($products['total']) ? '$' . $products['total'] : '--' ?></p>
+                        <p><?= isset($items['total']) ? '$' . $items['total'] : '--' ?></p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p>Estimated Shipping & Handling</p>
@@ -62,7 +64,7 @@ if (isset($_SESSION['cart'])) {
                 <div class="border-bottom fw-bold">
                     <div class="d-flex justify-content-between my-4">
                         <p>Total</p>
-                        <p><?= isset($products['total']) ? '$' . $products['total'] : '--' ?></p>
+                        <p><?= isset($items['total']) ? '$' . $items['total'] : '--' ?></p>
                     </div>
                 </div>
 

@@ -24,11 +24,29 @@ class Cart extends Product
 
         if ($this->validationError == null) {
             Session::start();
-            $_SESSION['cart'][] = [
-                'product_id' => $dbProduct['id'],
-                'quantity' => $quantity,
-            ];
+            $cartUpdated = $this->updateCart($dbProduct['id'], $quantity);
+
+            if (!$cartUpdated) {
+                $_SESSION['cart'][] = [
+                    'product_id' => $dbProduct['id'],
+                    'quantity' => $quantity,
+                ];
+            }
+            $_SESSION['alert_message'] = 'Product added to cart.';
         }
+    }
+
+    private function updateCart($productId, $quantity)
+    {
+        if (isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as &$item) {
+                if ($item['product_id'] == $productId) {
+                    $item['quantity'] += $quantity;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public function get()
@@ -43,6 +61,7 @@ class Cart extends Product
 
             if ($product) {
                 $cart[] = [
+                    'id' => $product['id'],
                     'name' => $product['name'],
                     'product_price' => $product['price'],
                     'quantity' => $item['quantity'],
