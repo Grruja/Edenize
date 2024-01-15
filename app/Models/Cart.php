@@ -10,7 +10,7 @@ use App\Support\Session;
 
 class Cart extends Product
 {
-    private $validationError;
+    private $quantityErrors;
 
     public function add($productId, $quantity)
     {
@@ -20,14 +20,14 @@ class Cart extends Product
         }
 
         $dbProduct = $this->getProductById($productId);
-        $this->validateQuantity($dbProduct['quantity'], $quantity);
+        $this->validateQuantity($dbProduct['id'], $dbProduct['quantity'], $quantity);
 
-        if ($this->validationError == null) {
+        if (!isset($this->quantityErrors[$dbProduct['id']])) {
             Session::start();
             $cartUpdated = $this->updateCart($dbProduct['id'], $quantity);
 
             if (!$cartUpdated) {
-                $_SESSION['cart'][] = [
+                $_SESSION['cart']['items'][] = [
                     'product_id' => $dbProduct['id'],
                     'quantity' => $quantity,
                 ];
@@ -36,26 +36,14 @@ class Cart extends Product
         }
     }
 
-    private function updateCart($productId, $quantity)
-    {
-        if (isset($_SESSION['cart'])) {
-            foreach ($_SESSION['cart'] as &$item) {
-                if ($item['product_id'] == $productId) {
-                    $item['quantity'] += $quantity;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public function get()
     {
         $cart = [];
         $total = 0;
         $dbConnection = $this->database->getConnection();
 
-        foreach ($_SESSION['cart'] as $item) {
+        Session::start();
+        foreach ($_SESSION['cart']['items'] as $item) {
             $result = $dbConnection->query("SELECT * FROM products WHERE id = ".$item['product_id']);
             $product = $result->fetch_assoc();
 
@@ -72,25 +60,36 @@ class Cart extends Product
         }
         $this->database->closeConnection();
 
-        return [
-            'cart' => $cart,
-            'total' => $total,
-        ];
+        $_SESSION['cart']['total'] = $total;
+        return $cart;
     }
 
-    private function validateQuantity($quantityLeft, $quantity)
+    public function getQuantityErrors()
+    {
+        return $this->quantityErrors;
+    }
+
+    protected function validateQuantity($productId, $quantityLeft, $quantity)
     {
         if (empty($quantity) || !is_numeric($quantity)) {
-            $this->validationError = 'Quantity is required';
+            $this->quantityErrors[$productId] = 'Quantity is required';
         } else if ($quantity <= 0) {
-            $this->validationError = 'Quantity must be greater than zero.';
+            $this->quantityErrors[$productId] = 'Quantity must be greater than zero.';
         } else if ($quantityLeft < $quantity) {
-            $this->validationError = 'Insufficient stock. Available quantity: ' . $quantityLeft;
+            $this->quantityErrors[$productId] = 'Insufficient stock. Available quantity: ' . $quantityLeft;
         }
     }
 
-    public function getValidationError()
+    private function updateCart($productId, $quantity)
     {
-        return $this->validationError;
+        if (isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart']['items'] as &$item) {
+                if ($item['product_id'] == $productId) {
+                    $item['quantity'] += $quantity;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

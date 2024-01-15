@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $cart = new Cart();
     $cart->add($permalink['id'], $_POST['quantity'] ?? null);
-    $error = $cart->getValidationError();
+    $error = $cart->getQuantityErrors();
 }
 ?>
 
@@ -37,16 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="number" name="quantity" value="1" required class="form-control" id="quantity">
                     </div>
                 </div>
-                <?php if (isset($error)) { ?>
-                    <p class="text-danger"><?= $error ?></p>
+                <?php if (isset($error[$permalink['id']])) { ?>
+                    <p class="text-danger"><?= $error[$permalink['id']] ?></p>
                 <?php } ?>
                 <button class="btn btn-success mt-3">Add to Cart</button>
             </form>
         </div>
     </main>
     <?php include 'components/footer.php'; ?>
-
-    <script>
-        window.history.replaceState({}, document.title, window.location.href);
-    </script>
 </body>

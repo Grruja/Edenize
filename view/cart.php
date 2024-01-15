@@ -26,11 +26,11 @@ if (isset($_SESSION['cart'])) {
 <body>
     <?php include 'components/navigation.php'; ?>
     <main class="container">
-        <div class="d-flex gap-5">
+        <div class="d-flex flex-md-row flex-column gap-5">
             <div class="w-100">
                 <h2 class="fw-bold mb-4">Cart</h2>
                 <?php if (isset($_SESSION['cart'])) { ?>
-                    <?php foreach ($items['cart'] as $item) { ?>
+                    <?php foreach ($items as $item) { ?>
                         <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light shadow rounded-2 mb-3 p-3">
                                 <p class="fs-5"><?= $item['name'] ?></p>
@@ -49,7 +49,7 @@ if (isset($_SESSION['cart'])) {
                 <div class="border-bottom fw-bold">
                     <div class="d-flex justify-content-between">
                         <p>Subtotal</p>
-                        <p><?= isset($items['total']) ? '$' . $items['total'] : '--' ?></p>
+                        <p><?= isset($_SESSION['cart']['total']) ? '$' . $_SESSION['cart']['total'] : '--' ?></p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p>Estimated Shipping & Handling</p>
@@ -64,11 +64,15 @@ if (isset($_SESSION['cart'])) {
                 <div class="border-bottom fw-bold">
                     <div class="d-flex justify-content-between my-4">
                         <p>Total</p>
-                        <p><?= isset($items['total']) ? '$' . $items['total'] : '--' ?></p>
+                        <p><?= isset($_SESSION['cart']['total']) ? '$' . $_SESSION['cart']['total'] : '--' ?></p>
                     </div>
                 </div>
 
-                <button class="btn btn-success w-100 mt-4 py-2">Checkout</button>
+                <?php if (isset($_SESSION['cart'])) { ?>
+                    <a href="<?= BASE_URL ?>view/checkout.php" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
+                <?php } else { ?>
+                    <button class="btn btn-success w-100 mt-4 py-2" disabled>Checkout</button>
+                <?php } ?>
                 <a href="<?= BASE_URL ?>view/index.php" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
             </div>
         </div>

@@ -44,10 +44,13 @@ class AuthValidation extends Auth
 
         } else if ($fieldInfo['unique']) {
             $database = $this->database->getConnection();
+            $stmt = $database->prepare("SELECT * FROM users WHERE $fieldName = ?");
+            $stmt->bind_param('s', $inputValue);
+            $stmt->execute();
 
-            $fieldColumn = $database->query("SELECT * FROM users WHERE $fieldName = '$inputValue'");
+            $result = $stmt->get_result();
 
-            if ($fieldColumn->num_rows > 0) {
+            if ($result->num_rows > 0) {
                 $errors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
             }
         }
