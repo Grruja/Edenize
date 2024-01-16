@@ -62,6 +62,27 @@ class Cart extends Product
         return $cart;
     }
 
+    public function remove($productId)
+    {
+        if (!isset($productId) || empty($productId)) {
+            header('Location: '.BASE_URL.'view/cart.php');
+            exit();
+        }
+
+        Session::start();
+        foreach ($_SESSION['cart']['items'] as $index => $item) {
+            if ($item['product_id'] == $productId) {
+                unset($_SESSION['cart']['items'][$index]);
+            }
+        }
+
+        if (count($_SESSION['cart']['items']) < 1) {
+            unset($_SESSION['cart']);
+        }
+        header('Location: '.BASE_URL.'view/cart.php');
+        exit();
+    }
+
     protected function validateQuantity($quantityLeft, $quantity)
     {
         Session::start();

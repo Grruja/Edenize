@@ -10,15 +10,14 @@ if (!Auth::check()) {
     exit();
 }
 
-// Add to cart request from index.php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    var_dump('a');
-}
-
 Session::start();
 if (isset($_SESSION['cart'])) {
     $cart = new Cart();
     $items = $cart->get();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $cart->remove($_POST['product_id'] ?? null);
+    }
 }
 ?>
 
@@ -32,6 +31,7 @@ if (isset($_SESSION['cart'])) {
                     <?php foreach ($items as $item) { ?>
                         <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100 position-relative">
                             <form method="POST" action="" style="position: absolute; right: 0">
+                                <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                                 <button class="bg-transparent"><i class="fa-regular fa-circle-xmark text-danger p-2"></i></button>
                             </form>
                             <div class="bg-light shadow rounded-2 mb-3 p-3">
