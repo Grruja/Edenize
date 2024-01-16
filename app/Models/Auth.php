@@ -36,7 +36,7 @@ class Auth
 
             if ($result) {
                 Session::userStart($stmt->insert_id);
-                $_SESSION['alert_message'] = 'Your account is successfully created!';
+                $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
             }
 
             $this->database->closeConnection();
@@ -73,7 +73,7 @@ class Auth
 
             if (password_verify($password, $user['password'])) {
                 Session::userStart($user['id']);
-                $_SESSION['alert_message'] = 'Welcome back!';
+                $_SESSION['alert_message']['success'] = 'Welcome back!';
                 header('Location: '.BASE_URL.'view/index.php');
                 exit();
             }

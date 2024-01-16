@@ -10,8 +10,6 @@ use App\Support\Session;
 
 class Cart extends Product
 {
-    private $quantityErrors;
-
     public function add($productId, $quantity)
     {
         if (!isset($productId) || empty($productId)) {
@@ -20,9 +18,9 @@ class Cart extends Product
         }
 
         $dbProduct = $this->getProductById($productId);
-        $this->validateQuantity($dbProduct['id'], $dbProduct['quantity'], $quantity);
+        $quantityValidation = $this->validateQuantity($dbProduct['quantity'], $quantity);
 
-        if (!isset($this->quantityErrors[$dbProduct['id']])) {
+        if ($quantityValidation) {
             Session::start();
             $cartUpdated = $this->updateCart($dbProduct['id'], $quantity);
 
@@ -32,7 +30,7 @@ class Cart extends Product
                     'quantity' => $quantity,
                 ];
             }
-            $_SESSION['alert_message'] = 'Product added to cart.';
+            $_SESSION['alert_message']['success'] = 'Product added to cart.';
         }
     }
 
@@ -64,20 +62,22 @@ class Cart extends Product
         return $cart;
     }
 
-    public function getQuantityErrors()
+    protected function validateQuantity($quantityLeft, $quantity)
     {
-        return $this->quantityErrors;
-    }
-
-    protected function validateQuantity($productId, $quantityLeft, $quantity)
-    {
+        Session::start();
         if (empty($quantity) || !is_numeric($quantity)) {
-            $this->quantityErrors[$productId] = 'Quantity is required';
+            $_SESSION['alert_message']['danger'] = 'Quantity is required';
+            return false;
+
         } else if ($quantity <= 0) {
-            $this->quantityErrors[$productId] = 'Quantity must be greater than zero.';
+            $_SESSION['alert_message']['danger'] = 'Quantity must be greater than zero.';
+            return false;
+
         } else if ($quantityLeft < $quantity) {
-            $this->quantityErrors[$productId] = 'Insufficient stock. Available quantity: ' . $quantityLeft;
+            $_SESSION['alert_message']['danger'] = 'Insufficient stock. Available quantity: ' . $quantityLeft;
+            return false;
         }
+        return true;
     }
 
     private function updateCart($productId, $quantity)

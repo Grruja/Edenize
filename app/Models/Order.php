@@ -43,7 +43,7 @@ class Order
 
                 if ($order) {
                     $this->insertItems($order->insert_id);
-                    $_SESSION['alert_message'] = 'Order is successfully placed!';
+                    $_SESSION['alert_message']['success'] = 'Order is successfully placed!';
                 }
             }
             header('Location:'.BASE_URL.'view/cart.php');

@@ -7,11 +7,18 @@ use App\Support\Session;
 
 Session::start();
 
-if (isset($_SESSION['alert_message'])) { ?>
+if (isset($_SESSION['alert_message']['success'])) { ?>
     <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
         <?php
-        echo $_SESSION['alert_message'];
-        unset($_SESSION['alert_message']);
+        echo $_SESSION['alert_message']['success'];
+        unset($_SESSION['alert_message']['success']);
+        ?>
+    </div>
+<?php } else if (isset($_SESSION['alert_message']['danger'])) { ?>
+    <div id="alert" class="alert alert-danger position-fixed text-center start-50 translate-middle-x mt-3" style="z-index: 2" role="alert">
+        <?php
+        echo $_SESSION['alert_message']['danger'];
+        unset($_SESSION['alert_message']['danger']);
         ?>
     </div>
 <?php } ?>
@@ -83,12 +90,12 @@ if (isset($_SESSION['alert_message'])) { ?>
                         <?php } ?>
                         <?php if (Auth::check()) { ?>
                             <li class="nav-item me-4">
-                                <a class="nav-link" href="<?= BASE_URL ?>view/auth/logout.php">
-                                    <span>
+                                <form method="POST" action="<?= BASE_URL ?>view/auth/logout.php" class="nav-link">
+                                    <button class="bg-transparent text-white">
                                     <i class="fa-solid fa-arrow-right-from-bracket text-white me-1"></i>
                                         Logout
-                                    </span>
-                                </a>
+                                    </button>
+                                </form>
                             </li>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= BASE_URL ?>view/cart.php">
