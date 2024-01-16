@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $order = new Order();
     $order->make($_POST);
     $quantityErrors = $order->getQuantityErrors();
+    $formErrors = $order->getFormErrors();
 }
 ?>
 
@@ -46,24 +47,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="country" class="form-label">Country</label>
                             <input type="text" name="country" required class="form-control" id="country"
                                    value="<?= $_POST['country'] ?? null ?>">
-                            <?php if (isset($errors['country'])) { ?>
-                                <p class="text-danger"><?= $errors['country'] ?></p>
+                            <?php if (isset($formErrors['country'])) { ?>
+                                <p class="text-danger"><?= $formErrors['country'] ?></p>
                             <?php } ?>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" name="address" required class="form-control" id="address"
                                    value="<?= $_POST['address'] ?? null ?>">
-                            <?php if (isset($errors['address'])) { ?>
-                                <p class="text-danger"><?= $errors['address'] ?></p>
+                            <?php if (isset($formErrors['address'])) { ?>
+                                <p class="text-danger"><?= $formErrors['address'] ?></p>
                             <?php } ?>
                         </div>
                         <div class="mb-3">
                             <label for="city" class="form-label">City</label>
                             <input type="text" name="city" required class="form-control" id="city"
                                    value="<?= $_POST['city'] ?? null ?>">
-                            <?php if (isset($errors['city'])) { ?>
-                                <p class="text-danger"><?= $errors['city'] ?></p>
+                            <?php if (isset($formErrors['city'])) { ?>
+                                <p class="text-danger"><?= $formErrors['city'] ?></p>
                             <?php } ?>
                         </div>
                         <div class="row">
@@ -71,16 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <label for="state" class="form-label">State</label>
                                 <input type="text" name="state" required class="form-control" id="state"
                                        value="<?= $_POST['state'] ?? null ?>">
-                                <?php if (isset($errors['state'])) { ?>
-                                    <p class="text-danger"><?= $errors['state'] ?></p>
+                                <?php if (isset($formErrors['state'])) { ?>
+                                    <p class="text-danger"><?= $formErrors['state'] ?></p>
                                 <?php } ?>
                             </div>
                             <div class="mb-3 col-lg-4 col-sm-5">
                                 <label for="zip" class="form-label">Zip</label>
                                 <input type="text" name="zip" required class="form-control" id="zip"
                                        value="<?= $_POST['zip'] ?? null ?>">
-                                <?php if (isset($errors['zip'])) { ?>
-                                    <p class="text-danger"><?= $errors['zip'] ?></p>
+                                <?php if (isset($formErrors['zip'])) { ?>
+                                    <p class="text-danger"><?= $formErrors['zip'] ?></p>
                                 <?php } ?>
                             </div>
                         </div>

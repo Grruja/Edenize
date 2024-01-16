@@ -12,8 +12,9 @@ use Database\Database;
 
 class Order
 {
+    protected $database;
     private $quantityErrors;
-    private $database;
+    private $formErrors;
 
     public function __construct()
     {
@@ -23,33 +24,42 @@ class Order
     public function make($formData)
     {
         $validation = new OrderValidation();
-        //validate form
+        $formValidation = $validation->validateForm($formData);
+        $formValidation ? $this->formErrors = $formValidation : null;
 
-        Session::start();
-        foreach ($_SESSION['cart']['items'] as $item) {
-            $result = $this->database->getConnection()->query("SELECT * FROM products WHERE id = ".$item['product_id']);
-            $product = $result->fetch_assoc();
+        if (!isset($this->formErrors)) {
+            Session::start();
+            foreach ($_SESSION['cart']['items'] as $item) {
+                $result = $this->database->getConnection()->query("SELECT * FROM products WHERE id = ".$item['product_id']);
+                $product = $result->fetch_assoc();
 
-            $error = $validation->checkQuantity($product, $item['quantity']);
-            $error ? $this->quantityErrors[] = $error : null;
-        }
-
-        if (!isset($this->quantityErrors)) {
-            $order = $this->insertOrder($formData);
-            $order->execute();
-
-            if ($order) {
-                $this->insertItems($order->insert_id);
-                $_SESSION['alert_message'] = 'Order is successfully placed!';
+                $quantityValidation = $validation->validateQuantity($product, $item['quantity']);
+                $quantityValidation ? $this->quantityErrors[] = $quantityValidation : null;
             }
-        }
 
+            if (!isset($this->quantityErrors)) {
+                $order = $this->insertOrder($formData);
+                $order->execute();
+
+                if ($order) {
+                    $this->insertItems($order->insert_id);
+                    $_SESSION['alert_message'] = 'Order is successfully placed!';
+                }
+            }
+            header('Location:'.BASE_URL.'view/cart.php');
+            exit();
+        }
         $this->database->closeConnection();
     }
 
     public function getQuantityErrors()
     {
         return $this->quantityErrors;
+    }
+
+    public function getFormErrors()
+    {
+        return $this->formErrors;
     }
 
     private function insertOrder($formData)

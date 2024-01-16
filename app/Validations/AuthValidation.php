@@ -13,7 +13,6 @@ class AuthValidation extends Auth
     protected function validateCreateUser($formData)
     {
         $errors = [];
-
         $validationRules = require self::VALIDATION_RULES;
 
         foreach ($validationRules as $fieldName => $fieldInfo) {

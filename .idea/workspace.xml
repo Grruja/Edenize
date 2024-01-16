@@ -23,8 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/validation_rules/shippingDetails.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Validations/AuthValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Validations/AuthValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Validations/OrderValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Validations/OrderValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/checkout.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +102,8 @@
       <workItem from="1705173038829" duration="7719000" />
       <workItem from="1705190112881" duration="8280000" />
       <workItem from="1705255366340" duration="15148000" />
-      <workItem from="1705328950964" duration="19940000" />
+      <workItem from="1705328950964" duration="24733000" />
+      <workItem from="1705428269373" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -324,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705361117495</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Reduce product quantity after order">
+      <created>1705363027247</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705363027247</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +355,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Display old values if validation fails &amp; added user session" />
     <MESSAGE value="Made HTML components" />
     <MESSAGE value="Added alert message" />
     <MESSAGE value="Session start fix" />
@@ -368,7 +379,8 @@
     <MESSAGE value="Display cart items added" />
     <MESSAGE value="Added update cart method and alert message on added item" />
     <MESSAGE value="Checkout functionality added &amp; code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkout functionality added &amp; code refactoring" />
+    <MESSAGE value="Reduce product quantity after order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reduce product quantity after order" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -395,25 +407,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705361118948">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705363028654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705361118948" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705363028654" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1704476296252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704476296252" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705349993596">
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705366795007">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705349993596" />
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705366795007" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1704311512941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705362553596">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705428507036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705362553596" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705428507036" />
   </component>
 </project>
