@@ -85,8 +85,8 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
                         <?php if (Auth::check()) { ?>
                             <li class="nav-item me-4">
                                 <form method="POST" action="<?= BASE_URL ?>view/auth/logout.php" class="nav-link">
-                                    <button class="bg-transparent text-secondary">
-                                    <i class="fa-solid fa-arrow-right-from-bracket text-secondary me-1"></i>
+                                    <button class="bg-transparent nav-link">
+                                    <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
                                         Logout
                                     </button>
                                 </form>
@@ -106,19 +106,4 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
             </div>
         </div>
     </nav>
-
-    <script>
-        const alert = document.getElementById('alert');
-
-        if (alert) {
-            displayAlert();
-        }
-
-        function displayAlert() {
-            setTimeout(() => {
-                alert.remove();
-            }, 5000);
-        }
-    </script>
-
 </header>

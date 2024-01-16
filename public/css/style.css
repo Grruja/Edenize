@@ -74,10 +74,6 @@ p {
     .custom-col-xs-quantity {
         max-width: 15%;
     }
-
-    #cardContainer {
-        padding: 0.8rem !important;
-    }
 }
 
 @media only screen and (max-width: 390px) {
@@ -87,16 +83,6 @@ p {
     }
     #homeTextParent {
         margin-top: 10rem !important;
-    }
-
-    #cardPriceContainer {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #productCard {
-        width: fit-content;
-        margin-left: auto;
     }
 
     .custom-col-xs-quantity {
@@ -109,17 +95,9 @@ p {
         font-size: 17px !important;
     }
 
-    #cardContainer {
-        padding: 2rem !important;
-    }
-
     .custom-col-xs-2 {
         flex: 0 0 100%;
         max-width: 100%;
-    }
-
-    #cardPriceContainer {
-        flex-direction: row;
     }
 }
 

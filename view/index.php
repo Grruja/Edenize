@@ -34,21 +34,11 @@ $products = $product->getFour();
             <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 g-4">
                 <?php foreach ($products as $item) { ?>
                     <div class="col custom-col-xs-2">
-                        <a id="productCard" href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
-                            <div id="cardContainer" class="bg-light rounded-2 shadow p-4 h-100">
+                        <a href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
+                            <div class="bg-light rounded-2 shadow p-4 h-100">
                                 <h4 class="fw-bold fs-5"><?= $item['name'] ?></h4>
                                 <p><?= $item['quantity'] ?> left</p>
-                                <div id="cardPriceContainer" class="d-flex justify-content-between">
-                                    <p class="fs-5 fw-bold">$<?= $item['price'] ?></p>
-
-                                    <form method="POST" action="<?= BASE_URL ?>view/cart.php">
-                                        <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
-                                        <input type="hidden" name="quantity" value="1">
-                                        <button class="btn btn-success d-flex align-items-center">
-                                            <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                <p class="fw-bold text-success mt-3">$<?= $item['price'] ?></p>
                             </div>
                         </a>
                     </div>

@@ -4,9 +4,14 @@ require_once '../../vendor/autoload.php';
 require_once __DIR__.'/../../config/baseUrl.php';
 use App\Models\Auth;
 
-if (!Auth::check()) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!Auth::check()) {
+        header('Location: '.BASE_URL.'view/index.php');
+        exit();
+    }
+    Auth::logout();
+
+} else {
     header('Location: '.BASE_URL.'view/index.php');
     exit();
 }
-
-Auth::logout();

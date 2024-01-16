@@ -112,19 +112,4 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
             </div>
         </div>
     </nav>
-
-    <script>
-        const alert = document.getElementById('alert');
-
-        if (alert) {
-            displayAlert();
-        }
-
-        function displayAlert() {
-            setTimeout(() => {
-                alert.remove();
-            }, 5000);
-        }
-    </script>
-
 </header>
