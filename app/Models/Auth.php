@@ -6,18 +6,18 @@ namespace App\Models;
 
 require_once __DIR__.'/../../config/baseUrl.php';
 
+use App\Repositories\AuthRepo;
 use App\Support\Session;
 use App\Validations\AuthValidation;
-use Database\Database;
 
 class Auth
 {
-    protected $database;
+    protected $authRepo;
     private $validationErrors = [];
 
     public function __construct()
     {
-        $this->database = new Database();
+        $this->authRepo = new AuthRepo();
     }
 
     public function create($formData)
@@ -28,18 +28,13 @@ class Auth
         if ($errors == null) {
             $password = password_hash($formData['password'], PASSWORD_BCRYPT);
 
-            $dbConnection = $this->database->getConnection();
+            $result = $this->authRepo->create($formData, $password);
 
-            $stmt = $dbConnection->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param('ssss', $formData['full_name'], $formData['username'], $formData['email'], $password);
-            $result = $stmt->execute();
-
-            if ($result) {
-                Session::userStart($stmt->insert_id);
+            if ($result['execute']) {
+                Session::userStart($result['stmt']->insert_id);
                 $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
             }
 
-            $this->database->closeConnection();
             header('Location: '.BASE_URL.'view/index.php');
             exit();
 
@@ -59,14 +54,8 @@ class Auth
             header('Location: '.BASE_URL.'view/auth/login.php');
             exit();
         }
-        $dbConnection = $this->database->getConnection();
 
-        $stmt = $dbConnection->prepare("SELECT * FROM users WHERE username = ?");
-        $stmt->bind_param('s', $username);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-        $this->database->closeConnection();
+        $result = $this->authRepo->login($username);
 
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();

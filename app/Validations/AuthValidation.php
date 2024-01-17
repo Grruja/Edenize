@@ -4,13 +4,19 @@
 namespace App\Validations;
 
 
-use App\Models\Auth;
+use App\Repositories\AuthRepo;
 
-class AuthValidation extends Auth
+class AuthValidation
 {
+    private $authRepo;
     private const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
 
-    protected function validateCreateUser($formData)
+    public function __construct()
+    {
+        $this->authRepo = new AuthRepo();
+    }
+
+    public function validateCreateUser($formData)
     {
         $errors = [];
         $validationRules = require self::VALIDATION_RULES;
@@ -18,7 +24,6 @@ class AuthValidation extends Auth
         foreach ($validationRules as $fieldName => $fieldInfo) {
             $this->validateField($formData, $fieldName, $fieldInfo,$errors);
         }
-        $this->database->closeConnection();
 
         $this->validateEmail($formData['email'],$errors);
         $this->validatePassword($formData['password'], $formData['password_confirm'], $errors);
@@ -42,12 +47,7 @@ class AuthValidation extends Auth
             $errors[$fieldName] = $fieldInfo['label'].' needs to have maximum '.$fieldInfo['max_length'].' characters';
 
         } else if ($fieldInfo['unique']) {
-            $database = $this->database->getConnection();
-            $stmt = $database->prepare("SELECT * FROM users WHERE $fieldName = ?");
-            $stmt->bind_param('s', $inputValue);
-            $stmt->execute();
-
-            $result = $stmt->get_result();
+            $result = $this->authRepo->validateUniqueField($fieldName, $inputValue);
 
             if ($result->num_rows > 0) {
                 $errors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
