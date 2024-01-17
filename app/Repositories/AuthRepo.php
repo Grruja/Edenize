@@ -44,14 +44,4 @@ class AuthRepo extends Repository
         $this->database->closeConnection();
         return $result;
     }
-
-    public function isAdmin($userId)
-    {
-        $dbConnection = $this->database->getConnection();
-        $result = $dbConnection->query("SELECT * FROM users WHERE id = $userId ");
-        $user = $result->fetch_assoc();
-
-        $this->database->closeConnection();
-        return $user;
-    }
 }

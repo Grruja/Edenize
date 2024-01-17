@@ -9,6 +9,7 @@ require_once __DIR__.'/../../config/baseUrl.php';
 use App\Repositories\AuthRepo;
 use App\Support\Session;
 use App\Validations\AuthValidation;
+use Database\Database;
 
 class Auth
 {
@@ -79,12 +80,14 @@ class Auth
         return false;
     }
 
-    public function adminCheck()
+    public static function adminCheck()
     {
         if (self::check()) {
-            $user = $this->authRepo->isAdmin($_SESSION['user_id']);
+            $db = new Database();
+            $result = $db->getConnection()->query("SELECT * FROM users WHERE id = {$_SESSION['user_id']} AND is_admin = 1");
+            $db->closeConnection();
 
-            if ($user['is_admin'] == 1) return true;
+            if ($result->num_rows > 0) return true;
             return false;
         }
         return false;
