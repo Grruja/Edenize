@@ -15,7 +15,7 @@ $products = $product->getNewest();
             <div id="homeTextContainer" class="container d-flex align-items-center justify-content-center">
                 <div id="homeTextParent" class="text-center">
                     <h1 class="text-white col-lg-6 col-md-10 m-auto mb-4 fs-5">Elevate your space with our curated collection of vibrant plants, perfect for both beginners and plant enthusiasts. Transform your home with botanical beauty.</h1>
-                    <a href="<?= BASE_URL ?>view/index.php" class="btn btn-success px-4 shadow">Shop now</a>
+                    <a href="<?= BASE_URL ?>view/shop.php" class="btn btn-success px-4 shadow">Shop now</a>
                 </div>
             </div>
             <div id="homeInfoContainer" class="container d-sm-flex d-none justify-content-center gap-md-5 gap-4">

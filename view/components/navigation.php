@@ -63,10 +63,7 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
                             <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Products</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>view/shop.php">Shop</a>
                         </li>
                     </div>
                     <div class="d-flex flex-lg-row flex-column align-items-lg-center">

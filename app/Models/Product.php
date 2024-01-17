@@ -17,6 +17,21 @@ class Product
         $this->productRepo = new ProductRepo();
     }
 
+    public function all()
+    {
+        return $this->productRepo->getAll();
+    }
+
+    public function search($searchValue)
+    {
+        if (!isset($searchValue) || empty($searchValue)) {
+            header('Location:'. BASE_URL.'view/shop.php');
+            exit();
+        }
+
+        return $this->productRepo->searchByName($searchValue);
+    }
+
     public function getNewest()
     {
         return $this->productRepo->getFourNewest();
