@@ -13,7 +13,7 @@ if (!Auth::check()) {
 
 Session::start();
 if (!isset($_SESSION['cart'])) {
-    header('Location: '.BASE_URL.'view/index.php');
+    header('Location: '.BASE_URL.'view/404.php');
     exit();
 }
 

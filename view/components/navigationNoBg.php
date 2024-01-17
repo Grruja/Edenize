@@ -71,6 +71,11 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= BASE_URL ?>view/shop.php">Shop</a>
                         </li>
+                        <?php if (Auth::adminCheck()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= BASE_URL ?>view/admin/index.php">Admin Panel</a>
+                            </li>
+                        <?php } ?>
                     </div>
                     <div class="d-flex flex-lg-row flex-column align-items-lg-center">
                         <?php if (!Auth::check()) { ?>

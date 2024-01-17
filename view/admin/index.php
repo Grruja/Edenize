@@ -3,9 +3,8 @@ include '../components/head.php';
 
 use App\Models\Auth;
 
-$auth = new Auth();
-if (!$auth->adminCheck()) {
-    header('Location: '.BASE_URL.'view/index.php');
+if (!Auth::adminCheck()) {
+    header('Location: '.BASE_URL.'view/404.php');
     exit();
 }
 ?>

@@ -24,9 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/AuthRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/AuthRepo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigationNoBg.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigationNoBg.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
       <workItem from="1705255366340" duration="15148000" />
       <workItem from="1705328950964" duration="24733000" />
       <workItem from="1705428269373" duration="14303000" />
-      <workItem from="1705489869183" duration="22891000" />
+      <workItem from="1705489869183" duration="23307000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -398,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705515340269</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Admin check method updated">
+      <created>1705517152464</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1705517152464</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +424,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added permalink for product" />
     <MESSAGE value="Custom 404 page display on non existing page" />
     <MESSAGE value="404 page design added" />
     <MESSAGE value="Changed User to Auth &amp; moved auth view files to auth directory" />
@@ -442,7 +448,8 @@
     <MESSAGE value="Added product repository in cart class" />
     <MESSAGE value="Search method added" />
     <MESSAGE value="Auth page added &amp; secured" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth page added &amp; secured" />
+    <MESSAGE value="Admin check method updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin check method updated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -469,10 +476,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1704304136336" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705515342013">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705517209000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705515342013" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705517209000" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1704476296252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -485,9 +492,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705516787590">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705517489239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705516787590" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705517489239" />
   </component>
 </project>

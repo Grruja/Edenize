@@ -3,7 +3,7 @@ include '../components/head.php';
 use App\Models\Auth;
 
 if (Auth::check()) {
-    header('Location: '.BASE_URL.'view/index.php');
+    header('Location: '.BASE_URL.'view/404.php');
     exit();
 }
 
