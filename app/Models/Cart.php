@@ -6,10 +6,19 @@ namespace App\Models;
 
 require_once __DIR__.'/../../config/baseUrl.php';
 
+use App\Repositories\ProductRepo;
 use App\Support\Session;
+use Database\Database;
 
-class Cart extends Product
+class Cart
 {
+    private $productRepo;
+
+    public function __construct()
+    {
+        $this->productRepo = new ProductRepo();
+    }
+
     public function add($productId, $quantity)
     {
         if (!isset($productId) || empty($productId)) {
@@ -17,7 +26,7 @@ class Cart extends Product
             exit();
         }
 
-        $dbProduct = $this->getProductById($productId);
+        $dbProduct = $this->productRepo->getProductById($productId, 1);
         $quantityValidation = $this->validateQuantity($dbProduct['quantity'], $quantity);
 
         if ($quantityValidation) {
@@ -38,12 +47,10 @@ class Cart extends Product
     {
         $cart = [];
         $total = 0;
-        $dbConnection = $this->database->getConnection();
 
         Session::start();
         foreach ($_SESSION['cart']['items'] as $item) {
-            $result = $dbConnection->query("SELECT * FROM products WHERE id = ".$item['product_id']);
-            $product = $result->fetch_assoc();
+            $product = $this->productRepo->getProductById($item['product_id'], 0);
 
             if ($product) {
                 $cart[] = [
@@ -56,7 +63,8 @@ class Cart extends Product
                 $total += $product['price'] * $item['quantity'];
             }
         }
-        $this->database->closeConnection();
+        $db = new Database();
+        $db->closeConnection();
 
         $_SESSION['cart']['total'] = $total;
         return $cart;

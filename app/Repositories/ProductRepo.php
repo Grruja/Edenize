@@ -28,8 +28,16 @@ class ProductRepo extends Repository
         }
     }
 
-    public function decreaseQuantity($item)
+    public function getFourNewest()
     {
-        $this->database->getConnection()->query("UPDATE products SET quantity = quantity - {$item['quantity']} WHERE id = {$item['product_id']}");
+        $dbConnection = $this->database->getConnection();
+        $result = $dbConnection->query("SELECT * FROM products ORDER BY created_at DESC LIMIT 4");
+        $this->database->closeConnection();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function decreaseQuantity($product)
+    {
+        $this->database->getConnection()->query("UPDATE products SET quantity = quantity - {$product['quantity']} WHERE id = {$product['product_id']}");
     }
 }

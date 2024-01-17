@@ -5,7 +5,7 @@ use App\Models\Product;
 
 
 $product = new Product();
-$products = $product->getFour();
+$products = $product->getNewest();
 ?>
 
 <body>

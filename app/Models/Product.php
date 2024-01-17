@@ -6,23 +6,20 @@ namespace App\Models;
 
 require_once __DIR__.'/../../config/baseUrl.php';
 
-use Database\Database;
+use App\Repositories\ProductRepo;
 
 class Product
 {
-    protected $database;
+    protected $productRepo;
     
     public function __construct()
     {
-        $this->database = new Database();
+        $this->productRepo = new ProductRepo();
     }
 
-    public function getFour()
+    public function getNewest()
     {
-        $dbConnection = $this->database->getConnection();
-        $result = $dbConnection->query("SELECT * FROM products ORDER BY created_at LIMIT 4");
-        $this->database->closeConnection();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $this->productRepo->getFourNewest();
     }
 
     public function permalink($productId)
@@ -31,23 +28,6 @@ class Product
             header('Location: '.BASE_URL.'view/404.php');
             exit();
         }
-        return $this->getProductById($productId);
-    }
-
-    protected function getProductById($productId)
-    {
-        $dbConnection = $this->database->getConnection();
-        $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
-        $stmt->bind_param('i', $productId);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-        $this->database->closeConnection();
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_assoc();
-        }
-        header('Location: '.BASE_URL.'view/404.php');
-        exit();
+        return $this->productRepo->getProductById($productId, 1);
     }
 }
