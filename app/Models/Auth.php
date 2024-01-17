@@ -79,6 +79,17 @@ class Auth
         return false;
     }
 
+    public function adminCheck()
+    {
+        if (self::check()) {
+            $user = $this->authRepo->isAdmin($_SESSION['user_id']);
+
+            if ($user['is_admin'] == 1) return true;
+            return false;
+        }
+        return false;
+    }
+
     public static function logout()
     {
         Session::delete();
