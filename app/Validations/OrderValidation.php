@@ -4,13 +4,11 @@
 namespace App\Validations;
 
 
-use App\Models\Order;
-
-class OrderValidation extends Order
+class OrderValidation
 {
     private const VALIDATION_RULES = __DIR__ .'/../../config/validation_rules/shippingDetails.php';
 
-    protected function validateQuantity($product, $quantity)
+    public function validateQuantity($product, $quantity)
     {
         $error = [];
         if ($product['quantity'] == 0) {
@@ -25,7 +23,7 @@ class OrderValidation extends Order
         return $error;
     }
 
-    protected function validateForm($formData)
+    public function validateForm($formData)
     {
         $errors = [];
         $validationRules = require self::VALIDATION_RULES;
@@ -33,7 +31,6 @@ class OrderValidation extends Order
         foreach ($validationRules as $fieldName => $fieldInfo) {
             $this->validateField($formData, $fieldName, $fieldInfo,$errors);
         }
-        $this->database->closeConnection();
         return $errors;
     }
 
