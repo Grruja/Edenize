@@ -69,10 +69,7 @@ class Auth
     public static function check()
     {
         Session::start();
-        if (isset($_SESSION['user_id'])) {
-            return true;
-        }
-        return false;
+        return isset($_SESSION['user_id']);
     }
 
     public static function adminCheck()

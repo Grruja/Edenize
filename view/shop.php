@@ -35,7 +35,11 @@ if (!isset($_GET['search_value'])) {
                                 <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
                             </div>
                             <h4 class="fw-bold fs-5"><?= $item['name'] ?></h4>
-                            <p><?= $item['quantity'] ?> left</p>
+                            <?php if ($item['quantity'] == 0) : ?>
+                                <span class="border border-danger text-danger p-1 fs-bold" style="font-size: 10px">SOLD OUT</span>
+                            <?php else: ?>
+                                <p><?= $item['quantity'] ?> left</p>
+                            <?php endif; ?>
                             <p class="fw-bold text-success mt-3">$<?= $item['price'] ?></p>
                         </div>
                     </a>

@@ -26,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container">
             <h1><?= $permalink['name'] ?></h1>
             <p><?= $permalink['description'] ?></p>
-            <p>Left in stock: <?= $permalink['quantity'] ?></p>
+            <?php if ($permalink['quantity'] == 0) : ?>
+                <span class="border border-danger text-danger p-1 fs-bold" style="font-size: 10px">SOLD OUT</span>
+            <?php else: ?>
+                <p>Left in stock: <?= $permalink['quantity'] ?></p>
+            <?php endif; ?>
             <p class="fs-2 my-4">$<?= $permalink['price'] ?></p>
 
             <form method="POST" action="">
@@ -36,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="number" name="quantity" value="1" required class="form-control" id="quantity">
                     </div>
                 </div>
-                <button class="btn btn-success mt-3">Add to Cart</button>
+                <button class="btn btn-success mt-3" <?= $permalink['quantity'] == 0 ? 'disabled' : null ?>>Add to Cart</button>
             </form>
         </div>
     </main>
