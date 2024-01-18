@@ -51,24 +51,19 @@ class Auth
 
     public function login($username, $password)
     {
-        if (!isset($username) || !isset($password)) {
-            header('Location: '.BASE_URL.'view/auth/login.php');
-            exit();
-        }
+        Session::start();
 
-        $result = $this->authRepo->login($username);
-
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
+        if ($this->authRepo->userExists($username)) {
+            $user = $this->authRepo->getUser($username);
 
             if (password_verify($password, $user['password'])) {
                 Session::userStart($user['id']);
                 $_SESSION['alert_message']['success'] = 'Welcome back!';
-                header('Location: '.BASE_URL.'view/index.php');
-                exit();
+                return true;
             }
         }
-        $this->validationErrors = ['login' => 'Incorrect username or password.'];
+        $_SESSION['alert_message']['danger'] = 'Invalid username or password.';
+        return false;
     }
 
     public static function check()

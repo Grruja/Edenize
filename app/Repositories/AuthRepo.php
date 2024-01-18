@@ -32,7 +32,7 @@ class AuthRepo extends Repository
         return $stmt->get_result();
     }
 
-    public function login($username)
+    public function userExists($username)
     {
         $dbConnection = $this->database->getConnection();
 
@@ -41,7 +41,19 @@ class AuthRepo extends Repository
         $stmt->execute();
         $result = $stmt->get_result();
 
-        $this->database->closeConnection();
-        return $result;
+        if ($result->num_rows == 0) return false;
+        return true;
+    }
+
+    public function getUser($username)
+    {
+        $dbConnection = $this->database->getConnection();
+
+        $stmt = $dbConnection->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc();
     }
 }
