@@ -26,6 +26,10 @@ p {
     margin: 0;
 }
 
+#cartProductImage {
+    width: 100px;
+}
+
 
 /*================ HOME BG IMG ================*/
 #homeBgImg {
@@ -83,6 +87,10 @@ p {
     }
     #homeTextParent {
         margin-top: 10rem !important;
+    }
+
+    #cartProductImage {
+        height: 100%;
     }
 
     .custom-col-xs-quantity {

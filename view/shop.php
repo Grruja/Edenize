@@ -30,7 +30,10 @@ if (!isset($_GET['search_value'])) {
             <?php foreach ($products as $item) { ?>
                 <div class="col custom-col-xs-2">
                     <a href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
-                        <div class="bg-light rounded-2 shadow p-4 h-100">
+                        <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
+                            <div class="d-flex justify-content-center mb-4">
+                                <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
+                            </div>
                             <h4 class="fw-bold fs-5"><?= $item['name'] ?></h4>
                             <p><?= $item['quantity'] ?> left</p>
                             <p class="fw-bold text-success mt-3">$<?= $item['price'] ?></p>

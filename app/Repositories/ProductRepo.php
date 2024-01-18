@@ -6,6 +6,18 @@ namespace App\Repositories;
 
 class ProductRepo extends Repository
 {
+    public function create($formData, $imagePath)
+    {
+        $dbConnection = $this->database->getConnection();
+
+        $stmt = $dbConnection->prepare("INSERT INTO products (name, price, quantity, description, image) VALUES (?,?,?,?,?)");
+        $stmt->bind_param('sdiss', $formData['name'], $formData['price'], $formData['quantity'], $formData['description'], $imagePath);
+        $result = $stmt->execute();
+
+        $this->database->closeConnection();
+        return $result;
+    }
+
     public function getProductById($productId, $wayToFind)
     {
         $dbConnection = $this->database->getConnection();

@@ -29,15 +29,18 @@ if (isset($_SESSION['cart'])) {
                 <h2 class="fw-bold mb-4">Cart</h2>
                 <?php if (isset($_SESSION['cart'])) { ?>
                     <?php foreach ($items as $item) { ?>
-                        <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100 position-relative">
+                        <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
                             <form method="POST" action="" style="position: absolute; right: 0">
                                 <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                                 <button class="bg-transparent"><i class="fa-regular fa-circle-xmark text-danger p-2"></i></button>
                             </form>
-                            <div class="bg-light shadow rounded-2 mb-3 p-3">
-                                <p class="fs-5"><?= $item['name'] ?></p>
-                                <p class="fs-5">$<?= $item['price'] ?></p>
-                                <p class="text-secondary mt-2">Quantity: <?= $item['quantity'] ?></p>
+                            <div class="bg-light rounded-2 border mb-3 p-sm-3 p-2 d-flex">
+                                <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="rounded-2" id="cartProductImage">
+                                <div class="ms-4">
+                                    <p class="fs-5"><?= $item['name'] ?></p>
+                                    <p class="fs-5">$<?= $item['price'] ?></p>
+                                    <p class="text-secondary mt-2">Quantity: <?= $item['quantity'] ?></p>
+                                </div>
                             </div>
                         </a>
                     <?php } ?>

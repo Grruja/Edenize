@@ -58,6 +58,7 @@ class Cart
                     'name' => $product['name'],
                     'product_price' => $product['price'],
                     'quantity' => $item['quantity'],
+                    'image' => $product['image'],
                     'price' => $product['price'] * $item['quantity'],
                 ];
                 $total += $product['price'] * $item['quantity'];
