@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 <?php } ?>
                 <div class="shadow p-4 rounded-2">
-                    <h3 class="mb-5 fw-bold">Shipping Details</h3>
+                    <h2 class="mb-5 fw-bold">Shipping Details</h2>
                     <form method="POST" action="">
                         <div class="mb-3">
                             <label for="country" class="form-label">Country</label>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="w-100">
-                <h3 class="fw-bold mb-4">Cart Summary</h3>
+                <h2 class="fw-bold mb-4">Cart Summary</h2>
                 <div>
                     <?php foreach ($items as $item) { ?>
                         <div class="d-flex justify-content-between fw-bold mb-2">

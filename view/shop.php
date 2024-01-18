@@ -21,7 +21,7 @@ if (!isset($_GET['search_value'])) {
     <div class="border-bottom">
         <form method="GET" action="" class="d-flex mb-5" role="search">
             <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-success" type="submit">Search</button>
         </form>
     </div>
 
@@ -34,7 +34,7 @@ if (!isset($_GET['search_value'])) {
                             <div class="d-flex justify-content-center mb-4">
                                 <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
                             </div>
-                            <h4 class="fw-bold fs-5"><?= $item['name'] ?></h4>
+                            <p class="fw-bold fs-5"><?= $item['name'] ?></p>
                             <?php if ($item['quantity'] == 0) : ?>
                                 <span class="border border-danger text-danger p-1 fs-bold" style="font-size: 10px">SOLD OUT</span>
                             <?php else: ?>
