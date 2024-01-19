@@ -1,7 +1,6 @@
 <?php
 include 'components/head.php';
-
-use App\Models\Auth;
+use App\Support\Session;
 use App\Models\Cart;
 use App\Models\Product;
 
@@ -12,7 +11,7 @@ $permalink = $product->permalink($_GET['product_id']);
 $products = $product->getNewest();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!Auth::check()) {
+    if (!Session::isUserLogged()) {
         header('Location: '.BASE_URL.'view/auth/login.php');
         exit();
     }

@@ -23,15 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/free_shipping.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/friendly_service.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/plant_gardening.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inc/auth/logoutInc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Support/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Support/Session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/auth/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/navigationNoBg.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigationNoBg.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/product_images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -112,7 +117,9 @@
       <workItem from="1705428269373" duration="14303000" />
       <workItem from="1705489869183" duration="31925000" />
       <workItem from="1705535823720" duration="3786000" />
-      <workItem from="1705574157019" duration="17932000" />
+      <workItem from="1705574157019" duration="26023000" />
+      <workItem from="1705667841748" duration="41000" />
+      <workItem from="1705674912104" duration="622000" />
     </task>
     <task id="LOCAL-00001" summary="Added navigation &amp; footer on index page">
       <created>1703976954732</created>
@@ -443,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705586136793</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Fixing design">
+      <created>1705595950261</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1705595950261</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +476,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Old navigation added" />
     <MESSAGE value="Session class added &amp; implemented" />
     <MESSAGE value="Add to cart form on product page added" />
     <MESSAGE value="Added new cart icons &amp; refactored code" />
@@ -487,7 +500,8 @@
     <MESSAGE value="Create product method added &amp; display image in cards" />
     <MESSAGE value="User login code refactoring" />
     <MESSAGE value="Sold out tag display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sold out tag display" />
+    <MESSAGE value="Fixing design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing design" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -498,45 +512,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="217" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705538967687" />
-    <state x="210" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1705495026918">
+    <state x="210" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1705606667948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705495026918" />
+    <state x="210" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705606667948" />
     <state x="256" y="436" key="ComposerInitDialogKey" timestamp="1703988934069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="256" y="436" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1703988934069" />
-    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1705017978197">
+    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1705667875771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1705017978197" />
+    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1705667875771" />
     <state x="211" y="246" key="NewPhpClassDialog" timestamp="1705500081724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705500081724" />
-    <state x="321" y="443" key="NewPhpFileDialog" timestamp="1705574709116">
+    <state x="321" y="443" key="NewPhpFileDialog" timestamp="1705604494833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705574709116" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705586138370">
+    <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705604494833" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1705595970583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705586138370" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705595970583" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1704476296252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1704476296252" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705591354618">
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1705675400079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705591354618" />
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705675400079" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1704311512941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705595322159">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1705675367809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705595322159" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1705675367809" />
   </component>
 </project>

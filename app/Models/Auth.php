@@ -5,7 +5,6 @@ namespace App\Models;
 
 
 require_once __DIR__.'/../../config/baseUrl.php';
-
 use App\Repositories\AuthRepo;
 use App\Support\Session;
 use App\Validations\AuthValidation;
@@ -21,7 +20,7 @@ class Auth
         $this->authRepo = new AuthRepo();
     }
 
-    public function create($formData)
+    public function create(array $formData): void
     {
         $validation = new AuthValidation();
         $errors = $validation->validateCreateUser($formData);
@@ -32,7 +31,7 @@ class Auth
             $result = $this->authRepo->create($formData, $password);
 
             if ($result['execute']) {
-                Session::userStart($result['stmt']->insert_id);
+                Session::userLogin($result['stmt']->insert_id);
                 $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
             }
 
@@ -49,7 +48,7 @@ class Auth
         return $this->validationErrors;
     }
 
-    public function login($username, $password)
+    public function login(string $username, string $password): bool
     {
         Session::start();
 
@@ -57,7 +56,7 @@ class Auth
             $user = $this->authRepo->getUser($username);
 
             if (password_verify($password, $user['password'])) {
-                Session::userStart($user['id']);
+                Session::userLogin($user['id']);
                 $_SESSION['alert_message']['success'] = 'Welcome back!';
                 return true;
             }
@@ -66,15 +65,9 @@ class Auth
         return false;
     }
 
-    public static function check()
+    public static function isUserAdmin(): bool
     {
-        Session::start();
-        return isset($_SESSION['user_id']);
-    }
-
-    public static function adminCheck()
-    {
-        if (self::check()) {
+        if (Session::isUserLogged()) {
             $db = new Database();
             $result = $db->getConnection()->query("SELECT * FROM users WHERE id = {$_SESSION['user_id']} AND is_admin = 1");
             $db->closeConnection();
@@ -83,12 +76,5 @@ class Auth
             return false;
         }
         return false;
-    }
-
-    public static function logout()
-    {
-        Session::delete();
-        header('Location: '.BASE_URL.'view/auth/login.php');
-        exit();
     }
 }

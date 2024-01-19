@@ -1,12 +1,10 @@
 <?php
 include 'components/head.php';
-
-use App\Models\Auth;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Support\Session;
 
-if (!Auth::check()) {
+if (!Session::isUserLogged()) {
     header('Location: '.BASE_URL.'view/auth/login.php');
     exit();
 }
@@ -40,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <?php } ?>
                     </div>
                 <?php } ?>
-                <div class="shadow p-4 rounded-2">
+                <div class="border bg-light p-4 rounded-2">
                     <h2 class="mb-5 fw-bold">Shipping Details</h2>
                     <form method="POST" action="">
                         <div class="mb-3">

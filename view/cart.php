@@ -1,11 +1,9 @@
 <?php
 include 'components/head.php';
-
-use App\Models\Auth;
 use App\Models\Cart;
 use App\Support\Session;
 
-if (!Auth::check()) {
+if (!Session::isUserLogged()) {
     header('Location: '.BASE_URL.'view/auth/login.php');
     exit();
 }

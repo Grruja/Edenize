@@ -15,11 +15,11 @@ $products = $product->getNewest();
             <div id="homeTextContainer" class="container d-flex align-items-center justify-content-center">
                 <div id="homeTextParent" class="text-center">
                     <h1 class="text-white col-lg-6 col-md-10 m-auto mb-4 fs-5">Elevate your space with our curated collection of vibrant plants, perfect for both beginners and plant enthusiasts. Transform your home with botanical beauty.</h1>
-                    <a href="<?= BASE_URL ?>view/shop.php" class="btn btn-success px-5 py-2 border">Shop Now</a>
+                    <a href="<?= BASE_URL ?>view/shop.php" class="btn btn-success px-5 py-2" style="box-shadow: 0 0 50px #000000;">Shop Now</a>
                 </div>
             </div>
             <div id="homeInfoContainer" class="container d-sm-flex d-none justify-content-center gap-md-5 gap-4">
-                <div class="text-white border border-secondary rounded-2 px-md-5 px-4 py-md-4 py-3 d-flex gap-4 align-items-center" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); height: fit-content">
+                <div class="text-white rounded-2 px-md-5 px-4 py-md-4 py-3 d-flex gap-4 align-items-center" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); height: fit-content">
                     <div class="col-lg-2 col-3 d-md-block d-none">
                         <img class="w-75" src="<?= BASE_URL.'public/assets/free_shipping.png' ?>" alt="Delivered package">
                     </div>
@@ -28,7 +28,7 @@ $products = $product->getNewest();
                         <p class="mb-1">Free shipping around the world</p>
                     </div>
                 </div>
-                <div class="text-white border border-secondary rounded-2 px-md-5 px-4 py-md-4 py-3 d-flex gap-4 align-items-center" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); height: fit-content">
+                <div class="text-white rounded-2 px-md-5 px-4 py-md-4 py-3 d-flex gap-4 align-items-center" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); height: fit-content">
                     <div class="col-lg-2 col-3 d-md-block d-none">
                         <img class="w-75" src="<?= BASE_URL.'public/assets/friendly_service.png' ?>" alt="Hand with a smile">
                     </div>

@@ -4,7 +4,7 @@ include '../components/head.php';
 use App\Models\Auth;
 use App\Models\Product;
 
-if (!Auth::adminCheck()) {
+if (!Auth::isUserAdmin()) {
     header('Location: '.BASE_URL.'view/404.php');
     exit();
 }
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="container">
         <h1>Admin</h1>
         <div class="d-flex justify-content-center mt-5">
-            <div class="shadow p-5 rounded-2 col-xxl-5 col-xl-6 col-lg-7 col-md-9">
+            <div class="border bg-light p-5 rounded-2 col-xxl-5 col-xl-6 col-lg-7 col-md-9">
                 <form method="POST" action="" enctype="multipart/form-data">
                     <h2 class="text-center mb-5">Create Product</h2>
                     <div class="mb-3">
