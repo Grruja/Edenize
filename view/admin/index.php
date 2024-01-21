@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <?php include '../components/navigation.php'; ?>
-    <main class="container">
+    <main class="container mt-5">
         <h1>Admin</h1>
         <div class="d-flex justify-content-center mt-5">
             <div class="border bg-light p-5 rounded-2 col-xxl-5 col-xl-6 col-lg-7 col-md-9">

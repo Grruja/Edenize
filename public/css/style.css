@@ -31,22 +31,33 @@ p {
 }
 
 
-/*================ HOME BG IMG ================*/
+/*================ HOME ================*/
 #homeBgImg {
     background-image: url("../../public/assets/home_bg_img.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
+    position: relative;
 }
 
-#homeTextContainer,
-#homeInfoContainer {
-    height: 80%;
+#homeTextBg {
+    position: absolute;
+    left: 0;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+#homeText {
+    float: right;
 }
 
-#homeTextParent {
-    margin-top: 15rem;
+
+/*================ HOME ================*/
+#shopBgImg {
+    background-image: url("../../public/assets/shop_banner.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -56,18 +67,26 @@ p {
         background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(8px);
     }
+
+    #homeTextBg {
+        right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background: none !important;
+    }
+    #homeText {
+        float: none;
+        text-align: center;
+    }
+    #homeText h1,
+    #homeText p {
+        color: #212529 !important;
+    }
 }
 
 @media only screen and (max-width: 575px) {
-    #homeBgImg,
-    #homeTextContainer {
+    #homeBgImg {
         height: 70vh;
-    }
-    #homeTextParent {
-        margin-top: 6rem !important;
-    }
-    #homeTextParent h1 {
-        font-size: 18px !important;
     }
 
     .custom-col-xs-2 {
@@ -81,12 +100,8 @@ p {
 }
 
 @media only screen and (max-width: 390px) {
-    #homeBgImg,
-    #homeTextContainer {
+    #homeBgImg {
         height: 60vh;
-    }
-    #homeTextParent {
-        margin-top: 10rem !important;
     }
 
     #cartProductImage {
@@ -99,10 +114,6 @@ p {
 }
 
 @media only screen and (max-width: 300px) {
-    #homeTextParent h1 {
-        font-size: 17px !important;
-    }
-
     .custom-col-xs-2 {
         flex: 0 0 100%;
         max-width: 100%;
@@ -110,14 +121,7 @@ p {
 }
 
 @media only screen and (max-height: 480px) {
-    #homeBgImg,
-    #homeTextContainer {
+    #homeBgImg {
         height: 100vh;
-    }
-    #homeTextParent {
-        margin-top: 8rem !important;
-    }
-    #homeInfoContainer {
-        display: none !important;
     }
 }

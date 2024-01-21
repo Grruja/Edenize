@@ -21,7 +21,7 @@ if (isset($_SESSION['cart'])) {
 
 <body>
     <?php include 'components/navigation.php'; ?>
-    <main class="container">
+    <main class="container mt-5">
         <div class="d-flex flex-md-row flex-column gap-5">
             <div class="w-100">
                 <h2 class="fw-bold mb-4">Cart</h2>

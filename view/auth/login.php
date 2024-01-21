@@ -26,12 +26,6 @@ if (Session::isUserLogged()) {
 
                 <div>Don't have an account? <a href="register.php">Register</a></div>
 
-                <div class="alert alert-primary my-4">
-                    <p class="fw-bold">Demo Account</p>
-                    <p>Username: demo</p>
-                    <p>Password: demo12345</p>
-                </div>
-
                 <div class="d-flex justify-content-end mt-4">
                     <button type="submit" class="btn btn-success">Login</button>
                 </div>

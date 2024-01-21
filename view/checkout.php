@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 <?php include 'components/navigation.php'; ?>
-    <main class="container">
+    <main class="container mt-5">
         <div class="d-flex flex-md-row flex-column gap-5">
             <div class="w-100">
                 <?php if (isset($quantityErrors)) { ?>
