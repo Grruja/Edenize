@@ -42,11 +42,4 @@ class Database
     {
         return $this->connection;
     }
-
-    public function closeConnection()
-    {
-        if ($this->connection) {
-            $this->connection->close();
-        }
-    }
 }

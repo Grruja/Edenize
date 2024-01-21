@@ -8,10 +8,11 @@ use Database\Database;
 
 class Repository
 {
-    protected $database;
+    protected $dbConnection;
 
     public function __construct()
     {
-        $this->database = new Database();
+        $db = new Database();
+        $this->dbConnection = $db->getConnection();
     }
 }

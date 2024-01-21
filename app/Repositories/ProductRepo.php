@@ -8,22 +8,15 @@ class ProductRepo extends Repository
 {
     public function create($formData, $imagePath)
     {
-        $dbConnection = $this->database->getConnection();
-
-        $stmt = $dbConnection->prepare("INSERT INTO products (name, price, quantity, description, image) VALUES (?,?,?,?,?)");
+        $stmt = $this->dbConnection->prepare("INSERT INTO products (name, price, quantity, description, image) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sdiss', $formData['name'], $formData['price'], $formData['quantity'], $formData['description'], $imagePath);
-        $result = $stmt->execute();
-
-        $this->database->closeConnection();
-        return $result;
+        return $stmt->execute();
     }
 
     public function getProductById($productId, $wayToFind)
     {
-        $dbConnection = $this->database->getConnection();
-
         if ($wayToFind == 1) {
-            $stmt = $dbConnection->prepare("SELECT * FROM products WHERE id = ?");
+            $stmt = $this->dbConnection->prepare("SELECT * FROM products WHERE id = ?");
             $stmt->bind_param('i', $productId);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -35,40 +28,32 @@ class ProductRepo extends Repository
             exit();
 
         } else {
-            $result = $dbConnection->query("SELECT * FROM products WHERE id = ".$productId);
+            $result = $this->dbConnection->query("SELECT * FROM products WHERE id = ".$productId);
             return $result->fetch_assoc();
         }
     }
 
     public function getAll()
     {
-        $dbConnection = $this->database->getConnection();
-        $result = $dbConnection->query("SELECT * FROM products");
-        $this->database->closeConnection();
-
+        $result = $this->dbConnection->query("SELECT * FROM products");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getFourNewest()
     {
-        $dbConnection = $this->database->getConnection();
-        $result = $dbConnection->query("SELECT * FROM products ORDER BY created_at DESC LIMIT 4");
-        $this->database->closeConnection();
+        $result = $this->dbConnection->query("SELECT * FROM products ORDER BY created_at DESC LIMIT 4");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function searchByName($searchValue)
     {
-        $dbConnection = $this->database->getConnection();
-        $stmt = $dbConnection->prepare("SELECT * FROM products WHERE name LIKE ?");
+        $stmt = $this->dbConnection->prepare("SELECT * FROM products WHERE name LIKE ?");
 
         $searchPattern = '%'. $searchValue. '%';
 
         $stmt->bind_param('s', $searchPattern);
         $stmt->execute();
         $result = $stmt->get_result();
-
-        $this->database->closeConnection();
 
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -78,6 +63,6 @@ class ProductRepo extends Repository
 
     public function decreaseQuantity($product)
     {
-        $this->database->getConnection()->query("UPDATE products SET quantity = quantity - {$product['quantity']} WHERE id = {$product['product_id']}");
+        $this->dbConnection->query("UPDATE products SET quantity = quantity - {$product['quantity']} WHERE id = {$product['product_id']}");
     }
 }
