@@ -6,22 +6,21 @@ namespace App\Repositories;
 
 class AuthRepo extends Repository
 {
-    public function create($formData, $password)
+    public function insertUser(array $formData): \mysqli_stmt|bool
     {
+        $password = password_hash($formData['password'], PASSWORD_BCRYPT);
+
         $dbConnection = $this->database->getConnection();
 
         $stmt = $dbConnection->prepare("INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('ssss', $formData['full_name'], $formData['username'], $formData['email'], $password);
-        $execute = $stmt->execute();
+        $stmt->execute();
         $this->database->closeConnection();
 
-        return [
-            'execute' => $execute,
-            'stmt' => $stmt,
-        ];
+        return $stmt;
     }
 
-    public function validateUniqueField($fieldName, $inputValue)
+    public function recordExists(string $fieldName, string $inputValue): bool
     {
         $dbConnection = $this->database->getConnection();
 
@@ -29,10 +28,13 @@ class AuthRepo extends Repository
         $stmt->bind_param('s', $inputValue);
         $stmt->execute();
 
-        return $stmt->get_result();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 0) return false;
+        return true;
     }
 
-    public function userExists($username)
+    public function userExists(string $username): bool
     {
         $dbConnection = $this->database->getConnection();
 
@@ -45,7 +47,7 @@ class AuthRepo extends Repository
         return true;
     }
 
-    public function getUser($username)
+    public function getUser(string $username): array
     {
         $dbConnection = $this->database->getConnection();
 

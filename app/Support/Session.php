@@ -13,8 +13,10 @@ class Session
         }
     }
 
-    public static function userLogin(int $userId): void
+    public static function userLogin(?int $userId): void
     {
+        if ($userId == null) return;
+
         self::start();
         $_SESSION['user_id'] = $userId;
     }

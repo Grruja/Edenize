@@ -8,7 +8,8 @@ use App\Repositories\AuthRepo;
 
 class AuthValidation
 {
-    private $authRepo;
+    private AuthRepo $authRepo;
+    private array $validationErrors;
     private const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
 
     public function __construct()
@@ -16,56 +17,61 @@ class AuthValidation
         $this->authRepo = new AuthRepo();
     }
 
-    public function validateCreateUser($formData)
+    public function getValidationErrors(): array
     {
-        $errors = [];
+        return $this->validationErrors;
+    }
+
+    public function registerValidation(array $formData): bool
+    {
         $validationRules = require self::VALIDATION_RULES;
 
         foreach ($validationRules as $fieldName => $fieldInfo) {
-            $this->validateField($formData, $fieldName, $fieldInfo,$errors);
+            $this->validateField($formData, $fieldName, $fieldInfo);
         }
 
-        $this->validateEmail($formData['email'],$errors);
-        $this->validatePassword($formData['password'], $formData['password_confirm'], $errors);
+        $this->validateEmail($formData['email']);
+        $this->validatePassword($formData['password'], $formData['password_confirm']);
 
-        return $errors;
+        if (isset($this->validationErrors)) return false;
+        return true;
     }
 
-    private function validateField($formData, $fieldName, $fieldInfo, &$errors)
+    private function validateField(array $formData, string $fieldName, array $fieldInfo): void
     {
         if (empty($formData[$fieldName]) && $fieldInfo['required']) {
-            $errors[$fieldName] = $fieldInfo['label'].' is required';
+            $this->validationErrors[$fieldName] = $fieldInfo['label'].' is required';
             return;
         }
 
         $inputValue = trim($formData[$fieldName]);
 
         if (isset($fieldInfo['min_length']) && strlen($inputValue) < $fieldInfo['min_length']) {
-            $errors[$fieldName] = $fieldInfo['label'].' needs to have minimum '.$fieldInfo['min_length'].' characters';
+            $this->validationErrors[$fieldName] = $fieldInfo['label'].' needs to have minimum '.$fieldInfo['min_length'].' characters';
 
         } else if (isset($fieldInfo['max_length']) && strlen($inputValue) > $fieldInfo['max_length']) {
-            $errors[$fieldName] = $fieldInfo['label'].' needs to have maximum '.$fieldInfo['max_length'].' characters';
+            $this->validationErrors[$fieldName] = $fieldInfo['label'].' needs to have maximum '.$fieldInfo['max_length'].' characters';
 
         } else if ($fieldInfo['unique']) {
-            $result = $this->authRepo->validateUniqueField($fieldName, $inputValue);
+            $recordExists = $this->authRepo->recordExists($fieldName, $inputValue);
 
-            if ($result->num_rows > 0) {
-                $errors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
+            if ($recordExists) {
+                $this->validationErrors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
             }
         }
     }
 
-    private function validateEmail($email, &$errors)
+    private function validateEmail(string $email): void
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Please enter a valid email';
+            $this->validationErrors['email'] = 'Please enter a valid email';
         }
     }
 
-    private function validatePassword($password, $passwordConfirm, &$errors)
+    private function validatePassword(string $password, string $passwordConfirm): void
     {
         if ($passwordConfirm !== $password) {
-            $errors['password_confirm'] = 'Password does not match';
+            $this->validationErrors['password_confirm'] = 'Password does not match';
         }
     }
 

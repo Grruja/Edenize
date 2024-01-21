@@ -7,13 +7,11 @@ namespace App\Models;
 require_once __DIR__.'/../../config/baseUrl.php';
 use App\Repositories\AuthRepo;
 use App\Support\Session;
-use App\Validations\AuthValidation;
 use Database\Database;
 
 class Auth
 {
-    protected $authRepo;
-    private $validationErrors = [];
+    private AuthRepo $authRepo;
 
     public function __construct()
     {
@@ -22,30 +20,10 @@ class Auth
 
     public function create(array $formData): void
     {
-        $validation = new AuthValidation();
-        $errors = $validation->validateCreateUser($formData);
+        $result = $this->authRepo->insertUser($formData);
 
-        if ($errors == null) {
-            $password = password_hash($formData['password'], PASSWORD_BCRYPT);
-
-            $result = $this->authRepo->create($formData, $password);
-
-            if ($result['execute']) {
-                Session::userLogin($result['stmt']->insert_id);
-                $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
-            }
-
-            header('Location: '.BASE_URL.'view/index.php');
-            exit();
-
-        } else {
-            $this->validationErrors = $errors;
-        }
-    }
-
-    public function getValidationErrors()
-    {
-        return $this->validationErrors;
+        Session::userLogin($result->insert_id ?? null);
+        $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
     }
 
     public function login(string $username, string $password): bool
