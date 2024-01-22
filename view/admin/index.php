@@ -1,8 +1,8 @@
 <?php
 include '../components/head.php';
 
+use App\Controllers\ProductController;
 use App\Models\Auth;
-use App\Models\Product;
 
 if (!Auth::isUserAdmin()) {
     header('Location: '.BASE_URL.'view/404.php');
@@ -10,8 +10,8 @@ if (!Auth::isUserAdmin()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $product = new Product();
-    $product->create($_POST, $_FILES['image']);
+    $productController = new ProductController();
+    $productController->createProduct();
 }
 ?>
 

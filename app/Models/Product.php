@@ -11,26 +11,17 @@ use App\Support\Session;
 
 class Product
 {
-    protected $productRepo;
+    protected ProductRepo $productRepo;
     
     public function __construct()
     {
         $this->productRepo = new ProductRepo();
     }
 
-    public function create($formData, $image)
+    public function create(array $formData, array $image): void
     {
-        //need validation
         $imagePath = $this->saveImage($image);
-        $result = $this->productRepo->create($formData, $imagePath);
-
-        Session::start();
-        if ($result) {
-            $_SESSION['alert_message']['success'] = 'Product created';
-
-        } else {
-            $_SESSION['alert_message']['danger'] = 'Product is not created';
-        }
+        $this->productRepo->insertProduct($formData, $imagePath);
     }
 
     public function all()
