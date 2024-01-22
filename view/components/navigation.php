@@ -4,7 +4,6 @@
 use App\Models\Auth;
 use App\Support\Session;
 
-
 Session::start();
 
 if (isset($_SESSION['alert_message']['success'])) { ?>
@@ -86,7 +85,7 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
                         <?php } ?>
                         <?php if (Session::isUserLogged()) { ?>
                             <li class="nav-item me-4">
-                                <form method="POST" action="<?= BASE_URL ?>inc/auth/logoutInc.php" class="nav-link">
+                                <form method="POST" action="<?= BASE_URL ?>view/auth/logout.php" class="nav-link">
                                     <button class="bg-transparent nav-link">
                                     <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
                                         Logout

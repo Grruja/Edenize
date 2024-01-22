@@ -1,10 +1,16 @@
 <?php
 include '../components/head.php';
+use App\Controllers\AuthController;
 use App\Support\Session;
 
 if (Session::isUserLogged()) {
     header('Location: '.BASE_URL.'view/404.php');
     exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $authController = new AuthController();
+    $authController->handleLogin();
 }
 ?>
 
@@ -13,11 +19,10 @@ if (Session::isUserLogged()) {
     <main class="d-flex align-items-center">
         <div class="container border p-5 rounded-2 bg-light col-xxl-4 col-xl-5 col-lg-6 col-md-8">
             <h1 class="text-center mb-5">Login</h1>
-            <form method="POST" action="<?= BASE_URL.'/inc/auth/loginInc.php' ?>">
+            <form method="POST" action="">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" required class="form-control" id="username"
-                           value="<?= $_POST['username'] ?? null ?>">
+                    <input type="text" name="username" required class="form-control" id="username">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>

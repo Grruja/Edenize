@@ -8,14 +8,8 @@ use App\Repositories\AuthRepo;
 
 class AuthValidation
 {
-    private AuthRepo $authRepo;
     private array $validationErrors;
     private const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
-
-    public function __construct()
-    {
-        $this->authRepo = new AuthRepo();
-    }
 
     public function getValidationErrors(): array
     {
@@ -53,7 +47,8 @@ class AuthValidation
             $this->validationErrors[$fieldName] = $fieldInfo['label'].' needs to have maximum '.$fieldInfo['max_length'].' characters';
 
         } else if ($fieldInfo['unique']) {
-            $recordExists = $this->authRepo->recordExists($fieldName, $inputValue);
+            $authRepo = new AuthRepo();
+            $recordExists = $authRepo->recordExists($fieldName, $inputValue);
 
             if ($recordExists) {
                 $this->validationErrors[$fieldName] = 'There is already an account with this '. strtolower($fieldInfo['label']);
