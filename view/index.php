@@ -1,11 +1,10 @@
 <?php
 include 'components/head.php';
 
-use App\Models\Product;
+use App\Controllers\ProductController;
 
-
-$product = new Product();
-$products = $product->getNewest();
+$productController = new ProductController();
+$products = $productController->displayNewest();
 ?>
 
 <body>
@@ -57,7 +56,7 @@ $products = $product->getNewest();
         <div class="container mt-5">
             <h2 class="mb-5">New Plants</h2>
             <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 g-4">
-                <?php foreach ($products as $item) { ?>
+                <?php foreach ($products as $item) : ?>
                     <div class="col custom-col-xs-2">
                         <a href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
@@ -74,7 +73,7 @@ $products = $product->getNewest();
                             </div>
                         </a>
                     </div>
-                <?php } ?>
+                <?php endforeach; ?>
             </div>
         </div>
 

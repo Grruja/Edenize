@@ -28,7 +28,7 @@ class Product
         return $this->productRepo->getAll();
     }
 
-    public function search(string $searchValue): array
+    public function searchByName(string $searchValue): ?array
     {
         return $this->productRepo->searchByName($searchValue);
     }
@@ -38,7 +38,7 @@ class Product
         return $this->productRepo->getNewest();
     }
 
-    public function permalink(int $productId): array
+    public function getSingleProduct(int $productId): ?array
     {
         return $this->productRepo->getProductById($productId);
     }

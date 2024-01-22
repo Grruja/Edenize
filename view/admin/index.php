@@ -11,7 +11,7 @@ if (!Auth::isUserAdmin()) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $productController = new ProductController();
-    $productController->createProduct();
+    $productController->create();
 }
 ?>
 

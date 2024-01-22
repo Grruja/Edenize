@@ -1,16 +1,10 @@
 <?php
 include 'components/head.php';
 
-use App\Models\Product;
+use App\Controllers\ProductController;
 
-$product = new Product();
-
-if (!isset($_GET['search_value'])) {
-    $products = $product->getAll();
-
-} else {
-    $products = $product->search($_GET['search_value']);
-}
+$productController = new ProductController();
+$products = $productController->searchByName();
 ?>
 
 <body>
@@ -29,8 +23,8 @@ if (!isset($_GET['search_value'])) {
         </div>
 
         <div class="mt-5 row row-cols-1 row-cols-md-4 row-cols-sm-2 g-4">
-            <?php if (isset($products)) { ?>
-                <?php foreach ($products as $item) { ?>
+            <?php if (isset($products)) : ?>
+                <?php foreach ($products as $item) : ?>
                     <div class="col custom-col-xs-2">
                         <a href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
@@ -47,13 +41,13 @@ if (!isset($_GET['search_value'])) {
                             </div>
                         </a>
                     </div>
-                <?php } ?>
-            <?php } else { ?>
+                <?php endforeach; ?>
+            <?php else: ?>
                 <div class="w-100 text-center text-secondary">
                     <i class="fa-solid fa-magnifying-glass display-3"></i>
                     <p class="fs-5 mt-4">No products found.</p>
                 </div>
-            <?php } ?>
+            <?php endif; ?>
         </div>
     </div>
 </main>
