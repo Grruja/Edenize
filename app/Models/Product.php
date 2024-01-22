@@ -18,50 +18,39 @@ class Product
         $this->productRepo = new ProductRepo();
     }
 
-    public function create(array $formData, array $image): void
+    public function create(array $formData, string $imagePath): void
     {
-        $imagePath = $this->saveImage($image);
         $this->productRepo->insertProduct($formData, $imagePath);
     }
 
-    public function all()
+    public function getAll(): array
     {
         return $this->productRepo->getAll();
     }
 
-    public function search($searchValue)
+    public function search(string $searchValue): array
     {
-        if (!isset($searchValue) || empty($searchValue)) {
-            header('Location:'. BASE_URL.'view/shop.php');
-            exit();
-        }
-
         return $this->productRepo->searchByName($searchValue);
     }
 
-    public function getNewest()
+    public function getNewest(): array
     {
-        return $this->productRepo->getFourNewest();
+        return $this->productRepo->getNewest();
     }
 
-    public function permalink($productId)
+    public function permalink(int $productId): array
     {
-        if (!isset($productId)) {
-            header('Location: '.BASE_URL.'view/404.php');
-            exit();
-        }
-        return $this->productRepo->getProductById($productId, 1);
+        return $this->productRepo->getProductById($productId);
     }
 
-    private function saveImage($image)
+    public function saveImage(string $imageName): void
     {
-        //need validation
-        $imageName = basename($image['name']);
-        $imagePath = 'public/product_images/'.$imageName;
-
         $storagePath = '../../public/product_images/'.$imageName;
         move_uploaded_file($_FILES['image']['tmp_name'], $storagePath);
+    }
 
-        return $imagePath;
+    public function imagePathForDb(string $imageName): string
+    {
+        return 'public/product_images/'.$imageName;
     }
 }

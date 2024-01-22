@@ -13,55 +13,46 @@ class ProductRepo extends Repository
         $stmt->execute();
     }
 
-    public function getProductById($productId, $wayToFind)
+    public function getProductById(int $productId): ?array
     {
-        if ($wayToFind == 1) {
-            $stmt = $this->dbConnection->prepare("SELECT * FROM products WHERE id = ?");
-            $stmt->bind_param('i', $productId);
-            $stmt->execute();
-            $result = $stmt->get_result();
+        $stmt = $this->dbConnection->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param('i', $productId);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            if ($result->num_rows > 0) {
-                return $result->fetch_assoc();
-            }
-            header('Location: '.BASE_URL.'view/404.php');
-            exit();
-
-        } else {
-            $result = $this->dbConnection->query("SELECT * FROM products WHERE id = ".$productId);
-            return $result->fetch_assoc();
-        }
+        return $result->num_rows > 0 ? $result->fetch_assoc() : null;
     }
 
-    public function getAll()
+    public function getProductByIdNoStmt(int $productId): array
+    {
+        $result = $this->dbConnection->query("SELECT * FROM products WHERE id = ".$productId);
+        return $result->fetch_assoc();
+    }
+
+    public function getAll(): array
     {
         $result = $this->dbConnection->query("SELECT * FROM products");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getFourNewest()
+    public function getNewest($limit = 4): array
     {
-        $result = $this->dbConnection->query("SELECT * FROM products ORDER BY created_at DESC LIMIT 4");
+        $result = $this->dbConnection->query("SELECT * FROM products ORDER BY created_at DESC LIMIT $limit");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function searchByName($searchValue)
+    public function searchByName(string $searchValue): ?array
     {
         $stmt = $this->dbConnection->prepare("SELECT * FROM products WHERE name LIKE ?");
-
         $searchPattern = '%'. $searchValue. '%';
-
         $stmt->bind_param('s', $searchPattern);
         $stmt->execute();
-        $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
-        return null;
+        $result = $stmt->get_result();
+        return $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : null;
     }
 
-    public function decreaseQuantity($product)
+    public function decreaseQuantity(array $product): void
     {
         $this->dbConnection->query("UPDATE products SET quantity = quantity - {$product['quantity']} WHERE id = {$product['product_id']}");
     }

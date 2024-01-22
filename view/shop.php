@@ -6,7 +6,7 @@ use App\Models\Product;
 $product = new Product();
 
 if (!isset($_GET['search_value'])) {
-    $products = $product->all();
+    $products = $product->getAll();
 
 } else {
     $products = $product->search($_GET['search_value']);

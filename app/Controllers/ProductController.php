@@ -19,7 +19,11 @@ class ProductController extends Controller
     public function createProduct(): void
     {
         // validation here
-        $this->productModel->create($_POST, $_FILES['image']);
+        $imageName = basename($_FILES['image']['name']);
+        $this->productModel->saveImage($imageName);
+        $imagePath = $this->productModel->imagePathForDb($imageName);
+
+        $this->productModel->create($_POST, $imagePath);
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Product created';
