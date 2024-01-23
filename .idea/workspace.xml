@@ -23,8 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +114,7 @@
       <workItem from="1705913841239" duration="594000" />
       <workItem from="1705932022303" duration="24884000" />
       <workItem from="1705971904888" duration="4000" />
-      <workItem from="1706014138542" duration="27688000" />
-    </task>
-    <task id="LOCAL-00012" summary="Created login form">
-      <created>1704236957689</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1704236957689</updated>
+      <workItem from="1706014138542" duration="28159000" />
     </task>
     <task id="LOCAL-00013" summary="Added user login">
       <created>1704245820196</created>
@@ -458,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706045687093</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Update cart method set to void">
+      <created>1706047217379</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1706047217379</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +478,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove from cart added" />
     <MESSAGE value="Auth repository added" />
     <MESSAGE value="Order &amp; product repository added" />
     <MESSAGE value="Added product repository in cart class" />
@@ -502,7 +502,8 @@
     <MESSAGE value="Cart controller implemented &amp; refactored cart model" />
     <MESSAGE value="Order classes adjustments" />
     <MESSAGE value="Code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring" />
+    <MESSAGE value="Update cart method set to void" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update cart method set to void" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -533,10 +534,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1705604494833" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706045688933">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706047219239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706045688933" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706047219239" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1705868495856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -549,9 +550,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706046555697">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706047146935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706046555697" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706047146935" />
   </component>
 </project>

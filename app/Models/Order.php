@@ -4,8 +4,6 @@
 namespace App\Models;
 
 
-require_once __DIR__.'/../../config/baseUrl.php';
-
 use App\Repositories\OrderRepo;
 use App\Repositories\ProductRepo;
 
