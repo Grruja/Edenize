@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') $cartController->removeFromCart();
                 <?php else: ?>
                     <button class="btn btn-success w-100 mt-4 py-2" disabled>Checkout</button>
                 <?php endif; ?>
-                <a href="<?= BASE_URL ?>view/index.php" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
+                <a href="<?= BASE_URL ?>view/shop.php" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
             </div>
         </div>
     </main>

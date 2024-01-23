@@ -53,6 +53,19 @@ $products = $productController->displayNewest();
             </div>
         </div>
 
+        <div id="aboutParent" class="py-1">
+            <div id="aboutChild" class="container d-flex justify-content-md-between justify-content-center" style="margin-top: 6rem; margin-bottom: 6rem">
+                <div class="col-5 d-md-block d-none">
+                    <img class="w-100" src="<?= BASE_URL .'public/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
+                </div>
+                <div class="col-md-6 text-md-start text-center">
+                    <h2 class="mb-md-5 mb-3">Shop Edenize</h2>
+                    <p>Edenize offers a unique selection of handcrafted plant products, each designed to bring a touch of nature into your living space. Our creations are more than just plants – they are living art pieces that transcend traditional planters. Whether you choose to suspend a kokedama mid-air, hang a botanical masterpiece on your wall, or make a living sculpture the centerpiece of your tabletop, each Edenize creation is a distinctive work of art.</p>
+                    <p class="mt-5 d-lg-block d-none">Every piece from Edenize is made to order, ensuring that you receive a bespoke item crafted with care and attention to detail. Our team of skilled artisans infuses each creation with a unique personality, making it a perfect fit for your home. Embrace the beauty of nature with our one-of-a-kind masterpieces that seamlessly blend art and plant life.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="container mt-5">
             <h2 class="mb-5">New Plants</h2>
             <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 g-4">
@@ -74,17 +87,6 @@ $products = $productController->displayNewest();
                         </a>
                     </div>
                 <?php endforeach; ?>
-            </div>
-        </div>
-
-        <div class="container d-flex justify-content-md-between justify-content-center" style="margin-top: 6rem; margin-bottom: 6rem">
-            <div class="col-5 d-md-block d-none">
-                <img class="w-100" src="<?= BASE_URL .'public/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
-            </div>
-            <div class="col-md-6 text-md-start text-center">
-                <h2 class="mb-md-5 mb-3">Shop Edenize</h2>
-                <p>Edenize offers a unique selection of handcrafted plant products, each designed to bring a touch of nature into your living space. Our creations are more than just plants – they are living art pieces that transcend traditional planters. Whether you choose to suspend a kokedama mid-air, hang a botanical masterpiece on your wall, or make a living sculpture the centerpiece of your tabletop, each Edenize creation is a distinctive work of art.</p>
-                <p class="mt-5 d-lg-block d-none">Every piece from Edenize is made to order, ensuring that you receive a bespoke item crafted with care and attention to detail. Our team of skilled artisans infuses each creation with a unique personality, making it a perfect fit for your home. Embrace the beauty of nature with our one-of-a-kind masterpieces that seamlessly blend art and plant life.</p>
             </div>
         </div>
     </main>

@@ -51,8 +51,25 @@ p {
     float: right;
 }
 
+#aboutParent {
+    background: #0d3125;
+    -webkit-transform: skewY(4deg);
+    -moz-transform: skewY(4deg);
+    -ms-transform: skewY(4deg);
+    -o-transform: skewY(4deg);
+    transform: skewY(4deg);
+}
+#aboutChild {
+    color: white;
+    -webkit-transform: skewY(-4deg);
+    -moz-transform: skewY(-4deg);
+    -ms-transform: skewY(-4deg);
+    -o-transform: skewY(-4deg);
+    transform: skewY(-4deg);
+}
 
-/*================ HOME ================*/
+
+/*================ SHOP ================*/
 #shopBgImg {
     background-image: url("../../public/assets/shop_banner.jpg");
     background-position: center center;
