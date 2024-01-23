@@ -1,6 +1,7 @@
 <?php
 include 'components/head.php';
-use App\Models\Cart;
+
+use App\Controllers\CartController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
@@ -8,15 +9,10 @@ if (!Session::isUserLogged()) {
     exit();
 }
 
-Session::start();
-if (isset($_SESSION['cart'])) {
-    $cart = new Cart();
-    $items = $cart->get();
+$cartController = new CartController();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $cart->remove($_POST['product_id'] ?? null);
-    }
-}
+$items = $cartController->displayAllWithTotal();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') $cartController->removeFromCart();
 ?>
 
 <body>
@@ -25,8 +21,8 @@ if (isset($_SESSION['cart'])) {
         <div class="d-flex flex-md-row flex-column gap-5">
             <div class="w-100">
                 <h2 class="fw-bold mb-4">Cart</h2>
-                <?php if (isset($_SESSION['cart'])) { ?>
-                    <?php foreach ($items as $item) { ?>
+                <?php if (isset($_SESSION['cart'])) : ?>
+                    <?php foreach ($items as $item) : ?>
                         <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
                             <form method="POST" action="" style="position: absolute; right: 0">
                                 <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
@@ -41,10 +37,10 @@ if (isset($_SESSION['cart'])) {
                                 </div>
                             </div>
                         </a>
-                    <?php } ?>
-                <?php } else { ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
                     <p class="fs-5">There are no items in your cart.</p>
-                <?php } ?>
+                <?php endif; ?>
             </div>
 
             <div class="w-100">
@@ -71,11 +67,11 @@ if (isset($_SESSION['cart'])) {
                     </div>
                 </div>
 
-                <?php if (isset($_SESSION['cart'])) { ?>
+                <?php if (isset($_SESSION['cart'])) : ?>
                     <a href="<?= BASE_URL ?>view/checkout.php" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
-                <?php } else { ?>
+                <?php else: ?>
                     <button class="btn btn-success w-100 mt-4 py-2" disabled>Checkout</button>
-                <?php } ?>
+                <?php endif; ?>
                 <a href="<?= BASE_URL ?>view/index.php" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
             </div>
         </div>

@@ -31,52 +31,46 @@ class Cart
         }
     }
 
-    public function get()
+    public function getAllWithTotal(): array
     {
+        $items = $_SESSION['cart']['items'];
         $cart = [];
         $total = 0;
 
-        foreach ($_SESSION['cart']['items'] as $item) {
-            $product = $this->productRepo->getProductById($item['product_id'], 0);
+        $ids = array_column($items, 'product_id');
+        $products = $this->productRepo->getProductsByIds($ids);
 
-            if ($product) {
-                $cart[] = [
-                    'id' => $product['id'],
-                    'name' => $product['name'],
-                    'product_price' => $product['price'],
-                    'quantity' => $item['quantity'],
-                    'image' => $product['image'],
-                    'price' => $product['price'] * $item['quantity'],
-                ];
-                $total += $product['price'] * $item['quantity'];
-            }
+        foreach ($products as $i => $product) {
+            $cart[] = [
+                'id' => $product['id'],
+                'name' => $product['name'],
+                'product_price' => $product['price'],
+                'quantity' => $items[$i]['quantity'],
+                'image' => $product['image'],
+                'price' => $product['price'] * $items[$i]['quantity'],
+            ];
+            $total += $product['price'] * $items[$i]['quantity'];
         }
 
         $_SESSION['cart']['total'] = $total;
-        return $cart;
+        return array_reverse($cart);
     }
 
-    public function remove($productId)
+    public function remove(int $productId): void
     {
-        if (!isset($productId) || empty($productId)) {
-            header('Location: '.BASE_URL.'view/cart.php');
-            exit();
-        }
-
         foreach ($_SESSION['cart']['items'] as $index => $item) {
             if ($item['product_id'] == $productId) {
                 unset($_SESSION['cart']['items'][$index]);
             }
         }
+        $_SESSION['cart']['items'] = array_values($_SESSION['cart']['items']);
 
         if (count($_SESSION['cart']['items']) < 1) {
             unset($_SESSION['cart']);
         }
-        header('Location: '.BASE_URL.'view/cart.php');
-        exit();
     }
 
-    private function updateCart($productId, $quantity)
+    private function updateCart(int $productId, int $quantity): bool
     {
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart']['items'] as &$item) {

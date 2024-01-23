@@ -16,7 +16,7 @@ if (!isset($_SESSION['cart'])) {
 }
 
 $cart = new Cart();
-$items = $cart->get();
+$items = $cart->getAllWithTotal();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $order = new Order();

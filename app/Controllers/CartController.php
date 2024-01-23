@@ -15,6 +15,7 @@ class CartController extends Controller
     public function __construct()
     {
         $this->cartModel = new Cart();
+        Session::start();
     }
 
     public function addProduct(): void
@@ -25,8 +26,25 @@ class CartController extends Controller
         }
 
         $this->cartModel->addProduct($_POST['product_id'], $_POST['quantity']);
-
-        Session::start();
         $_SESSION['alert_message']['success'] = 'Product added to cart.';
+    }
+
+    public function displayAllWithTotal(): ?array
+    {
+        if (!isset($_SESSION['cart'])) return null;
+        return $this->cartModel->getAllWithTotal();
+    }
+
+    public function removeFromCart(): void
+    {
+        if (!isset($_SESSION['cart']) ||
+            !isset($_POST['product_id']) ||
+            empty($_POST['product_id']))
+        {
+            $this->redirect('view/cart.php');
+        }
+
+        $this->cartModel->remove($_POST['product_id']);
+        $this->redirect('view/cart.php');
     }
 }
