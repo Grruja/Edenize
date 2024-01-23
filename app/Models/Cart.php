@@ -8,38 +8,26 @@ require_once __DIR__.'/../../config/baseUrl.php';
 
 use App\Repositories\ProductRepo;
 use App\Support\Session;
-use Database\Database;
 
 class Cart
 {
-    private $productRepo;
+    private ProductRepo $productRepo;
 
     public function __construct()
     {
         $this->productRepo = new ProductRepo();
+        Session::start();
     }
 
-    public function add($productId, $quantity)
+    public function addProduct(int $productId, int $quantity): void
     {
-        if (!isset($productId) || empty($productId)) {
-            header('Location: '.BASE_URL.'view/404.php');
-            exit();
-        }
+        $cartUpdated = $this->updateCart($productId, $quantity);
 
-        $dbProduct = $this->productRepo->getProductById($productId, 1);
-        $quantityValidation = $this->validateQuantity($dbProduct['quantity'], $quantity);
-
-        if ($quantityValidation) {
-            Session::start();
-            $cartUpdated = $this->updateCart($dbProduct['id'], $quantity);
-
-            if (!$cartUpdated) {
-                $_SESSION['cart']['items'][] = [
-                    'product_id' => $dbProduct['id'],
-                    'quantity' => $quantity,
-                ];
-            }
-            $_SESSION['alert_message']['success'] = 'Product added to cart.';
+        if (!$cartUpdated) {
+            $_SESSION['cart']['items'][] = [
+                'product_id' => $productId,
+                'quantity' => $quantity,
+            ];
         }
     }
 
@@ -48,7 +36,6 @@ class Cart
         $cart = [];
         $total = 0;
 
-        Session::start();
         foreach ($_SESSION['cart']['items'] as $item) {
             $product = $this->productRepo->getProductById($item['product_id'], 0);
 
@@ -64,8 +51,6 @@ class Cart
                 $total += $product['price'] * $item['quantity'];
             }
         }
-        $db = new Database();
-        $db->closeConnection();
 
         $_SESSION['cart']['total'] = $total;
         return $cart;
@@ -78,7 +63,6 @@ class Cart
             exit();
         }
 
-        Session::start();
         foreach ($_SESSION['cart']['items'] as $index => $item) {
             if ($item['product_id'] == $productId) {
                 unset($_SESSION['cart']['items'][$index]);
@@ -90,24 +74,6 @@ class Cart
         }
         header('Location: '.BASE_URL.'view/cart.php');
         exit();
-    }
-
-    protected function validateQuantity($quantityLeft, $quantity)
-    {
-        Session::start();
-        if (empty($quantity) || !is_numeric($quantity)) {
-            $_SESSION['alert_message']['danger'] = 'Quantity is required';
-            return false;
-
-        } else if ($quantity <= 0) {
-            $_SESSION['alert_message']['danger'] = 'Quantity must be greater than zero.';
-            return false;
-
-        } else if ($quantityLeft < $quantity) {
-            $_SESSION['alert_message']['danger'] = 'Insufficient stock. Available quantity: ' . $quantityLeft;
-            return false;
-        }
-        return true;
     }
 
     private function updateCart($productId, $quantity)

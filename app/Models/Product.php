@@ -11,7 +11,7 @@ use App\Support\Session;
 
 class Product
 {
-    protected ProductRepo $productRepo;
+    private ProductRepo $productRepo;
     
     public function __construct()
     {

@@ -1,9 +1,9 @@
 <?php
 include 'components/head.php';
 
+use App\Controllers\CartController;
 use App\Controllers\ProductController;
 use App\Support\Session;
-use App\Models\Cart;
 
 $productController = new ProductController();
 $product = $productController->permalink();
@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $cart = new Cart();
-    $cart->add($product['id'], $_POST['quantity'] ?? null);
+    $cartController = new CartController();
+    $cartController->addProduct();
 }
 ?>
 
@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-md-2 col-sm-3 custom-col-xs-quantity">
                             <input type="number" name="quantity" value="1" required class="form-control" id="quantity">
                         </div>
+                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>" required>
                     </div>
                     <button class="btn btn-success mt-3" <?= $product['quantity'] == 0 ? 'disabled' : null ?>>Add to Cart</button>
                 </form>
