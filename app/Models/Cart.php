@@ -21,14 +21,12 @@ class Cart
 
     public function addProduct(int $productId, int $quantity): void
     {
-        $cartUpdated = $this->updateCart($productId, $quantity);
+        $this->updateCart($productId, $quantity);
 
-        if (!$cartUpdated) {
-            $_SESSION['cart']['items'][] = [
-                'product_id' => $productId,
-                'quantity' => $quantity,
-            ];
-        }
+        $_SESSION['cart']['items'][] = [
+            'product_id' => $productId,
+            'quantity' => $quantity,
+        ];
     }
 
     public function getAllWithTotal(): array
@@ -70,16 +68,14 @@ class Cart
         }
     }
 
-    private function updateCart(int $productId, int $quantity): bool
+    private function updateCart(int $productId, int $quantity): void
     {
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart']['items'] as &$item) {
                 if ($item['product_id'] == $productId) {
                     $item['quantity'] += $quantity;
-                    return true;
                 }
             }
         }
-        return false;
     }
 }
