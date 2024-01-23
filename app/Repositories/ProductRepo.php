@@ -23,18 +23,12 @@ class ProductRepo extends Repository
         return $result->num_rows > 0 ? $result->fetch_assoc() : null;
     }
 
-    public function getProductsByIds(array $ids): array
+    public function getProductsByIdsNoStmt(array $ids): array
     {
         $idsString = implode(',', $ids);
 
         $result = $this->dbConnection->query("SELECT * FROM products WHERE id IN ($idsString) ORDER BY FIELD(id, $idsString)");
         return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getProductByIdNoStmt(int $productId): array
-    {
-        $result = $this->dbConnection->query("SELECT * FROM products WHERE id = ".$productId);
-        return $result->fetch_assoc();
     }
 
     public function getAll(): array

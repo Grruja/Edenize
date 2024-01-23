@@ -26,7 +26,7 @@ class OrderValidation
 
         $ids = array_column($items, 'product_id');
         $productRepo = new ProductRepo();
-        $products = $productRepo->getProductsByIds($ids);
+        $products = $productRepo->getProductsByIdsNoStmt($ids);
 
         foreach ($products as $i => $product) {
             $this->validateQuantity($product, $items[$i]['quantity']);

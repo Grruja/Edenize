@@ -38,7 +38,7 @@ class Cart
         $total = 0;
 
         $ids = array_column($items, 'product_id');
-        $products = $this->productRepo->getProductsByIds($ids);
+        $products = $this->productRepo->getProductsByIdsNoStmt($ids);
 
         foreach ($products as $i => $product) {
             $cart[] = [
