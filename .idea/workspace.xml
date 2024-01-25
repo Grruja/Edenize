@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,14 +115,7 @@
       <workItem from="1706101273154" duration="5326000" />
       <workItem from="1706199051789" duration="130000" />
       <workItem from="1706201166291" duration="1199000" />
-      <workItem from="1706222697354" duration="701000" />
-    </task>
-    <task id="LOCAL-00016" summary="Added product class &amp; method fetch">
-      <created>1704327685792</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1704327685792</updated>
+      <workItem from="1706222697354" duration="1096000" />
     </task>
     <task id="LOCAL-00017" summary="Displayed products in cards &amp; made them responsive">
       <created>1704327813210</created>
@@ -462,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706222940167</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Replaced ternary statement to one liner IF">
+      <created>1706223708449</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1706223708449</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +479,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Order &amp; product repository added" />
     <MESSAGE value="Added product repository in cart class" />
     <MESSAGE value="Search method added" />
     <MESSAGE value="Auth page added &amp; secured" />
@@ -506,7 +503,8 @@
     <MESSAGE value="Code refactoring" />
     <MESSAGE value="Design adjustments" />
     <MESSAGE value="Composer autoload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Composer autoload" />
+    <MESSAGE value="Replaced ternary statement to one liner IF" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced ternary statement to one liner IF" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -541,18 +539,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706223153365">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706223710436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706223153365" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706223710436" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1705868495856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705868495856" />
-    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1706045631094">
+    <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1706223769138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706045631094" />
+    <state x="187" y="256" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706223769138" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1704311512941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
