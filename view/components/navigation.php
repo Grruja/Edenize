@@ -24,7 +24,7 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">
-            <a class="navbar-brand py-2 d-lg-block d-none" href="<?= BASE_URL ?>view/index.php">
+            <a class="navbar-brand py-2 d-lg-block d-none" href="<?= BASE_URL ?>view/welcome.php">
                 <img src="<?= BASE_URL ?>public/assets/edenize_logo.png" alt="Edenize logo" width="120">
             </a>
             <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,14 +59,14 @@ if (isset($_SESSION['alert_message']['success'])) { ?>
                 <ul class="navbar-nav d-flex justify-content-between align-items-lg-center ms-lg-5 ms-2 w-100">
                     <div class="d-flex flex-lg-row gap-lg-4 flex-column align-items-lg-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= BASE_URL ?>view/index.php">Home</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>view/welcome.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= BASE_URL ?>view/shop.php">Shop</a>
                         </li>
                         <?php if (Auth::isUserAdmin()) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= BASE_URL ?>view/admin/index.php">Admin Panel</a>
+                                <a class="nav-link" href="<?= BASE_URL ?>view/admin/welcome.php">Admin Panel</a>
                             </li>
                         <?php } ?>
                     </div>

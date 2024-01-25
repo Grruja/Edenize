@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         $this->authModel->register($_POST);
         $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
-        $this->redirect('view/index.php');
+        $this->redirect('view/welcome.php');
     }
 
     public function handleLogin(): void
@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         $_SESSION['alert_message']['success'] = 'Welcome back!';
-        $this->redirect('view/index.php');
+        $this->redirect('view/welcome.php');
     }
 
     public function handleLogout(): void

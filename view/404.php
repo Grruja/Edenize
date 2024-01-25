@@ -13,7 +13,7 @@
         <div class="text-center d-flex flex-column align-items-center">
             <h1 class="fw-bold text-success" style="font-size: 10rem">404</h1>
             <p class="col-sm-9 fs-5">Opps, something went wrong, we couldn't find your page</p>
-            <a href="index.php" class="btn btn-success mt-5">
+            <a href="welcome.php" class="btn btn-success mt-5">
                 <i class="fa-solid fa-arrow-left me-2"></i>
                 Back Home
             </a>

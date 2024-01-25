@@ -31,6 +31,6 @@ class OrderController extends Controller
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Order is successfully placed!';
-        $this->redirect('view/index.php');
+        $this->redirect('view/welcome.php');
     }
 }
