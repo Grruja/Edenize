@@ -24,7 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,13 +117,7 @@
       <workItem from="1706101273154" duration="5326000" />
       <workItem from="1706199051789" duration="130000" />
       <workItem from="1706201166291" duration="1199000" />
-    </task>
-    <task id="LOCAL-00015" summary="Nav links added &amp; made navbar responsive">
-      <created>1704312250786</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1704312250786</updated>
+      <workItem from="1706222697354" duration="701000" />
     </task>
     <task id="LOCAL-00016" summary="Added product class &amp; method fetch">
       <created>1704327685792</created>
@@ -462,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706049051175</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Composer autoload">
+      <created>1706222940167</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1706222940167</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +481,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Auth repository added" />
     <MESSAGE value="Order &amp; product repository added" />
     <MESSAGE value="Added product repository in cart class" />
     <MESSAGE value="Search method added" />
@@ -506,7 +505,8 @@
     <MESSAGE value="Update cart method set to void" />
     <MESSAGE value="Code refactoring" />
     <MESSAGE value="Design adjustments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Design adjustments" />
+    <MESSAGE value="Composer autoload" />
+    <option name="LAST_COMMIT_MESSAGE" value="Composer autoload" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -537,10 +537,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706102302982" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706049052739">
+    <state x="768" y="222" key="RollbackChangesDialog" timestamp="1706223385812">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706049052739" />
+    <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706223153365">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706223153365" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1705868495856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

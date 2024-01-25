@@ -36,12 +36,12 @@ class ProductController extends Controller
 
     public function permalink(): ?array
     {
-        !isset($_GET['product_id']) ? $this->redirectTo404() : null;
-        !is_numeric($_GET['product_id']) ? $this->redirectTo404() : null;
+        if (isset($_GET['product_id'])) $this->redirectTo404();
+        if (!is_numeric($_GET['product_id'])) $this->redirectTo404();
 
         $product = $this->productModel->getSingleProduct($_GET['product_id']);
 
-        !isset($product) ? $this->redirectTo404() : null;
+        if (!isset($product)) $this->redirectTo404();
         return $product;
     }
 

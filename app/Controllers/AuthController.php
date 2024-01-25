@@ -54,7 +54,7 @@ class AuthController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') $this->redirectTo404();
 
-        !Session::isUserLogged() ? $this->redirectTo404() : null;
+        if (!Session::isUserLogged()) $this->redirectTo404();
 
         Session::userLogout();
         $this->redirect('view/auth/login.php');
