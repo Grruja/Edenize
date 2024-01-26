@@ -23,12 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/welcome.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/baseUrl.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/baseUrl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/components/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/components/navigation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/welcome.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,14 +122,7 @@
       <workItem from="1706101273154" duration="5326000" />
       <workItem from="1706199051789" duration="130000" />
       <workItem from="1706201166291" duration="1199000" />
-      <workItem from="1706222697354" duration="1512000" />
-    </task>
-    <task id="LOCAL-00018" summary="Added permalink for product">
-      <created>1704400338116</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1704400338116</updated>
+      <workItem from="1706222697354" duration="8083000" />
     </task>
     <task id="LOCAL-00019" summary="Custom 404 page display on non existing page">
       <created>1704403061601</created>
@@ -467,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706223963684</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="index.php files renamed to welcome.php">
+      <created>1706224358935</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1706224358935</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +486,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Search method added" />
     <MESSAGE value="Auth page added &amp; secured" />
     <MESSAGE value="Admin check method updated" />
     <MESSAGE value="Changed redirections on pages if user not allowed" />
@@ -511,7 +510,8 @@
     <MESSAGE value="Composer autoload" />
     <MESSAGE value="Replaced ternary statement to one liner IF" />
     <MESSAGE value="Added .env example file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .env example file" />
+    <MESSAGE value="index.php files renamed to welcome.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="index.php files renamed to welcome.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -538,18 +538,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706039841061" />
-    <state x="321" y="443" key="NewPhpFileDialog" timestamp="1706102302982">
+    <state x="321" y="443" key="NewPhpFileDialog" timestamp="1706229862866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706102302982" />
+    <state x="321" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706229862866" />
     <state x="768" y="222" key="RollbackChangesDialog" timestamp="1706223385812">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706223965133">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706224361052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706223965133" />
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706224361052" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1705868495856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -562,9 +562,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1704311512941" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706224210692">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706230738716">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706224210692" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706230738716" />
   </component>
 </project>

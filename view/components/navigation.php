@@ -6,21 +6,21 @@ use App\Support\Session;
 
 Session::start();
 
-if (isset($_SESSION['alert_message']['success'])) { ?>
+if (isset($_SESSION['alert_message']['success'])) : ?>
     <div id="alert" class="alert alert-success position-fixed text-center start-50 translate-middle-x mt-4" style="z-index: 2" role="alert">
         <?php
         echo $_SESSION['alert_message']['success'];
         unset($_SESSION['alert_message']['success']);
         ?>
     </div>
-<?php } else if (isset($_SESSION['alert_message']['danger'])) { ?>
+<?php elseif (isset($_SESSION['alert_message']['danger'])) : ?>
     <div id="alert" class="alert alert-danger position-fixed text-center start-50 translate-middle-x mt-4" style="z-index: 2" role="alert">
         <?php
         echo $_SESSION['alert_message']['danger'];
         unset($_SESSION['alert_message']['danger']);
         ?>
     </div>
-<?php } ?>
+<?php endif ?>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">

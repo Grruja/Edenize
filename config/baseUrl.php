@@ -1,3 +1,3 @@
 <?php
 
-define('BASE_URL', 'http://localhost/live_projects/edenize/');
+define('BASE_URL', '/live_projects/edenize/');
