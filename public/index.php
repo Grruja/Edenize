@@ -1,22 +1,22 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../config/routes.php';
 
 use App\Controllers\ProductController;
+use App\Support\Router;
 
-$request_uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+$router = new Router();
 
-$request_uri = $request_uri_parts[0];
-$query_string = isset($request_uri_parts[1]) ? $request_uri_parts[1] : null;
-
-if (empty($query_string)) {
-    $route = $routes[$request_uri] ?? '404.php';
-    include __DIR__ . '/../view/' . $route;
+$router->addRoute('GET', '/shop', function () {
+    include '../view/shop.php';
     exit();
-}
+});
 
-if (isset($_GET['product_id'])) {
+$router->addRoute('GET', '/product/:productId', function ($productId) {
     $productController = new ProductController();
-    $productController->displayProductPage();
-}
+    $productController->setProductPage($productId);
+    include '../view/product.php';
+    exit();
+});
+
+$router->matchRoute();

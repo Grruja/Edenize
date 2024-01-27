@@ -16,15 +16,14 @@ class ProductController extends Controller
         $this->productModel = new Product();
     }
 
-    public function displayProductPage(): void
+    public function setProductPage(?int $productId): void
     {
-        $product = $this->permalink();
+        $product = $this->permalink($productId);
         $products = $this->displayNewest();
 
         Session::start();
         $_SESSION['permalink'] = $product;
         $_SESSION['newest_products'] = $products;
-        $this->redirect('product');
     }
 
     public function create(): void
@@ -45,12 +44,12 @@ class ProductController extends Controller
         return $this->productModel->getNewest();
     }
 
-    public function permalink(): ?array
+    private function permalink(int $productId): ?array
     {
-        if (!isset($_GET['product_id'])) $this->redirectTo404();
-        if (!is_numeric($_GET['product_id'])) $this->redirectTo404();
+        if (!isset($productId)) $this->redirectTo404();
+        if (!is_numeric($productId)) $this->redirectTo404();
 
-        $product = $this->productModel->getSingleProduct($_GET['product_id']);
+        $product = $this->productModel->getSingleProduct($productId);
 
         if (!isset($product)) $this->redirectTo404();
         return $product;

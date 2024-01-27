@@ -23,10 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Support/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/baseUrl.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/baseUrl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,14 +125,7 @@
       <workItem from="1706222697354" duration="13540000" />
       <workItem from="1706273369484" duration="10330000" />
       <workItem from="1706286087979" duration="125000" />
-      <workItem from="1706380292357" duration="2696000" />
-    </task>
-    <task id="LOCAL-00020" summary="404 page design added">
-      <created>1704411986572</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1704411986572</updated>
+      <workItem from="1706380292357" duration="11423000" />
     </task>
     <task id="LOCAL-00021" summary="Changed User to Auth &amp; moved auth view files to auth directory">
       <created>1704466268910</created>
@@ -469,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706231015228</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Routing with parameters v1">
+      <created>1706383312283</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1706383312283</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +489,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Admin check method updated" />
     <MESSAGE value="Changed redirections on pages if user not allowed" />
     <MESSAGE value="Create product method added &amp; display image in cards" />
     <MESSAGE value="User login code refactoring" />
@@ -513,7 +513,8 @@
     <MESSAGE value="Added .env example file" />
     <MESSAGE value="index.php files renamed to welcome.php" />
     <MESSAGE value="Entry point &amp; routes added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entry point &amp; routes added" />
+    <MESSAGE value="Routing with parameters v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Routing with parameters v1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -536,10 +537,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1705667875771" />
-    <state x="211" y="246" key="NewPhpClassDialog" timestamp="1706275855445">
+    <state x="211" y="246" key="NewPhpClassDialog" timestamp="1706387249110">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706275855445" />
+    <state x="211" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706387249110" />
     <state x="321" y="443" key="NewPhpFileDialog" timestamp="1706229862866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -548,14 +549,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706231017464">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2" timestamp="1706383314597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706231017464" />
-    <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1705868495856">
+    <state x="79" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706383314597" />
+    <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706391266680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1705868495856" />
+    <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706391266680" />
     <state x="187" y="256" width="585" height="592" key="find.popup" timestamp="1706380588175">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -564,9 +565,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706381715114" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706380579120">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706387491951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706380579120" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706387491951" />
   </component>
 </project>
