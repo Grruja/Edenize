@@ -4,8 +4,6 @@
 namespace App\Support;
 
 
-require_once __DIR__ . '/../../config/baseUrl.php';
-
 class Router
 {
     protected array $handlers;
