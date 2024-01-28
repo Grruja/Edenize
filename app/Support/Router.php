@@ -43,33 +43,27 @@ class Router
         $requestPath = $requestUri['path'];
         $method = $_SERVER['REQUEST_METHOD'];
 
-        $callback = null;
-        foreach ($this->handlers as $handler) {
-            if ($handler['path'] === $requestPath && $method === $handler['method']) {
-                $callback = $handler['handler'];
-            }
-        }
-
-        if (is_string($callback)) {
-            $parts = explode('::', $callback);
-            if (is_array($parts)) {
-                $className = array_shift($parts);
-                $handler = new $className;
-
-                $method = array_shift($parts);
-                $callback = [$handler, $method];
-            }
-        }
+        $callback = $this->findHandler($requestPath, $method);
 
         if (!$callback) {
-            header('HTTP/1.0 404 Not Found');
-            if (!empty($this->notFoundHandler)) {
-                $callback = $this->notFoundHandler;
-            }
+            $callback = $this->notFoundHandler;
+            http_response_code(404);
         }
 
-        call_user_func_array($callback, [
-            array_merge($_GET, $_POST)
-        ]);
+        call_user_func_array($callback, [array_merge($_GET, $_POST)]);
+    }
+
+    private function findHandler(string $requestPath, string $method): ?callable
+    {
+        foreach ($this->handlers as $handler) {
+            if ($handler['path'] === $requestPath && $handler['method'] === $method) {
+                if (is_string($handler['handler'])) {
+                    [$className, $method] = explode('::', $handler['handler']);
+                    $handler['handler'] = [new $className, $method];
+                }
+                return $handler['handler'];
+            }
+        }
+        return null;
     }
 }
