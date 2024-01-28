@@ -16,14 +16,17 @@ class ProductController extends Controller
         $this->productModel = new Product();
     }
 
-    public function setProductPage(?int $productId): void
+    public function permalink(array $params = []): void
     {
-        $product = $this->permalink($productId);
+        if (!isset($params['product_id'])) $this->redirectTo404();
+        if (!is_numeric($params['product_id'])) $this->redirectTo404();
+
+        $product = $this->productModel->getSingleProduct($params['product_id']);
+        if (!isset($product)) $this->redirectTo404();
+
         $products = $this->displayNewest();
 
-        Session::start();
-        $_SESSION['permalink'] = $product;
-        $_SESSION['newest_products'] = $products;
+        require_once __DIR__ . '/../../view/product.php';
     }
 
     public function create(): void
@@ -42,17 +45,6 @@ class ProductController extends Controller
     public function displayNewest(): array
     {
         return $this->productModel->getNewest();
-    }
-
-    private function permalink(int $productId): ?array
-    {
-        if (!isset($productId)) $this->redirectTo404();
-        if (!is_numeric($productId)) $this->redirectTo404();
-
-        $product = $this->productModel->getSingleProduct($productId);
-
-        if (!isset($product)) $this->redirectTo404();
-        return $product;
     }
 
     public function searchByName(): ?array

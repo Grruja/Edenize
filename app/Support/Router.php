@@ -6,31 +6,70 @@ namespace App\Support;
 
 require_once __DIR__ . '/../../config/baseUrl.php';
 
-use Closure;
-use Exception;
-
 class Router
 {
-    protected array $routes;
+    protected array $handlers;
+    private $notFoundHandler;
+    private const METHOD_POST = 'POST';
+    private const METHOD_GET = 'GET';
 
-    public function addRoute(string $method, string $url, closure $target) {
-        $this->routes[$method][BASE_URL.$url] = $target;
+    public function get(string $path, $handler): void
+    {
+        $this->addHandler(self::METHOD_GET, $path, $handler);
     }
 
-    public function matchRoute() {
+    public function post(string $path, $handler): void
+    {
+        $this->addHandler(self::METHOD_POST, $path, $handler);
+    }
+
+    private function addHandler(string $method, string $path, $handler): void
+    {
+        $this->handlers[$method . $path] = [
+            'path' => $path,
+            'method' => $method,
+            'handler' => $handler,
+        ];
+    }
+
+    public function addNotFoundHandler($handler): void
+    {
+        $this->notFoundHandler = $handler;
+    }
+
+    public function run(): void
+    {
+        $requestUri = parse_url($_SERVER['REQUEST_URI']);
+        $requestPath = $requestUri['path'];
         $method = $_SERVER['REQUEST_METHOD'];
-        $url = $_SERVER['REQUEST_URI'];
-        if (isset($this->routes[$method])) {
-            foreach ($this->routes[$method] as $routeUrl => $target) {
-                $pattern = preg_replace('/\/:([^\/]+)/', '/(?P<$1>[^/]+)', $routeUrl);
-                if (preg_match('#^' . $pattern . '$#', $url, $matches)) {
-                    // Pass the captured parameter values as named arguments to the target function
-                    $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY); // Only keep named subpattern matches
-                    call_user_func_array($target, $params);
-                    return;
-                }
+
+        $callback = null;
+        foreach ($this->handlers as $handler) {
+            if ($handler['path'] === $requestPath && $method === $handler['method']) {
+                $callback = $handler['handler'];
             }
         }
-        throw new Exception('Route not found');
+
+        if (is_string($callback)) {
+            $parts = explode('::', $callback);
+            if (is_array($parts)) {
+                $className = array_shift($parts);
+                $handler = new $className;
+
+                $method = array_shift($parts);
+                $callback = [$handler, $method];
+            }
+        }
+
+        if (!$callback) {
+            header('HTTP/1.0 404 Not Found');
+            if (!empty($this->notFoundHandler)) {
+                $callback = $this->notFoundHandler;
+            }
+        }
+
+        call_user_func_array($callback, [
+            array_merge($_GET, $_POST)
+        ]);
     }
 }

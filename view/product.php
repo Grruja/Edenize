@@ -1,13 +1,12 @@
 <?php
+/* @var array $product
+ * @var array $products
+ */
+
 include 'components/head.php';
 
 use App\Controllers\CartController;
 use App\Support\Session;
-
-Session::start();
-$product = $_SESSION['permalink'];
-$products = $_SESSION['newest_products'];
-unset($_SESSION['permalink'], $_SESSION['newest_products']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!Session::isUserLogged()) {

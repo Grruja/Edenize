@@ -16,7 +16,7 @@ class Controller
 
     protected function redirectTo404(): void
     {
-        header('Location: '.BASE_URL.'view/404.php');
+        header('Location: '.BASE_URL.'/view/404.php');
         exit();
     }
 }
