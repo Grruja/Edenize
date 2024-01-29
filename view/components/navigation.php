@@ -85,7 +85,7 @@ if (isset($_SESSION['alert_message']['success'])) : ?>
                         <?php } ?>
                         <?php if (Session::isUserLogged()) { ?>
                             <li class="nav-item me-4">
-                                <form method="POST" action="<?= BASE_URL ?>/logout" class="nav-link">
+                                <form method="POST" action="<?= BASE_URL ?>/logout/send" class="nav-link">
                                     <button class="bg-transparent nav-link">
                                     <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
                                         Logout

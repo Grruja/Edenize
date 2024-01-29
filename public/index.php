@@ -18,9 +18,9 @@ $router->get(BASE_URL . '/checkout', fn() => require_once '../view/checkout.php'
 // Auth
 $router->get(BASE_URL . '/login', fn() => require_once '../view/auth/login.php');
 $router->get(BASE_URL . '/register', fn() => require_once '../view/auth/register.php');
-$router->post(BASE_URL . '/login-user', AuthController::class . '::handleLogin');
-$router->post(BASE_URL . '/register-user', AuthController::class . '::handleRegistration');
-$router->post(BASE_URL . '/logout', AuthController::class . '::handleLogout');
+$router->post(BASE_URL . '/login/send', AuthController::class . '::handleLogin');
+$router->post(BASE_URL . '/register/send', AuthController::class . '::handleRegistration');
+$router->post(BASE_URL . '/logout/send', AuthController::class . '::handleLogout');
 
 // Admin
 $router->get(BASE_URL . '/admin', fn() => require_once '../view/admin/welcome.php');
