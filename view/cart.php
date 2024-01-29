@@ -10,9 +10,7 @@ if (!Session::isUserLogged()) {
 }
 
 $cartController = new CartController();
-
 $items = $cartController->displayAllWithTotal();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') $cartController->removeFromCart();
 ?>
 
 <body>

@@ -23,8 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/cart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,14 +122,7 @@
       <workItem from="1706286087979" duration="125000" />
       <workItem from="1706380292357" duration="12089000" />
       <workItem from="1706454599962" duration="15203000" />
-      <workItem from="1706536556352" duration="7168000" />
-    </task>
-    <task id="LOCAL-00031" summary="Added update cart method and alert message on added item">
-      <created>1705197965039</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1705197965040</updated>
+      <workItem from="1706536556352" duration="7284000" />
     </task>
     <task id="LOCAL-00032" summary="Checkout functionality added &amp; code refactoring">
       <created>1705361117495</created>
@@ -469,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706547485481</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Implemented post route for remove from cart">
+      <created>1706547947753</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1706547947753</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +486,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Product controller implemented &amp; code refactoring" />
     <MESSAGE value="Product model, controller and repo refactored" />
     <MESSAGE value="Implemented product controller with view &amp; added methods" />
     <MESSAGE value="Code refactoring &amp; cart controller added" />
@@ -513,7 +510,8 @@
     <MESSAGE value="Implemented post routes for create product" />
     <MESSAGE value="Url change for auth post routes" />
     <MESSAGE value="Implemented post route for add to cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented post route for add to cart" />
+    <MESSAGE value="Implemented post route for remove from cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented post route for remove from cart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -548,10 +546,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
-    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2" timestamp="1706547486588">
+    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2" timestamp="1706547949346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706547486588" />
+    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706547949346" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706391266680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
