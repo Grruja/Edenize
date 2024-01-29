@@ -5,6 +5,7 @@ require_once __DIR__ . '/../config/baseUrl.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\CartController;
+use App\Controllers\OrderController;
 use App\Controllers\ProductController;
 use App\Support\Router;
 
@@ -17,6 +18,7 @@ $router->get(BASE_URL . '/cart', fn() => require_once '../view/cart.php');
 $router->get(BASE_URL . '/checkout', fn() => require_once '../view/checkout.php');
 $router->post(BASE_URL . '/cart/add-product', CartController::class . '::addProduct');
 $router->post(BASE_URL . '/cart/remove-product', CartController::class . '::removeFromCart');
+$router->post(BASE_URL . '/order/send', OrderController::class . '::place');
 
 // Auth
 $router->get(BASE_URL . '/login', fn() => require_once '../view/auth/login.php');

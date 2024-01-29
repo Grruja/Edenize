@@ -17,17 +17,17 @@ class OrderController extends Controller
         $this->orderModel = new Order();
     }
 
-    public function place(): void
+    public function place(array $params = []): void
     {
         $validation = new OrderValidation();
 
-        if (!$validation->validateOrder($_POST)) {
+        if (!$validation->validateOrder($params)) {
             Session::start();
             $_SESSION['errors'] = $validation->getValidationErrors();
             $this->redirect('/checkout');
         }
 
-        $this->orderModel->create($_POST);
+        $this->orderModel->create($params);
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Order is successfully placed!';

@@ -2,7 +2,6 @@
 include 'components/head.php';
 
 use App\Controllers\CartController;
-use App\Controllers\OrderController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
@@ -19,11 +18,6 @@ if (!isset($_SESSION['cart'])) {
 
 $cartController = new CartController();
 $items = $cartController->displayAllWithTotal();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $orderController = new OrderController();
-    $orderController->place();
-}
 
 $quantityErrors = $_SESSION['errors']['quantity'] ?? null;
 $formErrors = $_SESSION['errors']['form'] ?? null;
@@ -44,7 +38,7 @@ unset($_SESSION['errors']);
                 <?php endif; ?>
                 <div class="border bg-light p-4 rounded-2">
                     <h2 class="mb-5 fw-bold">Shipping Details</h2>
-                    <form method="POST" action="">
+                    <form method="POST" action="<?= BASE_URL ?>/order/send">
                         <div class="mb-3">
                             <label for="country" class="form-label">Country</label>
                             <input type="text" name="country" required class="form-control" id="country"
