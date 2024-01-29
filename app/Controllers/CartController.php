@@ -38,16 +38,16 @@ class CartController extends Controller
         return $this->cartModel->getAllWithTotal();
     }
 
-    public function removeFromCart(): void
+    public function removeFromCart(array $params = []): void
     {
         if (!isset($_SESSION['cart']) ||
-            !isset($_POST['product_id']) ||
-            empty($_POST['product_id']))
+            !isset($params['product_id']) ||
+            empty($params['product_id']))
         {
             $this->redirect('/cart');
         }
 
-        $this->cartModel->remove($_POST['product_id']);
+        $this->cartModel->remove($params['product_id']);
         $this->redirect('/cart');
     }
 }
