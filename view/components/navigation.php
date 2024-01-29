@@ -66,7 +66,7 @@ if (isset($_SESSION['alert_message']['success'])) : ?>
                         </li>
                         <?php if (Auth::isUserAdmin()) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= BASE_URL ?>/">Admin Panel</a>
+                                <a class="nav-link" href="<?= BASE_URL ?>/admin">Admin Panel</a>
                             </li>
                         <?php } ?>
                     </div>

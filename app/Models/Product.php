@@ -42,7 +42,7 @@ class Product
 
     public function saveImage(string $imageName): void
     {
-        $storagePath = '../../public/product_images/'.$imageName;
+        $storagePath = __DIR__ . '/../../public/product_images/'.$imageName;
         move_uploaded_file($_FILES['image']['tmp_name'], $storagePath);
     }
 

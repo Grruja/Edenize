@@ -29,17 +29,18 @@ class ProductController extends Controller
         require_once __DIR__ . '/../../view/product.php';
     }
 
-    public function create(): void
+    public function create(array $params = []): void
     {
         // validation here
         $imageName = basename($_FILES['image']['name']);
         $this->productModel->saveImage($imageName);
         $imagePath = $this->productModel->imagePathForDb($imageName);
 
-        $this->productModel->create($_POST, $imagePath);
+        $this->productModel->create($params, $imagePath);
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Product created';
+        $this->redirect('/admin');
     }
 
     public function displayNewest(): array

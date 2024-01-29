@@ -24,6 +24,7 @@ $router->post(BASE_URL . '/logout', AuthController::class . '::handleLogout');
 
 // Admin
 $router->get(BASE_URL . '/admin', fn() => require_once '../view/admin/welcome.php');
+$router->post(BASE_URL . '/admin/create-product/send', ProductController::class . '::create');
 
 $router->addNotFoundHandler(fn() => require_once '../view/404.php');
 

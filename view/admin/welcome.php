@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . '/../components/head.php';
 
-use App\Controllers\ProductController;
 use App\Models\Auth;
 
 if (!Auth::isUserAdmin()) {
@@ -9,20 +8,15 @@ if (!Auth::isUserAdmin()) {
     require_once __DIR__ . '/../../view/404.php';
     exit();
 }
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $productController = new ProductController();
-    $productController->create();
-}
 ?>
 
 <body>
-    <?php include '../components/navigation.php'; ?>
+    <?php include __DIR__ . '/../components/navigation.php'; ?>
     <main class="container mt-5">
         <h1>Admin</h1>
         <div class="d-flex justify-content-center mt-5">
             <div class="border bg-light p-5 rounded-2 col-xxl-5 col-xl-6 col-lg-7 col-md-9">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="<?= BASE_URL ?>/admin/create-product/send" enctype="multipart/form-data">
                     <h2 class="text-center mb-5">Create Product</h2>
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
@@ -52,5 +46,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </main>
-    <?php include '../components/footer.php'; ?>
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>
