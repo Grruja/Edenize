@@ -18,15 +18,18 @@ class CartController extends Controller
         Session::start();
     }
 
-    public function addProduct(): void
+    public function addProduct(array $params = []): void
     {
+        if (!Session::isUserLogged()) $this->redirect('/login');
+
         $validation = new CartValidation();
-        if (!$validation->validateAddToCart($_POST)) {
-            $this->redirect('/product?product_id='.$_POST['product_id']);
+        if (!$validation->validateAddToCart($params)) {
+            $this->redirect('/product?product_id='.$params['product_id']);
         }
 
-        $this->cartModel->addProduct($_POST['product_id'], $_POST['quantity']);
+        $this->cartModel->addProduct($params['product_id'], $params['quantity']);
         $_SESSION['alert_message']['success'] = 'Product added to cart.';
+        $this->redirect('/product?product_id=' . $params['product_id']);
     }
 
     public function displayAllWithTotal(): ?array

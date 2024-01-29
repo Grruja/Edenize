@@ -4,19 +4,6 @@
  */
 
 include 'components/head.php';
-
-use App\Controllers\CartController;
-use App\Support\Session;
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!Session::isUserLogged()) {
-        header('Location: '.BASE_URL.'/login');
-        exit();
-    }
-
-    $cartController = new CartController();
-    $cartController->addProduct();
-}
 ?>
 
 <body>
@@ -37,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php endif; ?>
                 <p class="fs-2 my-4">$<?= $product['price'] ?></p>
     
-                <form method="POST" action="">
+                <form method="POST" action="<?= BASE_URL ?>/cart/add-product">
                     <div class="d-flex align-items-center gap-3">
                         <label for="quantity" class="form-label fw-bold">Quantity:</label>
                         <div class="col-md-2 col-sm-3 custom-col-xs-quantity">

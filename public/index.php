@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/baseUrl.php';
 
 use App\Controllers\AuthController;
+use App\Controllers\CartController;
 use App\Controllers\ProductController;
 use App\Support\Router;
 
@@ -14,6 +15,7 @@ $router->get(BASE_URL . '/shop', fn() => require_once '../view/shop.php');
 $router->get(BASE_URL . '/product', ProductController::class . '::permalink');
 $router->get(BASE_URL . '/cart', fn() => require_once '../view/cart.php');
 $router->get(BASE_URL . '/checkout', fn() => require_once '../view/checkout.php');
+$router->post(BASE_URL . '/cart/add-product', CartController::class . '::addProduct');
 
 // Auth
 $router->get(BASE_URL . '/login', fn() => require_once '../view/auth/login.php');
