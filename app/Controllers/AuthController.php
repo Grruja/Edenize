@@ -15,15 +15,15 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->authModel = new Auth();
+        Session::start();
     }
 
-    public function handleRegistration(): void
+    public function handleRegistration(array $params = []): void
     {
         $validation = new AuthValidation();
-        $isValid = $validation->registerValidation($_POST);
+        $isValid = $validation->registerValidation($params);
 
         if (!$isValid) {
-            Session::start();
             $_SESSION['errors'] = $validation->getValidationErrors();
             $this->redirect('/register');
         }
@@ -33,13 +33,13 @@ class AuthController extends Controller
         $this->redirect('/');
     }
 
-    public function handleLogin(): void
+    public function handleLogin(array $params = []): void
     {
-        if (!isset($_POST['username']) || !isset($_POST['password'])) {
+        if (!isset($params['username']) || !isset($params['password'])) {
             $this->redirect('/login');
         }
 
-        $login = $this->authModel->login($_POST['username'], $_POST['password']);
+        $login = $this->authModel->login($params['username'], $params['password']);
 
         if (!$login) {
             $_SESSION['alert_message']['danger'] = 'Invalid username or password.';
@@ -52,8 +52,6 @@ class AuthController extends Controller
 
     public function handleLogout(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') $this->redirectTo404();
-
         if (!Session::isUserLogged()) $this->redirectTo404();
 
         Session::userLogout();

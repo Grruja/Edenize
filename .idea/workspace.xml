@@ -24,11 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cb60bf23-f50b-4fde-88d9-8dd11eb04142" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/welcome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Validations/AuthValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Validations/AuthValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/auth/logout.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/view/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/auth/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/checkout.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,14 +128,7 @@
       <workItem from="1706286087979" duration="125000" />
       <workItem from="1706380292357" duration="12089000" />
       <workItem from="1706454599962" duration="15203000" />
-      <workItem from="1706536556352" duration="810000" />
-    </task>
-    <task id="LOCAL-00026" summary="Added new cart icons &amp; refactored code">
-      <created>1704988864056</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1704988864056</updated>
+      <workItem from="1706536556352" duration="3990000" />
     </task>
     <task id="LOCAL-00027" summary="Created cart class with add to cart method">
       <created>1705003907231</created>
@@ -472,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706537052327</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Adjust 404 redirections">
+      <created>1706537503413</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1706537503413</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +492,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved Auth methods to session class &amp; design adjustments" />
     <MESSAGE value="User register code refactoring" />
     <MESSAGE value="Database connection adjustment" />
     <MESSAGE value="Database connection adjustments" />
@@ -516,7 +516,8 @@
     <MESSAGE value="Refactored run method in router class" />
     <MESSAGE value="Added routes" />
     <MESSAGE value="Refactored paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored paths" />
+    <MESSAGE value="Adjust 404 redirections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjust 404 redirections" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1704412679473">
@@ -551,25 +552,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="768" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1706223385812" />
-    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2" timestamp="1706537054142">
+    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2" timestamp="1706537505257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706537054142" />
+    <state x="79" y="240" width="816" height="559" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706537505257" />
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706391266680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1706391266680" />
-    <state x="187" y="256" width="585" height="596" key="find.popup" timestamp="1706537286048">
+    <state x="187" y="256" width="585" height="596" key="find.popup" timestamp="1706537445585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="187" y="256" width="585" height="596" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706537286048" />
+    <state x="187" y="256" width="585" height="596" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706537445585" />
     <state x="136" y="244" key="run.anything.popup" timestamp="1706381715114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706381715114" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706537361029">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1706544657836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706537361029" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1706544657836" />
   </component>
 </project>

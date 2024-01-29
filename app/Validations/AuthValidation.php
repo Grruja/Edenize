@@ -9,7 +9,7 @@ use App\Repositories\AuthRepo;
 class AuthValidation
 {
     private array $validationErrors;
-    private const VALIDATION_RULES = '../../config/validation_rules/createUser.php';
+    private const VALIDATION_RULES = __DIR__ . '/../../config/validation_rules/createUser.php';
 
     public function getValidationErrors(): array
     {
