@@ -10,7 +10,7 @@ use App\Support\Session;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!Session::isUserLogged()) {
-        header('Location: '.BASE_URL.'view/auth/login.php');
+        header('Location: '.BASE_URL.'/login');
         exit();
     }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 g-4">
                 <?php foreach ($products as $item) : ?>
                     <div class="col custom-col-xs-2">
-                        <a href="product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
+                        <a href="product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
                                 <div class="d-flex justify-content-center mb-4">
                                     <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">

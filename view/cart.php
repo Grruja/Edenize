@@ -5,7 +5,7 @@ use App\Controllers\CartController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
-    header('Location: '.BASE_URL.'view/auth/login.php');
+    header('Location: '.BASE_URL.'/login');
     exit();
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') $cartController->removeFromCart();
                 <h2 class="fw-bold mb-4">Cart</h2>
                 <?php if (isset($_SESSION['cart'])) : ?>
                     <?php foreach ($items as $item) : ?>
-                        <a href="<?= BASE_URL ?>view/product.php?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
+                        <a href="<?= BASE_URL ?>/product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
                             <form method="POST" action="" style="position: absolute; right: 0">
                                 <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                                 <button class="bg-transparent"><i class="fa-regular fa-circle-xmark text-danger p-2"></i></button>
@@ -68,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') $cartController->removeFromCart();
                 </div>
 
                 <?php if (isset($_SESSION['cart'])) : ?>
-                    <a href="<?= BASE_URL ?>view/checkout.php" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
+                    <a href="<?= BASE_URL ?>/checkout" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
                 <?php else: ?>
                     <button class="btn btn-success w-100 mt-4 py-2" disabled>Checkout</button>
                 <?php endif; ?>
-                <a href="<?= BASE_URL ?>view/shop.php" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
+                <a href="<?= BASE_URL ?>/shop" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
             </div>
         </div>
     </main>

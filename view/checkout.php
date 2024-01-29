@@ -6,7 +6,7 @@ use App\Controllers\OrderController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
-    header('Location: '.BASE_URL.'view/auth/login.php');
+    header('Location: '.BASE_URL.'/login');
     exit();
 }
 

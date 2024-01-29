@@ -22,7 +22,7 @@ class CartController extends Controller
     {
         $validation = new CartValidation();
         if (!$validation->validateAddToCart($_POST)) {
-            $this->redirect('view/product.php?product_id='.$_POST['product_id']);
+            $this->redirect('/product?product_id='.$_POST['product_id']);
         }
 
         $this->cartModel->addProduct($_POST['product_id'], $_POST['quantity']);
@@ -41,10 +41,10 @@ class CartController extends Controller
             !isset($_POST['product_id']) ||
             empty($_POST['product_id']))
         {
-            $this->redirect('view/cart.php');
+            $this->redirect('/cart');
         }
 
         $this->cartModel->remove($_POST['product_id']);
-        $this->redirect('view/cart.php');
+        $this->redirect('/cart');
     }
 }

@@ -25,29 +25,29 @@ class AuthController extends Controller
         if (!$isValid) {
             Session::start();
             $_SESSION['errors'] = $validation->getValidationErrors();
-            $this->redirect('view/auth/register.php');
+            $this->redirect('/register');
         }
 
         $this->authModel->register($_POST);
         $_SESSION['alert_message']['success'] = 'Your account is successfully created!';
-        $this->redirect('view/welcome.php');
+        $this->redirect('/');
     }
 
     public function handleLogin(): void
     {
         if (!isset($_POST['username']) || !isset($_POST['password'])) {
-            $this->redirect('view/auth/login.php');
+            $this->redirect('/login');
         }
 
         $login = $this->authModel->login($_POST['username'], $_POST['password']);
 
         if (!$login) {
             $_SESSION['alert_message']['danger'] = 'Invalid username or password.';
-            $this->redirect('view/auth/login.php');
+            $this->redirect('/login');
         }
 
         $_SESSION['alert_message']['success'] = 'Welcome back!';
-        $this->redirect('view/welcome.php');
+        $this->redirect('/');
     }
 
     public function handleLogout(): void
@@ -57,6 +57,6 @@ class AuthController extends Controller
         if (!Session::isUserLogged()) $this->redirectTo404();
 
         Session::userLogout();
-        $this->redirect('view/auth/login.php');
+        $this->redirect('/login');
     }
 }

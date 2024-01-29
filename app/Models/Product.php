@@ -48,6 +48,6 @@ class Product
 
     public function imagePathForDb(string $imageName): string
     {
-        return 'public/product_images/'.$imageName;
+        return '/public/product_images/'.$imageName;
     }
 }

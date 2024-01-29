@@ -24,13 +24,13 @@ class OrderController extends Controller
         if (!$validation->validateOrder($_POST)) {
             Session::start();
             $_SESSION['errors'] = $validation->getValidationErrors();
-            $this->redirect('view/checkout.php');
+            $this->redirect('/checkout');
         }
 
         $this->orderModel->create($_POST);
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Order is successfully placed!';
-        $this->redirect('view/welcome.php');
+        $this->redirect('/');
     }
 }
