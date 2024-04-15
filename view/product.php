@@ -11,7 +11,7 @@ include 'components/head.php';
     <main class="mt-5">
         <div class="container d-flex flex-sm-row flex-column gap-5">
             <div class="col-sm-6">
-                <img class="w-100 rounded-2" style="max-width: 500px"  src="<?= BASE_URL.$product['image'] ?>" alt="Plant in a pot">
+                <img class="w-100 rounded-2" style="max-width: 500px"  src="<?= $baseUrl.$product['image'] ?>" alt="Plant in a pot">
             </div>
             
             <div class="col-sm-6">
@@ -24,7 +24,7 @@ include 'components/head.php';
                 <?php endif; ?>
                 <p class="fs-2 my-4">$<?= $product['price'] ?></p>
     
-                <form method="POST" action="<?= BASE_URL ?>/cart/add-product">
+                <form method="POST" action="<?= $baseUrl ?>/cart/add-product">
                     <div class="d-flex align-items-center gap-3">
                         <label for="quantity" class="form-label fw-bold">Quantity:</label>
                         <div class="col-md-2 col-sm-3 custom-col-xs-quantity">
@@ -45,7 +45,7 @@ include 'components/head.php';
                         <a href="product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
                                 <div class="d-flex justify-content-center mb-4">
-                                    <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
+                                    <img src="<?= $publicPath.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
                                 </div>
                                 <p class="fw-bold fs-5"><?= $item['name'] ?></p>
                                 <?php if ($item['quantity'] == 0) : ?>

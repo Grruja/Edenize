@@ -5,7 +5,7 @@ use App\Controllers\CartController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
-    header('Location: '.BASE_URL.'/login');
+    header('Location: '.$baseUrl.'/login');
     exit();
 }
 
@@ -38,7 +38,7 @@ unset($_SESSION['errors']);
                 <?php endif; ?>
                 <div class="border bg-light p-4 rounded-2">
                     <h2 class="mb-5 fw-bold">Shipping Details</h2>
-                    <form method="POST" action="<?= BASE_URL ?>/order/send">
+                    <form method="POST" action="<?= $baseUrl ?>/order/send">
                         <div class="mb-3">
                             <label for="country" class="form-label">Country</label>
                             <input type="text" name="country" required class="form-control" id="country"

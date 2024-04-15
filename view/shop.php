@@ -29,7 +29,7 @@ $products = $productController->searchByName();
                         <a href="product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
                                 <div class="d-flex justify-content-center mb-4">
-                                    <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
+                                    <img src="<?= $publicPath.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
                                 </div>
                                 <p class="fw-bold fs-5"><?= $item['name'] ?></p>
                                 <?php if ($item['quantity'] == 0) : ?>

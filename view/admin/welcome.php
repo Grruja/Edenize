@@ -16,7 +16,7 @@ if (!Auth::isUserAdmin()) {
         <h1>Admin</h1>
         <div class="d-flex justify-content-center mt-5">
             <div class="border bg-light p-5 rounded-2 col-xxl-5 col-xl-6 col-lg-7 col-md-9">
-                <form method="POST" action="<?= BASE_URL ?>/admin/create-product/send" enctype="multipart/form-data">
+                <form method="POST" action="<?= $baseUrl ?>/admin/create-product/send" enctype="multipart/form-data">
                     <h2 class="text-center mb-5">Create Product</h2>
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>

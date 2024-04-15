@@ -4,13 +4,12 @@
 namespace App\Controllers;
 
 
-require_once __DIR__.'/../../config/baseUrl.php';
-
 class Controller
 {
     protected function redirect(string $path): void
     {
-        header('Location: '.BASE_URL.$path);
+        global $baseUrl;
+        header('Location: '.$baseUrl.$path);
         exit();
     }
 

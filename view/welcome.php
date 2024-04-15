@@ -16,8 +16,8 @@ $products = $productController->displayNewest();
                     <div id="homeText" class="ms-xxl-0 ms-md-5">
                         <h1 class="text-white fs-2">BEST <span class="fw-bold display-5">HOUSE </span><span class="fw-bold display-1 d-block">PLANTS</span></h1>
                         <p class="text-white fs-5 col-sm-7 col-11 m-lg-0 m-auto text-lg-start text-center">Bring a touch of nature into your home with our beautiful collection of plants.</p>
-                        <a href="<?= BASE_URL ?>/shop" class="d-lg-inline-block d-none btn btn-outline-light px-5 py-2 mt-4">Shop Now</a>
-                        <a href="<?= BASE_URL ?>/shop" class="d-lg-none d-inline-block btn btn-success px-5 py-2 mt-4">Shop Now</a>
+                        <a href="<?= $baseUrl ?>/shop" class="d-lg-inline-block d-none btn btn-outline-light px-5 py-2 mt-4">Shop Now</a>
+                        <a href="<?= $baseUrl ?>/shop" class="d-lg-none d-inline-block btn btn-success px-5 py-2 mt-4">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@ $products = $productController->displayNewest();
         <div class="container d-flex flex-sm-row flex-column gap-md-5 gap-3" style="margin-top: 6rem; margin-bottom: 6rem">
             <div class="d-flex flex-lg-row flex-sm-column gap-5 align-items-center border border-dark p-4 rounded-2">
                 <div class="col-lg-2 col-sm-6 col-2">
-                    <img class="w-100" src="<?= BASE_URL.'/public/assets/free_shipping.png' ?>" alt="Truck with a free shipping text">
+                    <img class="w-100" src="<?= $publicPath.'/assets/free_shipping.png' ?>" alt="Truck with a free shipping text">
                 </div>
                 <div>
                     <h2 class="fs-4">Fast and Free Delivery</h2>
@@ -35,7 +35,7 @@ $products = $productController->displayNewest();
             </div>
             <div class="d-flex flex-lg-row flex-sm-column gap-5 align-items-center border border-dark p-4 rounded-2">
                 <div class="col-lg-2 col-sm-6 col-2">
-                    <img class="w-100" src="<?= BASE_URL.'/public/assets/customer_support.png' ?>" alt="Headphones with a microphone">
+                    <img class="w-100" src="<?= $publicPath.'/assets/customer_support.png' ?>" alt="Headphones with a microphone">
                 </div>
                 <div>
                     <h2 class="fs-4">24/7 Customer Support</h2>
@@ -44,7 +44,7 @@ $products = $productController->displayNewest();
             </div>
             <div class="d-flex flex-lg-row flex-sm-column gap-5 align-items-center border border-dark p-4 rounded-2">
                 <div class="col-lg-2 col-sm-6 col-2">
-                    <img class="w-100" src="<?= BASE_URL.'/public/assets/gift.png' ?>" alt="Gift">
+                    <img class="w-100" src="<?= $publicPath.'/assets/gift.png' ?>" alt="Gift">
                 </div>
                 <div>
                     <h2 class="fs-4">Member Gifts</h2>
@@ -56,7 +56,7 @@ $products = $productController->displayNewest();
         <div id="aboutParent" class="py-1">
             <div id="aboutChild" class="container d-flex justify-content-md-between justify-content-center" style="margin-top: 6rem; margin-bottom: 6rem">
                 <div class="col-5 d-md-block d-none">
-                    <img class="w-100" src="<?= BASE_URL .'/public/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
+                    <img class="w-100" src="<?= $baseUrl .'/public/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
                 </div>
                 <div class="col-md-6 text-md-start text-center">
                     <h2 class="mb-md-5 mb-3">Shop Edenize</h2>
@@ -74,7 +74,7 @@ $products = $productController->displayNewest();
                         <a href="product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark w-100">
                             <div class="bg-light rounded-2 border p-lg-4 p-3 h-100">
                                 <div class="d-flex justify-content-center mb-4">
-                                    <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
+                                    <img src="<?= $publicPath.$item['image'] ?>" alt="Plant in a pot" class="w-100 rounded-2">
                                 </div>
                                 <p class="fw-bold fs-5"><?= $item['name'] ?></p>
                                 <?php if ($item['quantity'] == 0) : ?>

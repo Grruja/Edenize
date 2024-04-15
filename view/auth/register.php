@@ -17,7 +17,7 @@ unset($_SESSION['errors']);
     <main class="d-flex align-items-center mt-5">
         <div class="container border bg-light p-5 rounded-2 col-xxl-4 col-xl-5 col-lg-6 col-md-8">
             <h1 class="text-center mb-5">Register</h1>
-            <form method="POST" action="<?= BASE_URL ?>/register/send">
+            <form method="POST" action="<?= $baseUrl ?>/register/send">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Full Name</label>
                     <input type="text" name="full_name" required class="form-control" id="fullName">
@@ -54,7 +54,7 @@ unset($_SESSION['errors']);
                     <?php endif ?>
                 </div>
 
-                <div>Already have an account? <a href="<?= BASE_URL ?>/login">Login</a></div>
+                <div>Already have an account? <a href="<?= $baseUrl ?>/login">Login</a></div>
 
                 <div class="alert alert-primary my-4">
                     <p class="fw-bold">Demo Account</p>

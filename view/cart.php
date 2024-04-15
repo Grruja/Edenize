@@ -5,7 +5,7 @@ use App\Controllers\CartController;
 use App\Support\Session;
 
 if (!Session::isUserLogged()) {
-    header('Location: '.BASE_URL.'/login');
+    header('Location: '.$baseUrl.'/login');
     exit();
 }
 
@@ -21,13 +21,13 @@ $items = $cartController->displayAllWithTotal();
                 <h2 class="fw-bold mb-4">Cart</h2>
                 <?php if (isset($_SESSION['cart'])) : ?>
                     <?php foreach ($items as $item) : ?>
-                        <a href="<?= BASE_URL ?>/product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
-                            <form method="POST" action="<?= BASE_URL ?>/cart/remove-product" style="position: absolute; right: 0">
+                        <a href="<?= $baseUrl ?>/product?product_id=<?= $item['id'] ?>" class="text-decoration-none text-dark position-relative">
+                            <form method="POST" action="<?= $baseUrl ?>/cart/remove-product" style="position: absolute; right: 0">
                                 <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                                 <button class="bg-transparent"><i class="fa-regular fa-circle-xmark text-danger p-2"></i></button>
                             </form>
                             <div class="bg-light rounded-2 border mb-3 p-sm-3 p-2 d-flex">
-                                <img src="<?= BASE_URL.$item['image'] ?>" alt="Plant in a pot" class="rounded-2" id="cartProductImage">
+                                <img src="<?= $publicPath.$item['image'] ?>" alt="Plant in a pot" class="rounded-2" id="cartProductImage">
                                 <div class="ms-4">
                                     <p class="fs-5"><?= $item['name'] ?></p>
                                     <p class="fs-5">$<?= $item['price'] ?></p>
@@ -66,11 +66,11 @@ $items = $cartController->displayAllWithTotal();
                 </div>
 
                 <?php if (isset($_SESSION['cart'])) : ?>
-                    <a href="<?= BASE_URL ?>/checkout" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
+                    <a href="<?= $baseUrl ?>/checkout" class="btn btn-success w-100 mt-4 py-2">Checkout</a>
                 <?php else: ?>
                     <button class="btn btn-success w-100 mt-4 py-2" disabled>Checkout</button>
                 <?php endif; ?>
-                <a href="<?= BASE_URL ?>/shop" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
+                <a href="<?= $baseUrl ?>/shop" class="btn btn-outline-success w-100 mt-2 py-2">Shop More</a>
             </div>
         </div>
     </main>
