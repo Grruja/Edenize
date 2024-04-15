@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Dotenv\Dotenv;
 use App\Support\Router;
 use App\Support\Session;
 use App\Controllers\AuthController;
@@ -10,10 +9,8 @@ use App\Controllers\CartController;
 use App\Controllers\OrderController;
 use App\Controllers\ProductController;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
-$baseUrl = $_ENV['BASE_URL'];
-$publicPath = $_ENV['PUBLIC_PATH'];
+$baseUrl = '/live_projects/edenize';
+$publicPath = '/live_projects/edenize/public';
 
 Session::start();
 $router = new Router();
