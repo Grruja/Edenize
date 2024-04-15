@@ -95,10 +95,6 @@ p {
         float: none;
         text-align: center;
     }
-    #homeText h1,
-    #homeText p {
-        color: #212529 !important;
-    }
 }
 
 @media only screen and (max-width: 575px) {
