@@ -24,7 +24,7 @@ class ProductController extends Controller
         $product = $this->productModel->getSingleProduct($params['product_id']);
         if (!isset($product)) $this->redirectTo404();
 
-        $products = $this->displayNewest();
+        $products = $this->productModel->getNewest();
 
         require_once __DIR__ . '/../../view/product.php';
     }
@@ -41,11 +41,6 @@ class ProductController extends Controller
         Session::start();
         $_SESSION['alert_message']['success'] = 'Product created';
         $this->redirect('/admin');
-    }
-
-    public function displayNewest(): array
-    {
-        return $this->productModel->getNewest();
     }
 
     public function searchByName(): ?array

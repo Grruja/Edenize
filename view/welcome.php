@@ -1,10 +1,10 @@
 <?php
 include 'components/head.php';
 
-use App\Controllers\ProductController;
+use App\Models\Product;
 
-$productController = new ProductController();
-$products = $productController->displayNewest();
+$productModel = new Product();
+$products = $productModel->getNewest();
 ?>
 
 <body>

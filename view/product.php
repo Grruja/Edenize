@@ -11,7 +11,7 @@ include 'components/head.php';
     <main class="mt-5">
         <div class="container d-flex flex-sm-row flex-column gap-5">
             <div class="col-sm-6">
-                <img class="w-100 rounded-2" style="max-width: 500px"  src="<?= $baseUrl.$product['image'] ?>" alt="Plant in a pot">
+                <img class="w-100 rounded-2" style="max-width: 500px"  src="<?= $publicPath.$product['image'] ?>" alt="Plant in a pot">
             </div>
             
             <div class="col-sm-6">
