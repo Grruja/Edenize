@@ -51,7 +51,7 @@ include 'components/head.php';
         <div id="aboutParent" class="py-1">
             <div id="aboutChild" class="container d-flex justify-content-md-between justify-content-center" style="margin-top: 6rem; margin-bottom: 6rem">
                 <div class="col-5 d-md-block d-none">
-                    <img class="w-100" src="<?= $baseUrl .'/public/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
+                    <img class="w-100" src="<?= $publicPath.'/assets/plant_gardening.png' ?>" alt="Close-up hands gardening plant">
                 </div>
                 <div class="col-md-6 text-md-start text-center">
                     <h2 class="mb-md-5 mb-3">Shop Edenize</h2>
