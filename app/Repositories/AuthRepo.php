@@ -24,9 +24,7 @@ class AuthRepo extends Repository
         $stmt->execute();
 
         $result = $stmt->get_result();
-
-        if ($result->num_rows == 0) return false;
-        return true;
+        return $result->num_rows != 0;
     }
 
     public function userExists(string $username): bool
@@ -36,8 +34,7 @@ class AuthRepo extends Repository
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if ($result->num_rows == 0) return false;
-        return true;
+        return $result->num_rows != 0;
     }
 
     public function getUser(string $username): array
