@@ -72,6 +72,7 @@ class Cart
             foreach ($_SESSION['cart']['items'] as &$item) {
                 if ($item['product_id'] == $productId) {
                     $item['quantity'] += $quantity;
+                    break;
                 }
             }
         }

@@ -17,7 +17,7 @@ if (!isset($_SESSION['cart'])) {
 }
 
 $cartController = new CartController();
-$items = $cartController->displayAllWithTotal();
+$items = $cartController->getAllWithTotal();
 
 $quantityErrors = $_SESSION['errors']['quantity'] ?? null;
 $formErrors = $_SESSION['errors']['form'] ?? null;

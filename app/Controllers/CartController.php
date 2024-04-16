@@ -32,7 +32,7 @@ class CartController extends Controller
         $this->redirect('/product?product_id=' . $params['product_id']);
     }
 
-    public function displayAllWithTotal(): ?array
+    public function getAllWithTotal(): ?array
     {
         if (!isset($_SESSION['cart'])) return null;
         return $this->cartModel->getAllWithTotal();

@@ -10,7 +10,7 @@ if (!Session::isUserLogged()) {
 }
 
 $cartController = new CartController();
-$items = $cartController->displayAllWithTotal();
+$items = $cartController->getAllWithTotal();
 ?>
 
 <body>
