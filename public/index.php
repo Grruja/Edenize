@@ -11,6 +11,7 @@ use App\Controllers\ProductController;
 
 $baseUrl = '/live_projects/edenize';
 $publicPath = '/live_projects/edenize/public';
+$storagePath = '/public/product_images';
 
 Session::start();
 $router = new Router();
