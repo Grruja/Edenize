@@ -1,8 +1,8 @@
 <?php 
-use App\Models\Product;
+use App\Repositories\ProductRepo;
 
-$productModel = new Product();
-$products = $productModel->getNewest();
+$productRepo = new ProductRepo();
+$products = $productRepo->getNewest();
 ?>
 
 <?php foreach ($products as $item) : ?>

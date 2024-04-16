@@ -5,15 +5,16 @@ namespace App\Controllers;
 
 
 use App\Models\Product;
+use App\Repositories\ProductRepo;
 use App\Support\Session;
 
 class ProductController extends Controller
 {
-    private Product $productModel;
+    private ProductRepo $productRepo;
 
     public function __construct()
     {
-        $this->productModel = new Product();
+        $this->productRepo = new ProductRepo();
     }
 
     public function permalink(array $params = []): void
@@ -21,10 +22,10 @@ class ProductController extends Controller
         if (!isset($params['product_id'])) $this->redirectTo404();
         if (!is_numeric($params['product_id'])) $this->redirectTo404();
 
-        $product = $this->productModel->getSingleProduct($params['product_id']);
+        $product = $this->productRepo->getProductById($params['product_id']);
         if (!isset($product)) $this->redirectTo404();
 
-        $products = $this->productModel->getNewest();
+        $products = $this->productRepo->getNewest();
 
         require_once __DIR__ . '/../../view/product.php';
     }
@@ -32,11 +33,13 @@ class ProductController extends Controller
     public function create(array $params = []): void
     {
         // validation here
-        $imageName = basename($_FILES['image']['name']);
-        $this->productModel->saveImage($imageName);
-        $imagePath = $this->productModel->imagePathForDb($imageName);
+        $productModel = new Product();
 
-        $this->productModel->create($params, $imagePath);
+        $imageName = basename($_FILES['image']['name']);
+        $this->$productModel->saveImage($imageName);
+        $imagePath = '/product_images/'.$imageName;
+
+        $this->productRepo->insertProduct($params, $imagePath);
 
         Session::start();
         $_SESSION['alert_message']['success'] = 'Product created';
@@ -45,8 +48,8 @@ class ProductController extends Controller
 
     public function searchByName(): ?array
     {
-        if (!isset($_GET['search_value'])) return $this->productModel->getAll();
+        if (!isset($_GET['search_value'])) return $this->productRepo->getAll();
 
-        return $this->productModel->searchByName($_GET['search_value']);
+        return $this->productRepo->searchByName($_GET['search_value']);
     }
 }
