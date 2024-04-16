@@ -20,7 +20,7 @@ class Auth
     public function register(array $formData): void
     {
         $userId = $this->authRepo->insertUserReturnId($formData);
-        Session::userLogin($userId ?? null);
+        Session::userLogin($userId);
     }
 
     public function login(string $username, string $password): bool

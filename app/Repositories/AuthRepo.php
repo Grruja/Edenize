@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 class AuthRepo extends Repository
 {
-    public function insertUserReturnId(array $formData): ?int
+    public function insertUserReturnId(array $formData): int
     {
         $password = password_hash($formData['password'], PASSWORD_BCRYPT);
 
