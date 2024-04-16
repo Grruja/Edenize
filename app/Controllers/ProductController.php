@@ -36,7 +36,7 @@ class ProductController extends Controller
         $productModel = new Product();
 
         $imageName = basename($_FILES['image']['name']);
-        $this->$productModel->saveImage($imageName);
+        $productModel->saveImage($imageName);
         $imagePath = '/product_images/'.$imageName;
 
         $this->productRepo->insertProduct($params, $imagePath);
