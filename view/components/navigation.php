@@ -25,7 +25,7 @@ if (isset($_SESSION['alert_message']['success'])) : ?>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container">
             <a class="navbar-brand py-2 d-lg-block d-none" href="<?= $baseUrl ?>/">
-                <img src="<?= $baseUrl ?>/public/assets/edenize_logo.png" alt="Edenize logo" width="120">
+                <img src="<?= $publicPath ?>/assets/edenize_logo.png" alt="Edenize logo" width="120">
             </a>
             <button class="navbar-toggler p-1 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fs-2 text-success"></i>
@@ -34,9 +34,9 @@ if (isset($_SESSION['alert_message']['success'])) : ?>
                 <li class="nav-item d-lg-none d-block py-2">
                     <a class="nav-link" href="<?= $baseUrl ?>/cart">
                         <?php if (isset($_SESSION['cart'])) { ?>
-                            <img src="<?= $baseUrl ?>/public/assets/cart/full_cart.svg" alt="Full cart icon" width="32">
+                            <img src="<?= $publicPath ?>/assets/cart/full_cart.svg" alt="Full cart icon" width="32">
                         <?php } else { ?>
-                            <img src="<?= $baseUrl ?>/public/assets/cart/cart.svg" alt="Cart icon" width="26">
+                            <img src="<?= $publicPath ?>/assets/cart/cart.svg" alt="Cart icon" width="26">
                         <?php } ?>
                     </a>
                 </li>
@@ -95,9 +95,9 @@ if (isset($_SESSION['alert_message']['success'])) : ?>
                             <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link" href="<?= $baseUrl ?>/cart">
                                     <?php if (isset($_SESSION['cart'])) { ?>
-                                        <img src="<?= $baseUrl ?>/public/assets/cart/full_cart.svg" alt="Full cart icon" width="32">
+                                        <img src="<?= $publicPath ?>/assets/cart/full_cart.svg" alt="Full cart icon" width="32">
                                     <?php } else { ?>
-                                        <img src="<?= $baseUrl ?>/public/assets/cart/cart.svg" alt="Cart icon" width="26">
+                                        <img src="<?= $publicPath ?>/assets/cart/cart.svg" alt="Cart icon" width="26">
                                     <?php } ?>
                                 </a>
                             </li>
