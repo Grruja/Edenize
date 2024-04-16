@@ -42,12 +42,13 @@ class Product
 
     public function saveImage(string $imageName): void
     {
-        $storagePath = __DIR__ . '/../../public/product_images/'.$imageName;
+        global $storagePath;
+        $storagePath = __DIR__ . '/../..' . $storagePath . '/' . $imageName;
         move_uploaded_file($_FILES['image']['tmp_name'], $storagePath);
     }
 
     public function imagePathForDb(string $imageName): string
     {
-        return '/public/product_images/'.$imageName;
+        return '/product_images/'.$imageName;
     }
 }
