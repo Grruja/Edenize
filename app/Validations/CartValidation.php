@@ -4,7 +4,7 @@
 namespace App\Validations;
 
 
-use App\Models\Product;
+use App\Repositories\ProductRepo;
 use App\Support\Session;
 
 class CartValidation
@@ -13,8 +13,8 @@ class CartValidation
     {
         if (!$this->validateFieldsAddToCart($formData)) return false;
 
-        $productModel = new Product();
-        $product = $productModel->getSingleProduct($formData['product_id']);
+        $productRepo = new ProductRepo();
+        $product = $productRepo->getProductById($formData['product_id']);
         if (!isset($product)) return false;
 
         $isValidQuantity = $this->validateQuantity($product['quantity'], $formData['quantity']);
