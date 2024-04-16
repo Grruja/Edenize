@@ -25,26 +25,23 @@ class Auth
 
     public function login(string $username, string $password): bool
     {
-        if ($this->authRepo->userExists($username)) {
-            $user = $this->authRepo->getUser($username);
+        if (!$this->authRepo->userExists($username)) return false;
 
-            if (password_verify($password, $user['password'])) {
-                Session::userLogin($user['id']);
-                return true;
-            }
-        }
-        return false;
+        $user = $this->authRepo->getUser($username);
+
+        if (!password_verify($password, $user['password'])) return false;
+
+        Session::userLogin($user['id']);
+        return true;
     }
 
     public static function isUserAdmin(): bool
     {
-        if (Session::isUserLogged()) {
-            $db = new Database();
-            $result = $db->getConnection()->query("SELECT * FROM users WHERE id = {$_SESSION['user_id']} AND is_admin = 1");
+        if (!Session::isUserLogged()) return false;
 
-            if ($result->num_rows > 0) return true;
-            return false;
-        }
-        return false;
+        $db = new Database();
+        $result = $db->getConnection()->query("SELECT * FROM users WHERE id = {$_SESSION['user_id']} AND is_admin = 1");
+
+        return $result->num_rows > 0;
     }
 }
