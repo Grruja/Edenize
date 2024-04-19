@@ -8,4 +8,4 @@ Edenize 🌱
 Web shop is now live 🔴
 <br />
 
-🔗 https://www.edenize.shop/
+🔗 https://edeniiize.000webhostapp.com/
